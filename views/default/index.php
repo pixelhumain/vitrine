@@ -30,7 +30,13 @@ $this->pageTitle=$this::moduleTitle;
  	min-height:100%;
  	background-color:#425766;
  }
- 
+ #carto{
+ 	position: relative;
+	width: 100%;
+	height: 750px !important;
+	margin: 0px auto;
+	color: #FFF;
+ }
  .project .slide-content .mapCanvasSlider img{
  	border-radius:0px;
  	box-shadow: 0px 0px 0px 0px;
@@ -216,16 +222,17 @@ $this->pageTitle=$this::moduleTitle;
 				<br> <br>
 			</div>
 			<!-- START PROJECT SECTION -->
-			<div id="project" class="section mapProject" >
-				<span class="sequence-prev" ></span>
-				<span class="sequence-next" ></span>
-			    <ul class="sequence-canvas">
-			    	<li style="background-color: #3b4a52; height:70%;">
+			<div id="carto" class="section" >
+<!-- 				<span class="sequence-prev" ></span> -->
+<!-- 				<span class="sequence-next" ></span> -->
+<!-- 			    <ul class="sequence-canvas"> -->
+<!-- 			    	<li style="background-color: #3b4a52; height:70%;"> -->
 			        	<div class="slide-content" style="width:100%; left:0px; height:100%;">
 			            	<div class="mapCanvasSlider" id="mapCanvasSlide1">
 			            	</div>
 			        	</div>
-			    	</li>
+			    	<!-- 
+</li>
 			    	<li style="background-color: #3b4a52; height:70%;">
 			        	<div class="slide-content" style="width:100%; left:0px; height:100%;">
 			        		<div class="mapCanvasSlider" id="mapCanvasSlide2">
@@ -237,6 +244,7 @@ $this->pageTitle=$this::moduleTitle;
 					<li>Pixels actifs</li>
 					<li>Communectés</li>
 				</ul>
+ -->
 			</div>
 			<!-- END PROJECT SECTION -->
 		</section>
