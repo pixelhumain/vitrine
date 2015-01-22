@@ -13,6 +13,7 @@ $cs->registerCssFile($this->module->assetsUrl. '/css/MarkerCluster.css');
 $cs->registerCssFile($this->module->assetsUrl. '/css/MarkerCluster.Default.css');
 $cs->registerCssFile($this->module->assetsUrl. '/css/sig.css');
 //$cs->registerCssFile($this->module->assetsUrl. '/css/leaflet.awesome-markers.css');
+//<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 $cs->registerScriptFile('http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js' , CClientScript::POS_END);
 $cs->registerScriptFile($this->module->assetsUrl.'/js/leaflet.draw-src.js' , CClientScript::POS_END);
@@ -34,7 +35,6 @@ $this->pageTitle=$this::moduleTitle;
  }
  #carto{
  	position: relative;
- 	float:left;
 	width: 100%;
 	height: 750px !important;
 	margin: 0px auto;
@@ -77,7 +77,7 @@ $this->pageTitle=$this::moduleTitle;
 	margin-top:10px !important;
 	float:left;
 }
-.btn_tool_map{
+.btn_zoom_map{
 	position:relative;
 	float:right;
  	width:60px;
@@ -89,22 +89,17 @@ $this->pageTitle=$this::moduleTitle;
  	font-size:22px;
  	text-align:center;
 }
-.btn_tool_map:hover{
+.btn_zoom_map:hover{
 	background-color:#5896AB;
 }
-.btn_tool_map.right{
+.btn_zoom_map.right{
 	border-radius:0px 4px 4px 0px;
-	left:0px;
+	left:-40px;
  	
 }
-.btn_tool_map.left{
+.btn_zoom_map.left{
 	border-radius:4px 0px 0px 4px;
-	left:-120px;
- 	
-}
-.btn_tool_map.reload{
-	border-radius:4px;
-	left:-260px;
+	left:-160px;
  	
 }
 #spin_loading_map{
@@ -278,11 +273,13 @@ $this->pageTitle=$this::moduleTitle;
 			        			<input type='checkbox' value='artiste' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ARTISTES.png"> Artistes actifs
 			        		</p>
+			        		<p class="item_panel_map" id="spin_loading_map">
+			        		<i class="fa fa-circle-o-notch fa-spin"></i>
+			        		</p>
 			        	</div>
 			        	
-			        	<a href="javascript:reloadMap()" class="btn_tool_map reload" id="tool_map_reload"><i id="ico_reload" class="fa fa-refresh"></i></a>
-			    		<a href="javascript:zoomOut()" class="btn_tool_map left"><i class="fa fa-search-minus"></i></a>
-			    		<a href="javascript:zoomIn()" class="btn_tool_map right"><i class="fa fa-search-plus"></i></a>
+			        	<a href="javascript:zoomOut()" class="btn_zoom_map left"><i class="fa fa-search-minus"></i></a>
+			    		<a href="javascript:zoomIn()" class="btn_zoom_map right"><i class="fa fa-search-plus"></i></a>
 			    	
 			</div>
 			<!-- END PROJECT SECTION -->
@@ -384,12 +381,15 @@ $this->pageTitle=$this::moduleTitle;
 jQuery(document).ready(function()
 { 
 	
+	//mémorise les identifiants des éléments de chaque carte
+	var listId = new Array(	"getPixelActif" );//, "getCommunected" );
+		
 	//charge la première carte (pixel actif)
 	map1 = loadMap("mapCanvasSlide1");
 	map1.setView([-21.13318, 55.5314], 10);//[30.29702, -21.97266], 3);
 	listId["getPixelActif"] = new Array("init");
 	map1.on('dragend', function(e) {
-    		//showCitoyensClusters(map1, "getPixelActif", listId);
+    		showCitoyensClusters(map1, "getPixelActif", listId);
 		}); showCitoyensClusters(map1, "getPixelActif", listId);
 		
  	//##
@@ -404,17 +404,12 @@ jQuery(document).ready(function()
 	//click sur une option du panel
 	$('input[type=checkbox][name="chk_panel_map"]').change(function(event) {
 		showCitoyensClusters(map1, "getPixelActif", listId); 
-	 }); 
-	 
+	 });
 });
 
-	//mémorise les identifiants des éléments de chaque carte
-	var listId = new Array(	"getPixelActif" );//, "getCommunected" );
-		
 	var map1;
 	function zoomIn(){ map1.zoomIn(); }
 	function zoomOut(){ map1.zoomOut(); }
-	function reloadMap(){ showCitoyensClusters(map1, "getPixelActif", listId);  }
 	
 	function loadMap(canvasId){
 		//initialisation des variables de départ de la carte
@@ -454,7 +449,13 @@ jQuery(document).ready(function()
 		geoJsonCollection = { type: 'FeatureCollection', features: new Array() };
 				
 		var bounds = mapClusters.getBounds();
-		var params = {
+		var params = {};
+	// 	params["latMinScope"] = bounds.getSouthWest().lat;
+// 		params["lngMinScope"] = bounds.getSouthWest().lng;
+// 		params["latMaxScope"] = bounds.getNorthEast().lat;
+// 		params["lngMaxScope"] = bounds.getNorthEast().lng;
+// 		
+		params = {
 			"latMinScope" :  bounds.getSouthWest().lat,
 			"lngMinScope" :  bounds.getSouthWest().lng,
 			"latMaxScope" :  bounds.getNorthEast().lat,
@@ -470,7 +471,7 @@ jQuery(document).ready(function()
 		});
 		//alert(JSON.stringify(params)); return;
 		
-		$('#ico_reload').addClass("fa-spin");
+		$('#spin_loading_map').css({"display":"inline-block"});
 		testitpost("showCitoyensResult", '/ph/<?php echo $this::$moduleKey?>/api/' + origine, params,
 			function (data){ 		//alert(JSON.stringify(data));
 				$.each(data, function() { 			
@@ -480,7 +481,7 @@ jQuery(document).ready(function()
 						var objectId = this._id.$id.toString();
 					
 						//verifie si l'element a déjà été affiché sur la carte
-						//if($.inArray(objectId, listId[origineName]) == -1){							 	
+						if($.inArray(objectId, listId[origineName]) == -1){							 	
 							if(this['geo'] != null || this['geoPosition'] != null){
 										
 								//préparation du contenu de la bulle
@@ -548,22 +549,26 @@ jQuery(document).ready(function()
 								//si le tag de l'élément est dans la liste des éléments à ne pas mettre dans les clusters
 								//on créé un marker simple
 								if($.inArray(tag, notClusteredTag) > -1){ 
-									coordinates = new Array (this['geo']['latitude'], this['geo']['longitude']);
 									getMarkerSingle(mapClusters, properties, coordinates);
 							
-									listId[origineName].push(objectId);									
+									listId[origineName].push(objectId);
+							
+									//alert(" single - tag : " + tag);
+									//alert(notClusteredTag);
 								} 
 								//sinon on crée un nouveau marker pour cluster
 								else{
-									coordinates = new Array (this['geo']['longitude'], this['geo']['latitude']);
 									marker = getGeoJsonMarker(properties, coordinates);
 									geoJsonCollection['features'].push(marker);	
 							
 									listId[origineName].push(objectId);
-									
 								} 
 								
 							}
+						}
+						else{
+						
+						}
 					}
 					
 				});
@@ -580,11 +585,13 @@ jQuery(document).ready(function()
 				markersLayer.addLayer(points); 			// add it to the cluster group
 				mapClusters.addLayer(markersLayer);		// add it to the map
 				
-				//$('#spin_loading_map').css({"display":"none"});
-				$('#ico_reload').removeClass("fa-spin");
+				$('#spin_loading_map').css({"display":"none"});
 			});
 						
 	}
+
+	//var markersLayer = "";
+	//var geoJsonCollection = "";
 	
 	//##
 	//créé une donnée geoJson
@@ -617,12 +624,17 @@ jQuery(document).ready(function()
 	}
 	
 	function clearMap(theMap){
-		if(markersLayer != "")
-			markersLayer.clearLayers();
-		
-		$.each(markerSingleList, function(){
-			theMap.removeLayer(this);
+		//theMap.removeLayer(markersLayer);
+		$.each(markersLayer, function(){
+			//theMap.removeLayer(this);
+			//this.setOpacity(0);
 		});
+		$.each(markerSingleList, function(){
+			//theMap.removeLayer(this);
+			//this.setOpacity(0);
+		});
+			
+		//theMap.removeLayer(geoJsonCollection);
 	}
 	
 	//##
@@ -653,11 +665,6 @@ jQuery(document).ready(function()
 												iconSize: 		[15, 13],
 												iconAnchor: 	[7,  13],
 												popupAnchor: 	[0, -13] });		
-		
-		if(tag == "entreprise") 	return L.icon({ iconUrl: "<?php echo $this->module->assetsUrl.'/images/markers/02_ICON_ENTREPRISES.png'; ?>",
-												iconSize: 		[15, 16],
-												iconAnchor: 	[7,  16],
-												popupAnchor: 	[0, -16] });		
 		
 		if(tag == "projectLeader") 	return L.icon({ iconUrl: "<?php echo $this->module->assetsUrl.'/images/markers/02_ICON_PORTEUR_PROJET.png'; ?>",
 												iconSize: 		[15, 16],

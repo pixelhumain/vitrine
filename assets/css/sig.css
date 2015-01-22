@@ -35,3 +35,70 @@
   	background-color:grey;
   	color:white; 	
   }
+  
+  
+  
+/*   ############################### */
+  
+  .leaflet-popup-content-wrapper{
+ 	background-color:rgba(53, 61, 68, 0.7);
+ 	border-radius:10px;
+ 	color:white;
+ 	font-family: "Open Sans";
+ }
+ 
+ .leaflet-popup-tip{
+ 	background-color:rgba(53, 61, 68, 0.7);
+ }
+ 
+ .popup-img-profil{
+ 
+ }
+
+ #menu a.btn-success{
+	border-color: #82b440;
+}
+
+ .popup-info-profil{
+ 	width:100%;
+ 	text-align:center;
+ 	font-size:14px;
+ }
+ .popup-info-profil-username{
+ 	width:100%;
+ 	text-transform:capitalize;
+ 	text-align:center;
+ 	font-size:30px;
+ 	color:yellow;
+ }
+ .popup-info-profil-usertype{
+ 	width:100%;
+ 	text-transform:capitalize;
+ 	text-align:center;
+ 	font-size:18px;
+ }
+ .popup-info-profil-work{
+ 	width:100%;
+ 	text-align:center;
+ 	font-size:18px;
+ 	text-transform:capitalize;
+ 	
+ }
+ .popup-info-profil-url{
+ 	width:100%;
+ 	text-align:center;
+ 	font-size:13px;
+ 	color:#2aa0bd;
+ }
+ .modal-lg {
+    width: 90%;
+  }
+ .modal-dialog {
+ 	height: 90%;
+ }
+  .modal-content{
+ 	height: 100%;
+ }
+ .modal-body{
+ 	height: 95%;
+ }
