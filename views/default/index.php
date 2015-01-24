@@ -27,16 +27,18 @@ $this->pageTitle=$this::moduleTitle;
 
 <style type="text/css">
  .mapCanvasSlider{
- 	min-width:100%;
- 	min-height:100%;
- 	background-color:#425766;
+ 	width:100%;
+ 	height:730px;
+ 	background-color:#456074;
  	color:black;
  }
  #carto{
- 	position: relative;
+ 	/* 
+	position: relative;
  	float:left;
+	*/
 	width: 100%;
-	height: 750px !important;
+	height: 730px !important;
 	margin: 0px auto;
 	color: #FFF;
  }
@@ -54,18 +56,34 @@ $this->pageTitle=$this::moduleTitle;
  /* legende / panel */
  
  .panel_map{
- 	float:left;
  	position:relative;
  	max-width:280px;
  	left:30px;
- 	top:-720px;
+ 	top:-700px;
  	background-color:rgba(82, 103, 119, 0.78);
- 	padding:15px;
+ 	padding:15px 0px;
+ 	color:white;
  }
  .item_panel_map{
 	text-align:left !important;
 	padding-left:15px;
+	padding-bottom:3px;
+	padding-top:3px;
  } 
+ .item_panel_map:hover{
+  background-color:rgba(194, 203, 222, 0.4);
+ }
+ .item_panel_map.selected{
+ 	background-color:rgba(194, 203, 222, 0.6);
+ }
+.item_panel_map a{
+/* 	width:250px; */
+}
+.item_panel_map.selected a{
+ 	text-decoration:none !important;
+ 	color:white !important;
+ }
+
  .item_panel_map img{
  	padding:8px;
  	margin-top:-4px;
@@ -82,11 +100,11 @@ $this->pageTitle=$this::moduleTitle;
 	float:right;
  	width:60px;
  	height:60px;
- 	top:-720px;
- 	background-color:yellow;
- 	color:black !important;
- 	padding:15px;
- 	font-size:22px;
+ 	top:-1130px;
+ 	background-color:#E6D414;
+ 	color:#213042 !important;
+ 	padding:10px;
+ 	font-size:24px;
  	text-align:center;
 }
 .btn_tool_map:hover{
@@ -94,17 +112,17 @@ $this->pageTitle=$this::moduleTitle;
 }
 .btn_tool_map.right{
 	border-radius:0px 4px 4px 0px;
-	left:0px;
+	left:100px;
  	
 }
 .btn_tool_map.left{
 	border-radius:4px 0px 0px 4px;
-	left:-120px;
+	left:-20px;
  	
 }
 .btn_tool_map.reload{
 	border-radius:4px;
-	left:-260px;
+	left:-160px;
  	
 }
 #spin_loading_map{
@@ -120,10 +138,35 @@ $this->pageTitle=$this::moduleTitle;
   i.fa.fa-circle.red{ color:red; }
   i.fa.fa-circle.yellow{ color:yellow; }
   i.fa.fa-caret-up{ color:green; font-size:30px; }
-  i.fa.fa-stop{ color:blue; }
+/*   i.fa.fa-stop{ color:blue; } */
   i.fa.fa-lightbulb-o{ color:yellow; }
   i.fa.fa-rocket{ color:yellow; }
-  
+
+.btn_play_animation{
+	margin:5px;
+	border-radius:4px;
+	padding:5px;
+	font-size:17px;
+	background-color:yellow;
+	color:#213042 !important;
+	text-decoration:none !important;
+}
+#lbl_msg_animation{
+	position:relative;
+	width:30%;
+ 	max-height:500px;
+ 	top:-1137px;
+ 	text-align:center;
+ 	background-color:rgba(82, 103, 119, 0.78);
+ 	padding:10px;
+ 	color:white;
+ 	overflow:hidden;
+ 	left:35%;
+ 	font-size:16px;
+}  
+#lbl_msg_animation h3{
+	margin:0px;
+}
 </style>
 	<script src="http://code.jquery.com/jquery.js"></script>
 <!-- START MAIN CONTAINER -->
@@ -215,15 +258,14 @@ $this->pageTitle=$this::moduleTitle;
 		    </div>
 		  </div>
 		</div>
-
-		
+	
 
 
 		<!-- START BLOG SECTION -->
-		<section id="team" class="section with-arrow section-content-colored">
+		<section id="team" class="section section-content-colored">
 			<!-- SECTION TITLE -->		
 			<!-- SECTION CONTENT -->
-			<div class="section-header new">
+			<div class="section-header new"> <!-- id="lbl_msg_animation"> -->
 				<h1><img src="images/heart.png" ><br>L'Equipe</h1>
 				<h3>Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres<br> d'intérêt, le même sentiment de nécessité et urgence d'agir et de se regrouper,<br>
 			 de se sentir utile pour la société. <span>Aujourd'hui, le Pixel Humain, c'est aussi vous !...</span></h3>
@@ -231,63 +273,77 @@ $this->pageTitle=$this::moduleTitle;
 			</div>
 			<!-- START PROJECT SECTION -->
 			<div id="carto" class="section mapProject" >
-<!-- 				<span class="sequence-prev" ></span> -->
-<!-- 				<span class="sequence-next" ></span> -->
-<!-- 			    <ul class="sequence-canvas"> -->
-<!-- 			    	<li style="background-color: #3b4a52; height:70%;"> -->
-			        	<div class="slide-content" style="width:100%; left:0px; height:100%;">
-			            	<div class="mapCanvasSlider" id="mapCanvasSlide1">
-			            	</div>
-			        	</div>
+
+			        	<div class="mapCanvasSlider" id="mapCanvasSlide1">
+			            </div>
 			        	
 			        	<div class="panel_map">
 			        		
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='all' name='chk_all_panel_map'  class='chk_panel_map' id='chk' checked/> 
-			        			<i class="fa fa-asterisk"></i> Tous
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='projectLeader' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        		<a href="javascript:changeFilter('projectLeader')">
+			        			<p class="item_panel_map" id="item_panel_map_projectLeader">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PORTEUR_PROJET.png"> Porteurs du projet
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='pixelActif' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('pixelActif')">
+			        			<p class="item_panel_map" id="item_panel_map_pixelActif">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PIXEL_ACTIF.png"> Pixels actifs
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='commune' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('commune')">
+			        			<p class="item_panel_map" id="item_panel_map_commune">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_COMMUNES.png"> Communes inscrites
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='association' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('association')">
+			        			<p class="item_panel_map" id="item_panel_map_association">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ASSOCIATIONS.png"> Associations
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='entreprise' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('entreprise')">
+			        			<p class="item_panel_map" id="item_panel_map_entreprise">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ENTREPRISES.png"> Entreprises inscrites
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='citoyen' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('citoyen')">
+			        			<p class="item_panel_map" id="item_panel_map_citoyen">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_CITOYENS.png"> Citoyens communectés
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='parnerPH' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('parnerPH')">
+			        			<p class="item_panel_map" id="item_panel_map_parnerPH">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PARTENAIRES.png"> Partenaires & soutiens
-			        		</p>
-			        		<p class="item_panel_map">
-			        			<input type='checkbox' value='artiste' name='chk_panel_map'  class='chk_panel_map' id='chk' checked/>
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('artiste')">
+			        			<p class="item_panel_map" id="item_panel_map_artiste">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ARTISTES.png"> Artistes actifs
+			        			</p>
+			        		</a>
+			        		<a href="javascript:changeFilter('all')">
+			        			<p class="item_panel_map" id="item_panel_map_all">
+			        			<i class="fa fa-asterisk"></i> Tous
+			        			</p>
+			        		</a>
+			        		<p>
+			        		<a href="javascript:playMapAnimation()" class="btn_play_animation">
+			        			<i class="fa fa-play"></i>
+			        		</a>
+			        		<a href="javascript:stopMapAnimation()" class="btn_play_animation">
+			        			<i class="fa fa-stop"></i>
+			        		</a>
 			        		</p>
 			        	</div>
 			        	
 			        	<a href="javascript:reloadMap()" class="btn_tool_map reload" id="tool_map_reload"><i id="ico_reload" class="fa fa-refresh"></i></a>
 			    		<a href="javascript:zoomOut()" class="btn_tool_map left"><i class="fa fa-search-minus"></i></a>
 			    		<a href="javascript:zoomIn()" class="btn_tool_map right"><i class="fa fa-search-plus"></i></a>
-			    	
+			    		
+			    		<div id="lbl_msg_animation">Test</div>
 			</div>
 			<!-- END PROJECT SECTION -->
 		</section>
 		<!-- END BLOG SECTION -->
+		
 		<!-- START SERVICES SECTION -->
 			<section id="services" class="section section-full-colored">
 				<!-- SECTION TITLE -->
@@ -344,7 +400,7 @@ $this->pageTitle=$this::moduleTitle;
 			<!-- END DONATION SECTION -->
 			
 			<!-- START CONTACT SECTION -->
-			<section id="contact" class="section with-arrow contact-map">
+			<section id="contact" class="section contact-map">
 				<!-- SECTION TITLE -->
 				<div class="section-header with-arrow">
 					<h1 class="parnet"><img src="images/mapping.png" width="53" height="80"><br>Contact</h1><div class="section-content">
@@ -382,15 +438,21 @@ $this->pageTitle=$this::moduleTitle;
 
 <script type="text/javascript">
 jQuery(document).ready(function()
-{ 
-	
+{ 	
 	//charge la première carte (pixel actif)
 	map1 = loadMap("mapCanvasSlide1");
 	map1.setView([-21.13318, 55.5314], 10);//[30.29702, -21.97266], 3);
 	listId["getPixelActif"] = new Array("init");
 	map1.on('dragend', function(e) {
     		//showCitoyensClusters(map1, "getPixelActif", listId);
+		});
+	map1.on('zoomend', function(e) {
+    		//showCitoyensClusters(map1, "getPixelActif", listId);
 		}); showCitoyensClusters(map1, "getPixelActif", listId);
+		
+	map1.on('click', function(e) {
+    		alert(map1.getCenter() + " - " + map1.getZoom());
+		}); 
 		
  	//##
 	//check/uncheck toutes les option en même temps au click sur input chk_all_panel_map
@@ -405,11 +467,21 @@ jQuery(document).ready(function()
 	$('input[type=checkbox][name="chk_panel_map"]').change(function(event) {
 		showCitoyensClusters(map1, "getPixelActif", listId); 
 	 }); 
-	 
+	
+	initAnimation();
+	//timerMapPlay = setTimeout('playMapAnimation()', 5000); 
 });
 
+	var assetPath = "<?php echo $this->module->assetsUrl; ?>";
+	
 	//mémorise les identifiants des éléments de chaque carte
 	var listId = new Array(	"getPixelActif" );//, "getCommunected" );
+	
+	//liste de tous les filtres du panel
+	var allTagFilter = new Array("projectLeader", "pixelActif", "commune", "association", "entreprise", "citoyen", "parnerPH", "artiste");		
+	
+	//gère la liste des tags à ne pas clusteriser
+	var notClusteredTag = new Array("commune", "association", "projectLeader");
 		
 	var map1;
 	function zoomIn(){ map1.zoomIn(); }
@@ -418,7 +490,7 @@ jQuery(document).ready(function()
 	
 	function loadMap(canvasId){
 		//initialisation des variables de départ de la carte
-		var map = L.map(canvasId, { "zoomControl" : false, "scrollWheelZoom":false }).setView([51.505, -0.09], 4);
+		var map = L.map(canvasId, { "zoomControl" : false, "scrollWheelZoom":false, "worldCopyJump" : true }).setView([51.505, -0.09], 4);
 
 		L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -434,16 +506,21 @@ jQuery(document).ready(function()
 		return map;
 	}								
 															
-				
+	function changeFilter(val){ 	
+		if(currentFilter != "")
+			$('#item_panel_map_' + currentFilter).removeClass("selected");		
+		$('#item_panel_map_' + val).addClass("selected");
+		currentFilter = val;	
+		showCitoyensClusters(map1, "getPixelActif", listId);	
+	}		
+	
 	//##
 	//affiche les citoyens qui possèdent des attributs geo.latitude, geo.longitude, depuis la BD
 	var markersLayer = "";
 	var geoJsonCollection = "";
+	var currentFilter = "none";
 	function showCitoyensClusters(mapClusters, origine, listId){ 
-		
-		//gère la liste des tags à ne pas clusteriser
-		var notClusteredTag = new Array("commune", "association", "projectLeader");
-		
+			
 		if(markersLayer != "")
 			clearMap(mapClusters);
 		//	mapClusters.removeLayer(markersLayer);
@@ -463,12 +540,16 @@ jQuery(document).ready(function()
 		};
 		
 		//params["types"] = new Array();
-		$('input[type=checkbox][name="chk_panel_map"]').each(function () {
+		/*$('input[type=checkbox][name="chk_panel_map"]').each(function () {
            if (this.checked) {
                params["types"].push($(this).val()); 
            }
 		});
-		//alert(JSON.stringify(params)); return;
+		*/
+		
+		if(currentFilter != "all")  params["types"].push(currentFilter); 
+		else 						params["types"] = allTagFilter;
+		//alert(JSON.stringify(params)); //return;
 		
 		$('#ico_reload').addClass("fa-spin");
 		testitpost("showCitoyensResult", '/ph/<?php echo $this::$moduleKey?>/api/' + origine, params,
@@ -488,31 +569,40 @@ jQuery(document).ready(function()
 								//THUMB PHOTO PROFIL
 								var content = "";
 								if(this['thumb_path'] != null)   
-								content += 	"<img src='" + this['thumb_path'] + "' height=70 class='popup-info-profil-thumb'>";
+								content += 	"<div class='popup-info-profil-thumb-lbl'><img src='" + this['thumb_path'] + "' height=190 class='popup-info-profil-thumb'></div>";
+								else
+								content += 	"<div class='popup-info-profil-thumb-lbl'><img src='<?php echo $this->module->assetsUrl; ?>/images/thumb/default.png' width=190 class='popup-info-profil-thumb'></div>";
 						
+								
 								//NOM DE L'UTILISATEUR
 								if(this['name'] != null)   
 								content += 	"<div class='popup-info-profil-username'>" + this['name'] + "</div>";
 						
 								//TYPE D'UTILISATEUR (CITOYEN, ASSO, PARTENAIRE, ETC)
-								var typeName = this['type'];
-								if(this['type'] == null)  typeName = "Citoyen";
-								if(this['name'] == null)  typeName += " anonyme";
+								var typeName = this['tag'];
+								if(typeName == null)  typeName = "Citoyen";
+								if(this['name'] == null)  typeName += " Anonyme";
 						
 								content += 	"<div class='popup-info-profil-usertype'>" + typeName + "</div>";
 						
 								//WORK - PROFESSION
 								if(this['work'] != null)     
 								content += 	"<div class='popup-info-profil-work'>" + this['work'] + "</div>";
-						
+								else
+								content += 	"<div class='popup-info-profil-work'>Fleuriste</div>";
+								
 								//URL
 								if(this['url'] != null)     
 								content += 	"<div class='popup-info-profil-url'>" + this['url'] + "</div>";
-						
+								else
+								content += 	"<a href='http://www.google.com' class='popup-info-profil-url'>http://www.google.com</a>";
+								
 								//CODE POSTAL
-								if(this['cp'] != null)     
-								content += 	"<div class='popup-info-profil'>" + this['cp'] + "</div>";
-						
+								//if(this['cp'] != null)     
+								//content += 	"<div class='popup-info-profil'>" + this['cp'] + "</div>";
+								//else
+								//content += 	"<div class='popup-info-profil'>98800</div>";
+								
 								//VILLE ET PAYS
 								var place = this['city'];
 								if(this['city'] != null && this['country'] != null) place += ", ";
@@ -520,11 +610,15 @@ jQuery(document).ready(function()
 						
 								if(this['city'] != null)     
 								content += 	"<div class='popup-info-profil'>" + place + "</div>";
-						
+								else
+								content += 	"<div class='popup-info-profil'>St-Denis, La Réunion</div>";
+								
 								//NUMÉRO DE TEL
 								if(this['phoneNumber'] != null)     
 								content += 	"<div class='popup-info-profil'>" + this['phoneNumber'] + "<div/>";
-						
+								else
+								content += 	"<div class='popup-info-profil'>0123456789<div/>";
+								
 						
 								//création de l'icon sur la carte
 								var tag;
@@ -532,7 +626,7 @@ jQuery(document).ready(function()
 								else tag = "citoyen";
 						
 								var theIcon = getIcoMarker(tag);
-								var properties = { 	//title : this['name'], 
+								var properties = { 	//name : this['name'], 
 													icon : theIcon,
 													content: content };
 						
@@ -573,12 +667,15 @@ jQuery(document).ready(function()
 							layer.bindPopup(feature["properties"]["content"]); //ajoute la bulle d'info avec les données
 							layer.setIcon(feature["properties"]["icon"]);	   //affiche l'icon demandé
 							layer.on('mouseover', function(e) {	if(!layer.getPopup()._isOpen) layer.openPopup(); });
-							layer.on('mouseout',  function(e) { layer.closePopup(); });
+							//layer.on('mouseout',  function(e) { layer.closePopup(); });
 						}
 					});
-									
+					
 				markersLayer.addLayer(points); 			// add it to the cluster group
 				mapClusters.addLayer(markersLayer);		// add it to the map
+				
+				//mapClusters.fitBounds(markersLayer.getBounds());					
+				//mapClusters.panTo(markersLayer.getBounds().getCenter());					
 				
 				//$('#spin_loading_map').css({"display":"none"});
 				$('#ico_reload').removeClass("fa-spin");
@@ -589,6 +686,7 @@ jQuery(document).ready(function()
 	//##
 	//créé une donnée geoJson
 	function getGeoJsonMarker(properties/*json*/, coordinates/*array[lat, lng]*/) {
+		properties.visible = false;
 		return { "type": 'Feature',
 				 "properties": properties,
 				 "geometry": { type: 'Point',
@@ -598,6 +696,7 @@ jQuery(document).ready(function()
 	//##
 	//créer un marker sur la carte, en fonction de sa position géographique
 	var markerSingleList = new Array();
+	var popupOpen = false;
 	function getMarkerSingle(thisMap, options, coordinates){ //ex : lat = -34.397; lng = 150.644;
 
 		var contentString = options.content;
@@ -609,9 +708,17 @@ jQuery(document).ready(function()
 		.bindPopup(contentString);
 		
 		markerSingleList.push(marker);
+		//markersLayer.addLayer(marker);
 		
-		marker.on('mouseover', function(e) { marker.openPopup(); });
-		marker.on('mouseout',  function(e) { marker.closePopup(); });
+		marker.on('mouseover', function(e) { 
+			//if(!popupOpen) 
+				marker.openPopup(); 
+			//popupOpen = true;
+		});
+		marker.on('mouseout',  function(e) { 
+			//marker.closePopup(); 
+			//popupOpen = false;
+		});
 		
 		return marker;
 	}
@@ -676,5 +783,104 @@ jQuery(document).ready(function()
 	}
 	
 	
+	
+	
+	//##
+	//##	MAP PLAYER	##
+	//##
+	
+	
+	var timerMapPlay;// = setTimeout('playMapAnimation()', 5000); 
+	
+	var animationPlaces = { 
+			"france" : { "latlng" : [47.72454, -0.57129], "zoom" : 5 }, //France
+			"reunion" : { "latlng" : [-21.20874, 55.49057], "zoom" : 10 },  //Réunion
+			"caledonie" : { "latlng" : [-20.94092, 165.75623], "zoom" : 7 },  //Nouvelle-Calédonie
+	};
+	
+	var animationPlan = {
+		"projectLeader" : 	{ 	"places" : [ { "place" : animationPlaces.reunion,  
+							  					"msg" : "Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres d'intérêt,</br>le même sentiment de nécessité et urgence d'agir et de se regrouper,</br>de se sentir utile pour la société." }	
+											],
+								"title" : "Les porteurs du projet",
+								"icon" : { "type" : "png",
+										   "name" : "heart" }
+							},
+		"pixelActif" : 		{ 	"places" : [ { "place" : animationPlaces.reunion, 
+											   "msg" : "Aujourd'hui, le Pixel Humain, c'est aussi vous : les Pixel Actifs !</br>De la réunion..." },
+											 { "place" : animationPlaces.france, 
+											   "msg" : "Aujourd'hui, le Pixel Humain, c'est aussi vous : les Pixel Actifs !</br>De la réunion... à la métropole..." } ,
+											 { "place" : animationPlaces.caledonie, 
+											   "msg" : "Aujourd'hui, le Pixel Humain, c'est aussi vous : les Pixel Actifs !</br>De la réunion... à la métropole... en passant par la Nouvelle-Calédonie !" } 
+											], 
+								"title" : "Les Pixels actifs",
+								"icon" : { "type" : "png",
+										   "name" : "quest_citoyen" }
+							},	
+		"commune" : 		{ 	"places" : [  { "place" : animationPlaces.france,
+												"msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses communes qui utilisent et soutiennent le projet.</br>En France, plusieurs associations nous ont déjà rejoint." },
+											  { "place" :  animationPlaces.reunion ,
+											    "msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses communes qui utilisent et soutiennent le projet.</br>En France, plusieurs associations nous ont déjà rejoint. Comme à la Réunion !" }
+											],
+								"title" : "Les communes",
+								"icon" : { "type" : "png",
+										   "name" : "quest_collectivite" }
+							},
+		"association" : 	{ 	"places" : [ { "place" : animationPlaces.france, 
+												"msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses associations qui utilisent et soutiennent le projet. En France..." },
+											 { "place" : animationPlaces.reunion, 
+											   "msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses associations qui utilisent et soutiennent le projet. En France et à la Réunion..." }
+											],
+								"title" : "Les associations",
+								"icon" : { "type" : "png",
+										   "name" : "quest_asso" }
+							},	
+	}
+	
+	var allTagAnimation = new Array();
+	function initAnimation(){
+		$.each(animationPlan, function (key){
+			allTagAnimation.push(key);
+		});
+		//timerMapPlay = setTimeout('playMapAnimation()', 10000); 
+	}
+	
+	var ctnTag = 0;
+	var cntPlaces = 0;
+	function playMapAnimation()
+	{
+		var currentTag = allTagAnimation[ctnTag];
+		var currentPlace = animationPlan[currentTag].places[cntPlaces].place;
+		
+		map1.panTo(currentPlace.latlng);
+		map1.setZoom(currentPlace.zoom);
+		changeFilter(currentTag);
+		
+		var txtMsg = //"<h1><img src='" + assetPath + "/images/iconAnimation/heart.png' ><br>" + animationPlan[currentTag].title + "</h1>" +
+					 //"<h3>"+
+					 animationPlan[currentTag].places[cntPlaces].msg;
+					 //+"</h3>"; //+"<br> <br>";
+					 
+					 
+		$("#lbl_msg_animation").html(txtMsg);
+		
+		cntPlaces++;
+		if(cntPlaces >= animationPlan[currentTag].places.length){
+			cntPlaces = 0;
+			ctnTag++;
+		}
+		if(ctnTag >= allTagAnimation.length){
+			cntPlaces = 0;
+			ctnTag = 0;
+			stopMapAnimation();
+			return;
+		}
+		
+		timerMapPlay = setTimeout('playMapAnimation()', 10000); 
+	}
+	function stopMapAnimation()
+	{
+		clearTimeout(timerMapPlay);
+	}
 	
 </script>
