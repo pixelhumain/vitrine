@@ -33,33 +33,19 @@ $this->pageTitle=$this::moduleTitle;
  	color:black;
  }
  #carto{
- 	/* 
-	position: relative;
- 	float:left;
-	*/
-	width: 100%;
+ 	width: 100%;
 	height: 730px !important;
 	margin: 0px auto;
 	color: #FFF;
  }
- /* 
-.project .slide-content .mapCanvasSlider img{
- 	border-radius:0px;
- 	box-shadow: 0px 0px 0px 0px;
- }
- .project{
- 	color:black;
- }
- */
- 
- 
+
  /* legende / panel */
  
  .panel_map{
  	position:relative;
  	max-width:280px;
- 	left:30px;
- 	top:-700px;
+ 	left:0px;
+ 	top:-620px;
  	background-color:rgba(82, 103, 119, 0.78);
  	padding:15px 0px;
  	color:white;
@@ -76,14 +62,10 @@ $this->pageTitle=$this::moduleTitle;
  .item_panel_map.selected{
  	background-color:rgba(194, 203, 222, 0.6);
  }
-.item_panel_map a{
-/* 	width:250px; */
-}
 .item_panel_map.selected a{
  	text-decoration:none !important;
  	color:white !important;
  }
-
  .item_panel_map img{
  	padding:8px;
  	margin-top:-4px;
@@ -95,36 +77,24 @@ $this->pageTitle=$this::moduleTitle;
 	margin-top:10px !important;
 	float:left;
 }
-.btn_tool_map{
-	position:relative;
+.btn-group-map{
 	float:right;
- 	width:60px;
- 	height:60px;
- 	top:-1130px;
- 	background-color:#E6D414;
- 	color:#213042 !important;
- 	padding:10px;
- 	font-size:24px;
- 	text-align:center;
+ 	top:-1100px;
+ 	margin-right:2%;
+ 	margin-bottom:10px;
 }
-.btn_tool_map:hover{
+.btn-map{
+	background-color:#E6D414;
+	color:#213042 !important;
+	font-size:22px !important;
+}
+.btn-map.playing{
+	background-color:#92BE1F;
+}
+.btn-map:hover{
 	background-color:#5896AB;
 }
-.btn_tool_map.right{
-	border-radius:0px 4px 4px 0px;
-	left:100px;
- 	
-}
-.btn_tool_map.left{
-	border-radius:4px 0px 0px 4px;
-	left:-20px;
- 	
-}
-.btn_tool_map.reload{
-	border-radius:4px;
-	left:-160px;
- 	
-}
+
 #spin_loading_map{
 	margin-bottom:0px;
 	text-align:center !important;
@@ -142,36 +112,33 @@ $this->pageTitle=$this::moduleTitle;
   i.fa.fa-lightbulb-o{ color:yellow; }
   i.fa.fa-rocket{ color:yellow; }
 
-.btn_play_animation{
-	margin:5px;
-	border-radius:4px;
-	padding:5px;
-	font-size:17px;
-	background-color:yellow;
-	color:#213042 !important;
-	text-decoration:none !important;
-}
 #lbl_msg_animation{
 	position:relative;
-	width:30%;
+	width:25%;
  	max-height:500px;
- 	top:-1137px;
+ 	top:-1080px;
+ 	float:left;
  	text-align:center;
- 	background-color:rgba(82, 103, 119, 0.78);
+ 	background-color:rgba(82, 103, 119, 0.8);
  	padding:10px;
- 	color:white;
+/*  	color:#E6D414; */
  	overflow:hidden;
- 	left:35%;
- 	font-size:16px;
-}  
-#lbl_msg_animation h3{
-	margin:0px;
+ 	margin-left:75%;
 }
+#lbl_msg_animation h3{
+	font-size:16px;
+}
+#lbl_msg_animation h1{
+	color:white;
+	font-size:22px;
+	margin-top:5px;
+}
+
 </style>
 	<script src="http://code.jquery.com/jquery.js"></script>
-<!-- START MAIN CONTAINER -->
+	<!-- START MAIN CONTAINER -->
 	<div id="main-container">		
-<!-- START PROJECT SECTION -->
+	<!-- START PROJECT SECTION -->
 		<section id="project" class="section project" >
 			<span class="sequence-prev" ></span>
 			<span class="sequence-next" ></span>
@@ -265,7 +232,7 @@ $this->pageTitle=$this::moduleTitle;
 		<section id="team" class="section section-content-colored">
 			<!-- SECTION TITLE -->		
 			<!-- SECTION CONTENT -->
-			<div class="section-header new"> <!-- id="lbl_msg_animation"> -->
+			<div class="section-header new"><!--  id="lbl_msg_animation" -->
 				<h1><img src="images/heart.png" ><br>L'Equipe</h1>
 				<h3>Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres<br> d'intérêt, le même sentiment de nécessité et urgence d'agir et de se regrouper,<br>
 			 de se sentir utile pour la société. <span>Aujourd'hui, le Pixel Humain, c'est aussi vous !...</span></h3>
@@ -279,66 +246,63 @@ $this->pageTitle=$this::moduleTitle;
 			        	
 			        	<div class="panel_map">
 			        		
-			        		<a href="javascript:changeFilter('projectLeader')">
+			        		<a href="javascript:playMapAnimation('projectLeader')">
 			        			<p class="item_panel_map" id="item_panel_map_projectLeader">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PORTEUR_PROJET.png"> Porteurs du projet
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PORTEUR_PROJET.png"><span class="filter_name"> Porteurs du projet</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('pixelActif')">
+			        		<a href="javascript:playMapAnimation('pixelActif')">
 			        			<p class="item_panel_map" id="item_panel_map_pixelActif">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PIXEL_ACTIF.png"> Pixels actifs
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PIXEL_ACTIF.png"><span class="filter_name"> Pixels actifs</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('commune')">
+			        		<a href="javascript:playMapAnimation('commune')">
 			        			<p class="item_panel_map" id="item_panel_map_commune">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_COMMUNES.png"> Communes inscrites
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_COMMUNES.png"><span class="filter_name"> Communes inscrites</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('association')">
+			        		<a href="javascript:playMapAnimation('association')">
 			        			<p class="item_panel_map" id="item_panel_map_association">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ASSOCIATIONS.png"> Associations
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ASSOCIATIONS.png"><span class="filter_name"> Associations</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('entreprise')">
+			        		<a href="javascript:playMapAnimation('entreprise')">
 			        			<p class="item_panel_map" id="item_panel_map_entreprise">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ENTREPRISES.png"> Entreprises inscrites
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ENTREPRISES.png"><span class="filter_name"> Entreprises inscrites</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('citoyen')">
+			        		<a href="javascript:playMapAnimation('citoyen')">
 			        			<p class="item_panel_map" id="item_panel_map_citoyen">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_CITOYENS.png"> Citoyens communectés
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_CITOYENS.png"><span class="filter_name"> Citoyens communectés</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('parnerPH')">
+			        		<a href="javascript:playMapAnimation('partnerPH')">
 			        			<p class="item_panel_map" id="item_panel_map_parnerPH">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PARTENAIRES.png"> Partenaires & soutiens
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PARTENAIRES.png"><span class="filter_name"> Partenaires & soutiens</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('artiste')">
+			        		<a href="javascript:playMapAnimation('artiste')">
 			        			<p class="item_panel_map" id="item_panel_map_artiste">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ARTISTES.png"> Artistes actifs
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ARTISTES.png"><span class="filter_name"> Artistes actifs</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:changeFilter('all')">
+			        		<a href="javascript:playMapAnimation('all')">
 			        			<p class="item_panel_map" id="item_panel_map_all">
-			        			<i class="fa fa-asterisk"></i> Tous
+			        			<i class="fa fa-asterisk"></i><span class="filter_name"> Tous</span>
 			        			</p>
 			        		</a>
-			        		<p>
-			        		<a href="javascript:playMapAnimation()" class="btn_play_animation">
-			        			<i class="fa fa-play"></i>
-			        		</a>
-			        		<a href="javascript:stopMapAnimation()" class="btn_play_animation">
-			        			<i class="fa fa-stop"></i>
-			        		</a>
-			        		</p>
+			        		
 			        	</div>
+			        	<div class="btn-group btn-group-lg btn-group-map">
+			        		<button type="button" class="btn btn-map" id="btn-zoom-out"><i class="fa fa-search-minus"></i></button>
+			        		<button type="button" class="btn btn-map" id="btn-zoom-in"><i class="fa fa-search-plus"></i></button>
+			        	</div>
+			        	<div class="btn-group btn-group-lg btn-group-map">
+			        		<button type="button" class="btn btn-map" id="btn-play"><i class="fa fa-play"></i></button>
+			        		<button type="button" class="btn btn-map" id="btn-stop"><i class="fa fa-stop"></i></button>
+			        	</div>
+			        	<div id="lbl_msg_animation">test</div>
 			        	
-			        	<a href="javascript:reloadMap()" class="btn_tool_map reload" id="tool_map_reload"><i id="ico_reload" class="fa fa-refresh"></i></a>
-			    		<a href="javascript:zoomOut()" class="btn_tool_map left"><i class="fa fa-search-minus"></i></a>
-			    		<a href="javascript:zoomIn()" class="btn_tool_map right"><i class="fa fa-search-plus"></i></a>
-			    		
-			    		<div id="lbl_msg_animation">Test</div>
 			</div>
 			<!-- END PROJECT SECTION -->
 		</section>
@@ -437,15 +401,27 @@ $this->pageTitle=$this::moduleTitle;
 
 
 <script type="text/javascript">
+
 jQuery(document).ready(function()
 { 	
-	//charge la première carte (pixel actif)
+	$( "#btn-play" ).tooltip({ content: "lancer l'animation" });
+	$( "#btn-stop" ).tooltip({ content: "arrêter l'animation" });
+	
+	$( "#btn-play" ).click(function (){ startPlaying(); });
+	$( "#btn-stop" ).click(function (){ stopMapAnimation(); });
+	$( "#btn-zoom-in" ).click(function (){ zoomIn(); });
+	$( "#btn-zoom-out" ).click(function (){ zoomOut(); });
+	
+	
+	//charge la carte
 	map1 = loadMap("mapCanvasSlide1");
 	map1.setView([-21.13318, 55.5314], 10);//[30.29702, -21.97266], 3);
 	listId["getPixelActif"] = new Array("init");
+	
 	map1.on('dragend', function(e) {
     		//showCitoyensClusters(map1, "getPixelActif", listId);
 		});
+		
 	map1.on('zoomend', function(e) {
     		//showCitoyensClusters(map1, "getPixelActif", listId);
 		}); showCitoyensClusters(map1, "getPixelActif", listId);
@@ -454,24 +430,19 @@ jQuery(document).ready(function()
     		alert(map1.getCenter() + " - " + map1.getZoom());
 		}); 
 		
- 	//##
-	//check/uncheck toutes les option en même temps au click sur input chk_all_panel_map
-	$('input[type=checkbox][name="chk_all_panel_map"]').change(function(event) {
-		if(this.checked) 	$('input[type=checkbox][name="chk_panel_map"]').prop("checked", true);
-		else 				$('input[type=checkbox][name="chk_panel_map"]').prop("checked", false);
-		showCitoyensClusters(map1, "getPixelActif", listId); 
-	 });
-	 
-	//##
-	//click sur une option du panel
-	$('input[type=checkbox][name="chk_panel_map"]').change(function(event) {
-		showCitoyensClusters(map1, "getPixelActif", listId); 
-	 }); 
-	
 	initAnimation();
+	resizeMap();
 	//timerMapPlay = setTimeout('playMapAnimation()', 5000); 
 });
 
+$( window ).resize(function() { resizeMap(); });
+	
+	
+	//##
+	//##	MAP	##
+	//##
+	
+	
 	var assetPath = "<?php echo $this->module->assetsUrl; ?>";
 	
 	//mémorise les identifiants des éléments de chaque carte
@@ -506,13 +477,6 @@ jQuery(document).ready(function()
 		return map;
 	}								
 															
-	function changeFilter(val){ 	
-		if(currentFilter != "")
-			$('#item_panel_map_' + currentFilter).removeClass("selected");		
-		$('#item_panel_map_' + val).addClass("selected");
-		currentFilter = val;	
-		showCitoyensClusters(map1, "getPixelActif", listId);	
-	}		
 	
 	//##
 	//affiche les citoyens qui possèdent des attributs geo.latitude, geo.longitude, depuis la BD
@@ -723,6 +687,8 @@ jQuery(document).ready(function()
 		return marker;
 	}
 	
+	//##
+	//supprime tous les marker de la carte
 	function clearMap(theMap){
 		if(markersLayer != "")
 			markersLayer.clearLayers();
@@ -783,6 +749,35 @@ jQuery(document).ready(function()
 	}
 	
 	
+	//##
+	//##	PANEL FILTER	##
+	//##
+	
+	function changeFilter(val){ 	
+		if(currentFilter != "")
+			$('#item_panel_map_' + currentFilter).removeClass("selected");		
+		$('#item_panel_map_' + val).addClass("selected");
+		currentFilter = val;	
+		showCitoyensClusters(map1, "getPixelActif", listId);	
+	}		
+	
+	//##
+	//réduit la taille du panel d'option de la carte
+	//si la largeur de l'écran est inférieur à 700px
+	function resizeMap(){
+		if($( "body" ).width() < 700){
+			$(".filter_name").css({"display":"none"});
+			$(".panel_map").css({"max-width":"60px"});
+			$("#lbl_msg_animation").css({"width":"45%", "margin-left":"55%"});
+		}
+		else{
+			$(".filter_name").css({"display":"inline"});
+			$(".panel_map").css({"max-width":"280px"});
+			$("#lbl_msg_animation").css({"width":"25%", "margin-left":"75%"});
+		
+		}
+	}
+	
 	
 	
 	//##
@@ -791,52 +786,109 @@ jQuery(document).ready(function()
 	
 	
 	var timerMapPlay;// = setTimeout('playMapAnimation()', 5000); 
-	
+	var allowToPlay = true;
+	//##
+	//liste de lieux à utiliser pendant l'animation
 	var animationPlaces = { 
-			"france" : { "latlng" : [47.72454, -0.57129], "zoom" : 5 }, //France
-			"reunion" : { "latlng" : [-21.20874, 55.49057], "zoom" : 10 },  //Réunion
-			"caledonie" : { "latlng" : [-20.94092, 165.75623], "zoom" : 7 },  //Nouvelle-Calédonie
+			"france" : 			{ "latlng" : [47.72454, -0.57129], 		"zoom" : 5 }, 
+			"reunion" : 		{ "latlng" : [-21.20874, 55.49057], 	"zoom" : 10 },  
+			"caledonie" : 		{ "latlng" : [-20.94092, 165.75623], 	"zoom" : 7 },  
+			"new_zeland" : 		{ "latlng" : [-42.1634, 171.67236], 	"zoom" : 5 },   
+			"australia" : 		{ "latlng" : [-30.90222, 133.5498], 	"zoom" : 6 },   
+			"north_america" : 	{ "latlng" : [40.9799, -87.80273], 		"zoom" : 4 },   
+			"south_america" : 	{ "latlng" : [-22.1874, -56.7334], 		"zoom" : 4 },   
+			"world" : 			{ "latlng" : [33.72434, 18.10547], 		"zoom" : 2 },  
 	};
 	
+	//##
+	//liste des étapes de l'animation
 	var animationPlan = {
 		"projectLeader" : 	{ 	"places" : [ { "place" : animationPlaces.reunion,  
-							  					"msg" : "Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres d'intérêt,</br>le même sentiment de nécessité et urgence d'agir et de se regrouper,</br>de se sentir utile pour la société." }	
+							  					"msg" : "Message pour les associations de la Réunion" }	
 											],
 								"title" : "Les porteurs du projet",
-								"icon" : { "type" : "png",
-										   "name" : "heart" }
+								"icon" : { "color" : "#E6D414",
+										   "name" : "user" }
 							},
 		"pixelActif" : 		{ 	"places" : [ { "place" : animationPlaces.reunion, 
-											   "msg" : "Aujourd'hui, le Pixel Humain, c'est aussi vous : les Pixel Actifs !</br>De la réunion..." },
+											   "msg" : "Message pour les associations de la réunion..." },
 											 { "place" : animationPlaces.france, 
-											   "msg" : "Aujourd'hui, le Pixel Humain, c'est aussi vous : les Pixel Actifs !</br>De la réunion... à la métropole..." } ,
+											   "msg" : "Message pour les associations de France" } ,
 											 { "place" : animationPlaces.caledonie, 
-											   "msg" : "Aujourd'hui, le Pixel Humain, c'est aussi vous : les Pixel Actifs !</br>De la réunion... à la métropole... en passant par la Nouvelle-Calédonie !" } 
+											   "msg" : "Message pour les associations de Nouvelle-Calédonie" } 
 											], 
 								"title" : "Les Pixels actifs",
-								"icon" : { "type" : "png",
-										   "name" : "quest_citoyen" }
+								"icon" : { "color" : "#E6D414",
+										   "name" : "circle" }
 							},	
 		"commune" : 		{ 	"places" : [  { "place" : animationPlaces.france,
-												"msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses communes qui utilisent et soutiennent le projet.</br>En France, plusieurs associations nous ont déjà rejoint." },
+												"msg" : "Message pour les associations de France" },
 											  { "place" :  animationPlaces.reunion ,
-											    "msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses communes qui utilisent et soutiennent le projet.</br>En France, plusieurs associations nous ont déjà rejoint. Comme à la Réunion !" }
+											    "msg" : "Message pour les associations de la Réunion" }
 											],
 								"title" : "Les communes",
-								"icon" : { "type" : "png",
-										   "name" : "quest_collectivite" }
+								"icon" : { "color" : "#BD3232",
+										   "name" : "circle" }
 							},
 		"association" : 	{ 	"places" : [ { "place" : animationPlaces.france, 
-												"msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses associations qui utilisent et soutiennent le projet. En France..." },
-											 { "place" : animationPlaces.reunion, 
-											   "msg" : "Le réseau Pixel Humain, c'est aussi de nombreuses associations qui utilisent et soutiennent le projet. En France et à la Réunion..." }
+												"msg" : "Message pour les associations de France" },
+											 {  "place" : animationPlaces.reunion, 
+											    "msg" : "Message pour les associations de la Réunion" },
+											{  "place" : animationPlaces.new_zeland, 
+											   "msg" : "Message pour les associations de Nouvelle-Zélande" }
 											],
 								"title" : "Les associations",
-								"icon" : { "type" : "png",
-										   "name" : "quest_asso" }
+								"icon" : { "color" : "#92BE1F",
+										   "name" : "play fa-rotate-270" }
 							},	
+		"entreprise" : 	{ 		"places" : [ { 	"place" : animationPlaces.france, 
+												"msg" : "Message pour les entrerprises de France" },
+										 	{ 	"place" : animationPlaces.australia, 
+												"msg" : "Message pour les entrerprises d'Australie" }
+										],
+								"title" : "Les entreprises",
+								"icon" : { "color" : "#04B8EC",
+										   "name" : "stop" }
+							},	
+		"citoyen" : 	{ 	"places" : [ { 	"place" : animationPlaces.south_america, 
+											"msg" : "Message pour les citoyens communectés en Amérique du Sud" },
+										 { 	"place" : animationPlaces.north_america, 
+											"msg" : "Message pour les citoyens communectés en Amérique du Nord" }
+										],
+							"title" : "Les citoyens communectés",
+							"icon" : {  "color" : "#E6D414",
+										"name" : "circle" }
+							},	
+		"partnerPH" : 	{ 	"places" : [ { 	"place" : animationPlaces.france, 
+											"msg" : "Message pour les partenaires de France" },
+										 { 	"place" : animationPlaces.world, 
+											"msg" : "Message pour les partenaires du monde entier" }
+										],
+							"title" : "Nos partenaires et soutiens",
+							"icon" : {  "color" : "#E6D414",
+										"name" : "lightbulb-o" }
+							},	
+		"artiste" : 	{ 	"places" : [ { 	"place" : animationPlaces.france, 
+											"msg" : "Message pour les artistes de France" },
+										 { 	"place" : animationPlaces.world, 
+											"msg" : "Message pour les artistes du monde entier" }
+										],
+								"title" : "Les artistes",
+								"icon" : { "color" : "#E6D414",
+										   "name" : "rocket" }
+							},	
+		"all" : 	{ 	"places" : [ { 	"place" : animationPlaces.world, 
+										"msg" : "Message final pour le monde entier" }
+									],
+									"title" : "Tous",
+									"icon" : { "color" : "white",
+										   "name" : "asterisk" }
+							},	
+	
 	}
 	
+	//##
+	//initialisation de l'animation
 	var allTagAnimation = new Array();
 	function initAnimation(){
 		$.each(animationPlan, function (key){
@@ -845,42 +897,91 @@ jQuery(document).ready(function()
 		//timerMapPlay = setTimeout('playMapAnimation()', 10000); 
 	}
 	
-	var ctnTag = 0;
+	function startPlaying(){
+		allowToPlay = true;	
+		playMapAnimation();
+	}
+	
+	//##
+	//fonction appelé par timeout pour faire avancer l'animation d'une étape à chaque fois
+	var cntTag = 0;
 	var cntPlaces = 0;
-	function playMapAnimation()
+	var tagLimit = "";
+	function playMapAnimation(newTag)
 	{
-		var currentTag = allTagAnimation[ctnTag];
-		var currentPlace = animationPlan[currentTag].places[cntPlaces].place;
+		$("#btn-play").addClass("playing");
+		var currentTag = allTagAnimation[cntTag];
 		
-		map1.panTo(currentPlace.latlng);
-		map1.setZoom(currentPlace.zoom);
+		if(newTag != null) { 
+			currentTag = newTag;
+			cntPlaces = 0; 
+			var i=0;
+			$.each(allTagAnimation, function(){
+				if(this == newTag) cntTag = i;
+				i++;
+			});
+		} //alert(cntTag + " - " + currentTag + " - " + cntPlaces);
+		
+		var currentPlace = animationPlan[currentTag].places[cntPlaces].place;
+		tagLimit = currentTag; 
+			
+		var zoom = currentPlace.zoom
+		if($( "body" ).width() < 700) zoom = zoom-1;
+		
 		changeFilter(currentTag);
 		
-		var txtMsg = //"<h1><img src='" + assetPath + "/images/iconAnimation/heart.png' ><br>" + animationPlan[currentTag].title + "</h1>" +
-					 //"<h3>"+
-					 animationPlan[currentTag].places[cntPlaces].msg;
-					 //+"</h3>"; //+"<br> <br>";
+		if(allowToPlay){
+			
+			$("#lbl_msg_animation").css({"display":"inline"});
+			map1.setZoom(zoom, { "animate" : false });
+			map1.panTo(currentPlace.latlng);
+		
+			var txtMsg = //"<h1><img src='" + assetPath + "/images/iconAnimation/" + animationPlan[currentTag].icon.name + ".png' height=50><br>" + animationPlan[currentTag].title + "</h1>" +
+						 "<h1><i class='fa fa-" + animationPlan[currentTag].icon.name + " fa-3x' style='color:"+animationPlan[currentTag].icon.color+"'></i></br>" + 
+							animationPlan[currentTag].title + 
+						 "</h1>";
+					 
+			if($( "body" ).width() > 700)
+				txtMsg += "<h3>"+
+							animationPlan[currentTag].places[cntPlaces].msg +
+						  "</h3>" + 
+						  "<br> <br>";
 					 
 					 
-		$("#lbl_msg_animation").html(txtMsg);
+			$("#lbl_msg_animation").html(txtMsg);
 		
-		cntPlaces++;
-		if(cntPlaces >= animationPlan[currentTag].places.length){
-			cntPlaces = 0;
-			ctnTag++;
-		}
-		if(ctnTag >= allTagAnimation.length){
-			cntPlaces = 0;
-			ctnTag = 0;
-			stopMapAnimation();
-			return;
-		}
+			cntPlaces++;
+			if(cntPlaces >= animationPlan[currentTag].places.length){
+				cntPlaces = 0;
+				cntTag++;
+			}
+			// if(tagLimit != allTagAnimation[cntTag]) {
+	// 			cntTag = 0;
+	// 			stopMapAnimation();
+	// 			return;
+	// 		}
+			if(cntTag >= allTagAnimation.length){
+				cntPlaces = 0;
+				cntTag = 0;
+				stopMapAnimation();
+				return;
+			}
 		
-		timerMapPlay = setTimeout('playMapAnimation()', 10000); 
+			clearTimeout(timerMapPlay);
+			timerMapPlay = setTimeout('playMapAnimation()', 10000); 
+		}
+		else{
+			$("#btn-play").removeClass("playing");
+			$("#lbl_msg_animation").css({"display":"none"});
+		}
 	}
-	function stopMapAnimation()
-	{
-		clearTimeout(timerMapPlay);
+	
+	function stopMapAnimation(){ 
+		allowToPlay = false;
+		clearTimeout(timerMapPlay); 
+		$("#btn-play").removeClass("playing");
+		$("#lbl_msg_animation").css({"display":"none"});
+		
 	}
 	
 </script>
