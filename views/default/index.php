@@ -142,60 +142,39 @@ $this->pageTitle=$this::moduleTitle;
 	<script src="http://code.jquery.com/jquery.js"></script>
 	<!-- START MAIN CONTAINER -->
 	<div id="main-container">		
+
 	<!-- START PROJECT SECTION -->
-		<section id="project" class="section project" >
-			<span class="sequence-prev" ></span>
-			<span class="sequence-next" ></span>
-		    <ul class="sequence-canvas">
-		    	<li class="animate-in" style="background-image: url('images/slider/1.jpg');">
 
-		        <div class="slide-content">
-		        <img src="images/slider/slide1.png"/>
-		            	<h1>Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
-		Citoyens, Associations, Entreprises, Collectivités : <br>
-		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-		        	</div>
-		    	</li>
-		        <li class="animate-in" style="background-image: url('images/slider/1.jpg');">
-
-		        <div class="slide-content">
-		        <img src="images/slider/slide2.png"/>
-		            	<h1>Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
-		Citoyens, Associations, Entreprises, Collectivités : <br>
-		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-		        	</div>
-		    	</li>
-		        <li class="animate-in" style="background-image: url('images/slider/1.jpg');">
-
-		        <div class="slide-content">
-		        <img src="images/slider/slide3.png"/>
-		            	<h1>Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
-		Citoyens, Associations, Entreprises, Collectivités : <br>
-		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-		        	</div>
-		    	</li>
-		        <li class="animate-in" style="background-image: url('images/slider/1.jpg');">
-
-		        <div class="slide-content">
-		        <img src="images/slider/slide4.png"/>
-		            	<h1>Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
-		Citoyens, Associations, Entreprises, Collectivités : <br>
-		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-		        	</div>
-		    	</li>
-		    	
-		    </ul>
+		<section id="sectionsvg" class="section">
+			<div class="sgvAndImg">
+				<div id="svg"></div>
+				<div class="flexslider">
+					<ul class="slides">
+					<li>
+						<div class="imgSvg" id="slide1">
+							<img src="images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
+							<h1>Découvrez <strong>Pixel Humain</strong></h1>
+				            	<h3>Le premier réseau social citoyen libre<br>
+				Citoyens, Associations, Entreprises, Collectivités : <br>
+				Découvrez ce qui se passe en ce moment dans votre commune<br>
+				Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+						</div>
+					</li>
+					<li>
+						<div class="imgSvg" id="slide1">
+							<img src="images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
+							<h1>Découvrez <strong>Pixel Humain</strong></h1>
+				            	<h3>Le premier réseau social citoyen libre<br>
+				Citoyens, Associations, Entreprises, Collectivités : <br>
+				Découvrez ce qui se passe en ce moment dans votre commune<br>
+				Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+						</div>
+					</li>
+					</ul>
+				</div> 
 			
+			</div>
 		</section>
-
 
 		<!-- START TEAM SECTION -->
 		<section id="description" class="center section with-arrow">
@@ -327,7 +306,7 @@ $this->pageTitle=$this::moduleTitle;
 				<!-- SECTION CONTENT -->
 				<div class="section-content">
 					<div class="container">
-						<div class="services-slider flexslider">
+						<div class="services-slider ">
 		                    <ul class="slides">
 								<!-- START SERVICE -->
 		                    <div class="col-md-3">   <li>
@@ -420,7 +399,15 @@ jQuery(document).ready(function()
 	$( "#btn-zoom-in" ).click(function (){ zoomIn(); });
 	$( "#btn-zoom-out" ).click(function (){ zoomOut(); });
 	
-	
+
+	var sliderSvg = $('.flexslider').flexslider();
+
+	/*-----------------------------------------------
+	--- Map
+	------------------------------------------------*/
+
+	//charge la première carte (pixel actif)
+
 	//charge la carte
 	map1 = loadMap("mapCanvasSlide1");
 	map1.setView([-21.13318, 55.5314], 10);//[30.29702, -21.97266], 3);
@@ -655,7 +642,14 @@ $( window ).resize(function() { resizeMap(); });
 				$('#ico_reload').css({"display":"none"});
 		
 			});
-						
+
+
+			/*-------------------------------------------------------
+			---- Graph
+			---------------------------------------------------------*/
+			
+			grapLinkBanner("data/data.json");
+								
 	}
 	
 	//##
@@ -758,6 +752,7 @@ $( window ).resize(function() { resizeMap(); });
 												iconAnchor: 	[7,  14],
 												popupAnchor: 	[0, -14] });			  						
 	}
+
 	
 	
 	//##
@@ -994,5 +989,4 @@ $( window ).resize(function() { resizeMap(); });
 		$("#lbl_msg_animation").css({"display":"none"});
 		
 	}
-	
 </script>
