@@ -1,47 +1,8 @@
-  .mapCanvas1 {
-    width:70%; 
-    height:350px; 
-    background-color:grey; 
-    text-align:center; 
-    font-size:12; 
-    margin-top:5px;
-    margin-bottom:5px;
-  }
-  .div_right_tool_map{
-  	float:right; 
-  	width:30%;
-  }
-  .titleMapListItems{
-  	width:100%;
-	height: 60px;
-	background-color:grey; 
-   	font-size:12;
-   	float:right;
-  }
-  .mapListItems{
-  	width:100%;
-	height: 290px;
-	background-color:grey; 
-   	font-size:12;
-   	float:right;
-   	overflow-y:auto;
-  }
-  .mapListItems .itemMapList{
-  	height:30px;
-  	background-color:white; 	
-  }
-  .mapListItems .itemMapList:hover{
-  	height:30px;
-  	background-color:grey;
-  	color:white; 	
-  }
-  
-  
-  
-/*   ############################### */
+
+/*   ############# leaflet ################## */
   
   .leaflet-popup-content-wrapper{
- 	background-color:rgba(53, 61, 68, 0.7);
+ 	background-color:rgba(39, 52, 65, 0.69);
  	border-radius:10px;
  	color:white;
  	font-family: "Open Sans";
@@ -50,10 +11,14 @@
  .leaflet-popup-tip{
  	background-color:rgba(53, 61, 68, 0.7);
  }
- 
- .popup-img-profil{
- 
+
+ .leaflet-popup-content{
+ 	padding:20px;
+ 	min-width:350px;
+ 	padding-bottom:40px;
  }
+/*   ############################### */
+
 
  #menu a.btn-success{
 	border-color: #82b440;
@@ -62,7 +27,18 @@
  .popup-info-profil{
  	width:100%;
  	text-align:center;
- 	font-size:14px;
+ 	font-size:16px;
+ }
+ .popup-info-profil-thumb-lbl{
+ 	float:left;
+ 	width:100%;
+ 	text-align:center;
+ }
+ .popup-info-profil-thumb{
+ 	border-radius:190px;
+ 	border-width:6px;
+ 	border-color:yellow;
+ 	border-style:solid;
  }
  .popup-info-profil-username{
  	width:100%;
@@ -73,22 +49,24 @@
  }
  .popup-info-profil-usertype{
  	width:100%;
- 	text-transform:capitalize;
  	text-align:center;
- 	font-size:18px;
+ 	text-weight:bold;
+ 	text-transform:capitalize;
+ 	font-size:22px;
  }
  .popup-info-profil-work{
  	width:100%;
  	text-align:center;
  	font-size:18px;
  	text-transform:capitalize;
- 	
  }
- .popup-info-profil-url{
- 	width:100%;
- 	text-align:center;
- 	font-size:13px;
- 	color:#2aa0bd;
+ a.popup-info-profil-url{
+ 	float:left;
+ 	margin-top:10px !important;
+ 	width:100% !important;
+ 	text-align:center !important;
+ 	font-size:14px !important;
+ 	color:#2aa0bd !important;
  }
  .modal-lg {
     width: 90%;
