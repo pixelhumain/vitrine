@@ -94,7 +94,11 @@ $this->pageTitle=$this::moduleTitle;
 .btn-map:hover{
 	background-color:#5896AB;
 }
-
+#ico_reload{
+	display:inline;
+	color:#E6D414;
+	margin-top:10px;
+}
 #spin_loading_map{
 	margin-bottom:0px;
 	text-align:center !important;
@@ -293,6 +297,7 @@ $this->pageTitle=$this::moduleTitle;
 			        		</a>
 			        		
 			        	</div>
+			        		
 			        	<div class="btn-group btn-group-lg btn-group-map">
 			        		<button type="button" class="btn btn-map" id="btn-zoom-out"><i class="fa fa-search-minus"></i></button>
 			        		<button type="button" class="btn btn-map" id="btn-zoom-in"><i class="fa fa-search-plus"></i></button>
@@ -300,6 +305,9 @@ $this->pageTitle=$this::moduleTitle;
 			        	<div class="btn-group btn-group-lg btn-group-map">
 			        		<button type="button" class="btn btn-map" id="btn-play"><i class="fa fa-play"></i></button>
 			        		<button type="button" class="btn btn-map" id="btn-stop"><i class="fa fa-stop"></i></button>
+			        	</div>
+			        	<div class="btn-group btn-group-lg btn-group-map">
+			        		<i class="fa fa-refresh fa-2x" id="ico_reload"></i>
 			        	</div>
 			        	<div id="lbl_msg_animation">test</div>
 			        	
@@ -516,6 +524,7 @@ $( window ).resize(function() { resizeMap(); });
 		//alert(JSON.stringify(params)); //return;
 		
 		$('#ico_reload').addClass("fa-spin");
+		$('#ico_reload').css({"display":"inline-block"});
 		testitpost("showCitoyensResult", '/ph/<?php echo $this::$moduleKey?>/api/' + origine, params,
 			function (data){ 		//alert(JSON.stringify(data));
 				$.each(data, function() { 			
@@ -586,9 +595,9 @@ $( window ).resize(function() { resizeMap(); });
 						
 								//création de l'icon sur la carte
 								var tag;
-								if(this['tag'] != null) tag = this['tag'];
+								if(this['type'] != null) tag = this['type'];
 								else tag = "citoyen";
-						
+							
 								var theIcon = getIcoMarker(tag);
 								var properties = { 	//name : this['name'], 
 													icon : theIcon,
@@ -643,6 +652,8 @@ $( window ).resize(function() { resizeMap(); });
 				
 				//$('#spin_loading_map').css({"display":"none"});
 				$('#ico_reload').removeClass("fa-spin");
+				$('#ico_reload').css({"display":"none"});
+		
 			});
 						
 	}
