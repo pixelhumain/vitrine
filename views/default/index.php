@@ -89,10 +89,17 @@ $this->pageTitle=$this::moduleTitle;
 	font-size:22px !important;
 }
 .btn-map.playing{
-	background-color:#92BE1F;
+	background-color:#5CB85C;
 }
 .btn-map:hover{
 	background-color:#5896AB;
+}
+
+.btn-start-animation{
+	background-color:#E6D414;
+}
+.btn-start-animation:hover{
+	background-color:#92BE1F;
 }
 #ico_reload{
 	display:inline;
@@ -128,6 +135,7 @@ $this->pageTitle=$this::moduleTitle;
 /*  	color:#E6D414; */
  	overflow:hidden;
  	margin-left:75%;
+	display:none;
 }
 #lbl_msg_animation h3{
 	font-size:16px;
@@ -219,7 +227,14 @@ $this->pageTitle=$this::moduleTitle;
 				<h1><img src="images/heart.png" ><br>L'Equipe</h1>
 				<h3>Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres<br> d'intérêt, le même sentiment de nécessité et urgence d'agir et de se regrouper,<br>
 			 de se sentir utile pour la société. <span>Aujourd'hui, le Pixel Humain, c'est aussi vous !...</span></h3>
-				<br> <br>
+			 <button type="button" class="btn btn-start-animation" id="btn-play-anim"><i class="fa fa-play"></i> Lancer l'animation</button>
+			
+			 <div class="progress progress-striped active center-block" id="progress-bar-anim" style="width:30%; margin-top:15px;">
+  				<div id="progress-bar-animation" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
+    				<span class="sr-only"></span>
+  				</div>
+			</div>
+			</br> </br>
 			</div>
 			<!-- START PROJECT SECTION -->
 			<div id="carto" class="section mapProject" >
@@ -228,7 +243,8 @@ $this->pageTitle=$this::moduleTitle;
 			            </div>
 			        	
 			        	<div class="panel_map">
-			        		
+			        	
+			        			
 			        		<a href="javascript:playMapAnimation('projectLeader')">
 			        			<p class="item_panel_map" id="item_panel_map_projectLeader">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PORTEUR_PROJET.png"><span class="filter_name"> Porteurs du projet</span>
@@ -283,12 +299,12 @@ $this->pageTitle=$this::moduleTitle;
 			        	</div>
 			        	<div class="btn-group btn-group-lg btn-group-map">
 			        		<button type="button" class="btn btn-map" id="btn-play"><i class="fa fa-play"></i></button>
-			        		<button type="button" class="btn btn-map" id="btn-stop"><i class="fa fa-stop"></i></button>
+			        		<button type="button" class="btn btn-map" id="btn-stop"><i class="fa fa-pause"></i></button>
 			        	</div>
 			        	<div class="btn-group btn-group-lg btn-group-map">
 			        		<i class="fa fa-refresh fa-2x" id="ico_reload"></i>
 			        	</div>
-			        	<div id="lbl_msg_animation">test</div>
+			        	<div id="lbl_msg_animation"></div>
 			        	
 			</div>
 			<!-- END PROJECT SECTION -->
@@ -394,6 +410,7 @@ jQuery(document).ready(function()
 	$( "#btn-play" ).tooltip({ content: "lancer l'animation" });
 	$( "#btn-stop" ).tooltip({ content: "arrêter l'animation" });
 	
+	$( "#btn-play-anim" ).click(function (){ startPlaying(); });
 	$( "#btn-play" ).click(function (){ startPlaying(); });
 	$( "#btn-stop" ).click(function (){ stopMapAnimation(); });
 	$( "#btn-zoom-in" ).click(function (){ zoomIn(); });
@@ -422,7 +439,7 @@ jQuery(document).ready(function()
 		}); showCitoyensClusters(map1, "getPixelActif", listId);
 		
 	map1.on('click', function(e) {
-    		alert(map1.getCenter() + " - " + map1.getZoom());
+    		//alert(map1.getCenter() + " - " + map1.getZoom());
 		}); 
 		
 	initAnimation();
@@ -648,7 +665,7 @@ $( window ).resize(function() { resizeMap(); });
 			---- Graph
 			---------------------------------------------------------*/
 			
-			grapLinkBanner("data/data.json");
+			//grapLinkBanner("data/data.json");
 								
 	}
 	
@@ -810,27 +827,27 @@ $( window ).resize(function() { resizeMap(); });
 	//liste des étapes de l'animation
 	var animationPlan = {
 		"projectLeader" : 	{ 	"places" : [ { "place" : animationPlaces.reunion,  
-							  					"msg" : "Message pour les associations de la Réunion" }	
+							  					"msg" : "Message pour les porteurs de projets de la Réunion" }	
 											],
 								"title" : "Les porteurs du projet",
 								"icon" : { "color" : "#E6D414",
 										   "name" : "user" }
 							},
 		"pixelActif" : 		{ 	"places" : [ { "place" : animationPlaces.reunion, 
-											   "msg" : "Message pour les associations de la réunion..." },
+											   "msg" : "Message pour les pixels actifs de la réunion..." },
 											 { "place" : animationPlaces.france, 
-											   "msg" : "Message pour les associations de France" } ,
+											   "msg" : "Message pour les pixels actifs de France" } ,
 											 { "place" : animationPlaces.caledonie, 
-											   "msg" : "Message pour les associations de Nouvelle-Calédonie" } 
+											   "msg" : "Message pour les pixels actifs de Nouvelle-Calédonie" } 
 											], 
 								"title" : "Les Pixels actifs",
 								"icon" : { "color" : "#E6D414",
 										   "name" : "circle" }
 							},	
 		"commune" : 		{ 	"places" : [  { "place" : animationPlaces.france,
-												"msg" : "Message pour les associations de France" },
+												"msg" : "Message pour les communes de France" },
 											  { "place" :  animationPlaces.reunion ,
-											    "msg" : "Message pour les associations de la Réunion" }
+											    "msg" : "Message pour les communes de la Réunion" }
 											],
 								"title" : "Les communes",
 								"icon" : { "color" : "#BD3232",
@@ -910,12 +927,29 @@ $( window ).resize(function() { resizeMap(); });
 	
 	//##
 	//fonction appelé par timeout pour faire avancer l'animation d'une étape à chaque fois
+	var cntTime = 10;
+	var cntTimeMax = 10; //nombre de secondes entre chaque étape de l'animation
+	
 	var cntTag = 0;
 	var cntPlaces = 0;
 	var tagLimit = "";
 	function playMapAnimation(newTag)
 	{
 		$("#btn-play").addClass("playing");
+		
+		if(cntTime < cntTimeMax && newTag == null) { 
+			cntTime++; 
+			clearTimeout(timerMapPlay);
+			timerMapPlay = setTimeout('playMapAnimation()', 1000); 
+			$("#progress-bar-animation").attr('aria-valuenow', (cntTime*10) + "%");
+			$("#progress-bar-animation").css({"width": (cntTime*10) + "%"});
+			return; 
+		} else if(newTag != null) {
+			cntPlaces = 0;
+		}
+		
+		cntTime = 0;
+			
 		var currentTag = allTagAnimation[cntTag];
 		
 		if(newTag != null) { 
@@ -955,7 +989,8 @@ $( window ).resize(function() { resizeMap(); });
 					 
 					 
 			$("#lbl_msg_animation").html(txtMsg);
-		
+			$("#lbl_msg_animation").css({"display":"inline"});
+			
 			cntPlaces++;
 			if(cntPlaces >= animationPlan[currentTag].places.length){
 				cntPlaces = 0;
@@ -974,7 +1009,7 @@ $( window ).resize(function() { resizeMap(); });
 			}
 		
 			clearTimeout(timerMapPlay);
-			timerMapPlay = setTimeout('playMapAnimation()', 10000); 
+			timerMapPlay = setTimeout('playMapAnimation()', 1000); 
 		}
 		else{
 			$("#btn-play").removeClass("playing");
@@ -987,6 +1022,7 @@ $( window ).resize(function() { resizeMap(); });
 		clearTimeout(timerMapPlay); 
 		$("#btn-play").removeClass("playing");
 		$("#lbl_msg_animation").css({"display":"none"});
-		
+		$("#progress-bar-animation").attr('aria-valuenow',  "10%");
+		$("#progress-bar-animation").css({"width": "10%"});
 	}
 </script>
