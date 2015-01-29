@@ -33,37 +33,11 @@ $this->pageTitle=$this::moduleTitle;
 
 	<!-- START PROJECT SECTION -->
 
-		<section id="sectionsvg" class="section">
-			<div class="svgAndImg">
-				<div id="svg"></div>
-				<div id="patterns"></div>
-				<div class="flexslider">
-					<ul class="slides">
-					<li>
-						<div class="imgSvg" id="slide1">
-							<img src="images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
-							<h1>Découvrez <strong>Pixel Humain</strong></h1>
-				            	<h3>Le premier réseau social citoyen libre<br>
-				Citoyens, Associations, Entreprises, Collectivités : <br>
-				Découvrez ce qui se passe en ce moment dans votre commune<br>
-				Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-						</div>
-					</li>
-					<li>
-						<div class="imgSvg" id="slide1">
-							<img src="images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
-							<h1>Découvrez <strong>Pixel Humain</strong></h1>
-				            	<h3>Le premier réseau social citoyen libre<br>
-				Citoyens, Associations, Entreprises, Collectivités : <br>
-				Découvrez ce qui se passe en ce moment dans votre commune<br>
-				Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-						</div>
-					</li>
-					</ul>
-				</div> 
-			
-			</div>
-		</section>
+		
+			<?php 
+				$this->renderPartial('banniere');
+			?>
+		
 
 		<!-- START TEAM SECTION -->
 		<section id="description" class="center section with-arrow">
@@ -207,6 +181,27 @@ $this->pageTitle=$this::moduleTitle;
 jQuery(document).ready(function()
 { 	
 	var sliderSvg = $('.flexslider').flexslider();
+	jQuery.fn.d3MouseOver = function () {
+	    this.each(function (i, e) {
+	      ////console.log("over");
+	      var evt = document.createEvent("MouseEvents");
+	      evt.initMouseEvent("mouseover", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+	      e.dispatchEvent(evt);
+	    });
+	  };
+
+	//launch mouseout event for the d3 graph
+	jQuery.fn.d3MouseOut = function () {
+	    this.each(function (i, e) {
+	      //console.log("out");
+	      var evt = document.createEvent("MouseEvents");
+	      evt.initMouseEvent("mouseout", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+	      e.dispatchEvent(evt);
+	    });
+	  };
+
 	/*-------------------------------------------------------
 	---- Graph
 	---------------------------------------------------------*/
@@ -220,6 +215,7 @@ jQuery(document).ready(function()
 
 $( window ).resize(function() { resizeMap(); resizeGraph("data/data.json"); });
 	
+
 	
 	//##
 	//##	MAP	##
@@ -431,7 +427,6 @@ $( window ).resize(function() { resizeMap(); resizeGraph("data/data.json"); });
 		
 			});
 }
-
 
 			/*-------------------------------------------------------
 			---- Graph
