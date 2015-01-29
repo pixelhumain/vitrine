@@ -156,6 +156,7 @@ $this->pageTitle=$this::moduleTitle;
 		<section id="sectionsvg" class="section">
 			<div class="sgvAndImg">
 				<div id="svg"></div>
+				<div id="patterns"></div>
 				<div class="flexslider">
 					<ul class="slides">
 					<li>
