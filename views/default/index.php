@@ -142,7 +142,7 @@ $this->pageTitle=$this::moduleTitle;
 	<!-- START PROJECT SECTION -->
 
 		<section id="sectionsvg" class="section">
-			<div class="sgvAndImg">
+			<div class="svgAndImg">
 				<div id="svg"></div>
 				<div id="patterns"></div>
 				<div class="flexslider">
@@ -394,6 +394,13 @@ jQuery(document).ready(function()
 	
 
 	var sliderSvg = $('.flexslider').flexslider();
+	/*-------------------------------------------------------
+	---- Graph
+	---------------------------------------------------------*/
+	
+	grapLinkBanner("data/data.json");
+			
+	
 
 	/*-----------------------------------------------
 	--- Map
@@ -423,7 +430,7 @@ jQuery(document).ready(function()
 	//timerMapPlay = setTimeout('playMapAnimation()', 5000); 
 });
 
-$( window ).resize(function() { resizeMap(); });
+$( window ).resize(function() { resizeMap(); resizeGraph("data/data.json"); });
 	
 	
 	//##
@@ -634,11 +641,7 @@ $( window ).resize(function() { resizeMap(); });
 			});
 
 
-			/*-------------------------------------------------------
-			---- Graph
-			---------------------------------------------------------*/
 			
-			grapLinkBanner("data/data.json");
 								
 	}
 	
