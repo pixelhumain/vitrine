@@ -28,37 +28,11 @@ $this->pageTitle=$this::moduleTitle;
 
 	<!-- START PROJECT SECTION -->
 
-		<section id="sectionsvg" class="section">
-			<div class="sgvAndImg">
-				<div id="svg"></div>
-				<div id="patterns"></div>
-				<div class="flexslider">
-					<ul class="slides">
-					<li>
-						<div class="imgSvg" id="slide1">
-							<img src="images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
-							<h1>Découvrez <strong>Pixel Humain</strong></h1>
-				            	<h3>Le premier réseau social citoyen libre<br>
-				Citoyens, Associations, Entreprises, Collectivités : <br>
-				Découvrez ce qui se passe en ce moment dans votre commune<br>
-				Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-						</div>
-					</li>
-					<li>
-						<div class="imgSvg" id="slide1">
-							<img src="images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
-							<h1>Découvrez <strong>Pixel Humain</strong></h1>
-				            	<h3>Le premier réseau social citoyen libre<br>
-				Citoyens, Associations, Entreprises, Collectivités : <br>
-				Découvrez ce qui se passe en ce moment dans votre commune<br>
-				Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
-						</div>
-					</li>
-					</ul>
-				</div> 
-			
-			</div>
-		</section>
+		
+			<?php 
+				$this->renderPartial('banniere');
+			?>
+		
 
 		<!-- START TEAM SECTION -->
 		<section id="description" class="center section with-arrow">
@@ -202,14 +176,258 @@ $this->pageTitle=$this::moduleTitle;
 jQuery(document).ready(function()
 { 	
 	var sliderSvg = $('.flexslider').flexslider();
+	jQuery.fn.d3MouseOver = function () {
+	    this.each(function (i, e) {
+	      ////console.log("over");
+	      var evt = document.createEvent("MouseEvents");
+	      evt.initMouseEvent("mouseover", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+	      e.dispatchEvent(evt);
+	    });
+	  };
+
+	//launch mouseout event for the d3 graph
+	jQuery.fn.d3MouseOut = function () {
+	    this.each(function (i, e) {
+	      //console.log("out");
+	      var evt = document.createEvent("MouseEvents");
+	      evt.initMouseEvent("mouseout", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+
+	      e.dispatchEvent(evt);
+	    });
+	  };
+
+	/*-------------------------------------------------------
+	---- Graph
+	---------------------------------------------------------*/
+	
+	grapLinkBanner("data/data.json");
+			
+	
 
 });
 
+
+$( window ).resize(function() { resizeMap(); resizeGraph("data/data.json"); });
+	
+
+	
+	//##
+	//##	MAP	##
+	//##
+	
+	
+	var assetPath = "<?php echo $this->module->assetsUrl; ?>";
+	
+	//mémorise les identifiants des éléments de chaque carte
+	var listId = new Array(	"getPixelActif" );//, "getCommunected" );
+	
+	//liste de tous les filtres du panel
+	var allTagFilter = new Array("projectLeader", "pixelActif", "commune", "association", "entreprise", "citoyen", "parnerPH", "artiste");		
+	
+	//gère la liste des tags à ne pas clusteriser
+	var notClusteredTag = new Array("commune", "association", "projectLeader");
+		
+	var map1;
+	function zoomIn(){ map1.zoomIn(); }
+	function zoomOut(){ map1.zoomOut(); }
+	function reloadMap(){ showCitoyensClusters(map1, "getPixelActif", listId);  }
+	
+	function loadMap(canvasId){
+		//initialisation des variables de départ de la carte
+		var map = L.map(canvasId, { "zoomControl" : false, "scrollWheelZoom":false, "worldCopyJump" : true }).setView([51.505, -0.09], 4);
+
+		L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
+			subdomains: 'abcd',
+			minZoom: 0,
+			maxZoom: 20
+		}).setOpacity(0.4).addTo(map);
+	
+		map.on('click', function(e) {
+    		//alert(e.latlng);
+		});
+	
+		return map;
+	}								
+															
+	
+	//##
+	//affiche les citoyens qui possèdent des attributs geo.latitude, geo.longitude, depuis la BD
+	var markersLayer = "";
+	var geoJsonCollection = "";
+	var currentFilter = "none";
+	function showCitoyensClusters(mapClusters, origine, listId){ 
+			
+		if(markersLayer != "")
+			clearMap(mapClusters);
+		//	mapClusters.removeLayer(markersLayer);
+			
+		markersLayer = new L.MarkerClusterGroup({"maxClusterRadius" : 40});
+		mapClusters.addLayer(markersLayer);
+
+		geoJsonCollection = { type: 'FeatureCollection', features: new Array() };
+				
+		var bounds = mapClusters.getBounds();
+		var params = {
+			"latMinScope" :  bounds.getSouthWest().lat,
+			"lngMinScope" :  bounds.getSouthWest().lng,
+			"latMaxScope" :  bounds.getNorthEast().lat,
+			"lngMaxScope" :  bounds.getNorthEast().lng,
+			"types"		  :  new Array()			
+		};
+		
+		//params["types"] = new Array();
+		/*$('input[type=checkbox][name="chk_panel_map"]').each(function () {
+           if (this.checked) {
+               params["types"].push($(this).val()); 
+           }
+		});
+		*/
+		
+		if(currentFilter != "all")  params["types"].push(currentFilter); 
+		else 						params["types"] = allTagFilter;
+		//alert(JSON.stringify(params)); //return;
+		
+		$('#ico_reload').addClass("fa-spin");
+		$('#ico_reload').css({"display":"inline-block"});
+		testitpost("showCitoyensResult", '/ph/<?php echo $this::$moduleKey?>/api/' + origine, params,
+			function (data){ 		//alert(JSON.stringify(data));
+				$.each(data, function() { 			
+					if(this._id != null){
+				
+						var origineName = data["origine"]; //alert(origineName);
+						var objectId = this._id.$id.toString();
+					
+						//verifie si l'element a déjà été affiché sur la carte
+						//if($.inArray(objectId, listId[origineName]) == -1){							 	
+							if(this['geo'] != null || this['geoPosition'] != null){
+										
+								//préparation du contenu de la bulle
+						
+								//THUMB PHOTO PROFIL
+								var content = "";
+								if(this['thumb_path'] != null)   
+								content += 	"<div class='popup-info-profil-thumb-lbl'><img src='" + this['thumb_path'] + "' height=190 class='popup-info-profil-thumb'></div>";
+								else
+								content += 	"<div class='popup-info-profil-thumb-lbl'><img src='<?php echo $this->module->assetsUrl; ?>/images/thumb/default.png' width=190 class='popup-info-profil-thumb'></div>";
+						
+								
+								//NOM DE L'UTILISATEUR
+								if(this['name'] != null)   
+								content += 	"<div class='popup-info-profil-username'>" + this['name'] + "</div>";
+						
+								//TYPE D'UTILISATEUR (CITOYEN, ASSO, PARTENAIRE, ETC)
+								var typeName = this['tag'];
+								if(typeName == null)  typeName = "Citoyen";
+								if(this['name'] == null)  typeName += " Anonyme";
+						
+								content += 	"<div class='popup-info-profil-usertype'>" + typeName + "</div>";
+						
+								//WORK - PROFESSION
+								if(this['work'] != null)     
+								content += 	"<div class='popup-info-profil-work'>" + this['work'] + "</div>";
+								else
+								content += 	"<div class='popup-info-profil-work'>Fleuriste</div>";
+								
+								//URL
+								if(this['url'] != null)     
+								content += 	"<div class='popup-info-profil-url'>" + this['url'] + "</div>";
+								else
+								content += 	"<a href='http://www.google.com' class='popup-info-profil-url'>http://www.google.com</a>";
+								
+								//CODE POSTAL
+								//if(this['cp'] != null)     
+								//content += 	"<div class='popup-info-profil'>" + this['cp'] + "</div>";
+								//else
+								//content += 	"<div class='popup-info-profil'>98800</div>";
+								
+								//VILLE ET PAYS
+								var place = this['city'];
+								if(this['city'] != null && this['country'] != null) place += ", ";
+								place += this['country'];
+						
+								if(this['city'] != null)     
+								content += 	"<div class='popup-info-profil'>" + place + "</div>";
+								else
+								content += 	"<div class='popup-info-profil'>St-Denis, La Réunion</div>";
+								
+								//NUMÉRO DE TEL
+								if(this['phoneNumber'] != null)     
+								content += 	"<div class='popup-info-profil'>" + this['phoneNumber'] + "<div/>";
+								else
+								content += 	"<div class='popup-info-profil'>0123456789<div/>";
+								
+						
+								//création de l'icon sur la carte
+								var tag;
+								if(this['type'] != null) tag = this['type'];
+								else tag = "citoyen";
+							
+								var theIcon = getIcoMarker(tag);
+								var properties = { 	//name : this['name'], 
+													icon : theIcon,
+													content: content };
+						
+								var coordinates;
+								if( this['geo']['longitude'] != null ){
+									coordinates = new Array (this['geo']['longitude'], this['geo']['latitude']);
+								}
+								else{
+									coordinates = this['geoPosition']['coordinates'];
+								}
+						
+								var marker;
+								//si le tag de l'élément est dans la liste des éléments à ne pas mettre dans les clusters
+								//on créé un marker simple
+								if($.inArray(tag, notClusteredTag) > -1){ 
+									coordinates = new Array (this['geo']['latitude'], this['geo']['longitude']);
+									getMarkerSingle(mapClusters, properties, coordinates);
+							
+									listId[origineName].push(objectId);									
+								} 
+								//sinon on crée un nouveau marker pour cluster
+								else{
+									coordinates = new Array (this['geo']['longitude'], this['geo']['latitude']);
+									marker = getGeoJsonMarker(properties, coordinates);
+									geoJsonCollection['features'].push(marker);	
+							
+									listId[origineName].push(objectId);
+									
+								} 
+								
+							}
+					}
+					
+				});
+				
+				var points = L.geoJson(geoJsonCollection, {					   //Pour les clusters seulement :
+					onEachFeature: function (feature, layer) {				   //sur chaque marker
+							layer.bindPopup(feature["properties"]["content"]); //ajoute la bulle d'info avec les données
+							layer.setIcon(feature["properties"]["icon"]);	   //affiche l'icon demandé
+							layer.on('mouseover', function(e) {	if(!layer.getPopup()._isOpen) layer.openPopup(); });
+							//layer.on('mouseout',  function(e) { layer.closePopup(); });
+						}
+					});
+					
+				markersLayer.addLayer(points); 			// add it to the cluster group
+				mapClusters.addLayer(markersLayer);		// add it to the map
+				
+				//mapClusters.fitBounds(markersLayer.getBounds());					
+				//mapClusters.panTo(markersLayer.getBounds().getCenter());					
+				
+				//$('#spin_loading_map').css({"display":"none"});
+				$('#ico_reload').removeClass("fa-spin");
+				$('#ico_reload').css({"display":"none"});
+		
+			});
+}
 
 			/*-------------------------------------------------------
 			---- Graph
 			---------------------------------------------------------*/
 			
 			//grapLinkBanner("data/data.json");
+
 								
 </script>
