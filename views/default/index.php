@@ -14,11 +14,6 @@ $cs->registerCssFile($this->module->assetsUrl. '/css/MarkerCluster.Default.css')
 $cs->registerCssFile($this->module->assetsUrl. '/css/sig.css');
 //$cs->registerCssFile($this->module->assetsUrl. '/css/leaflet.awesome-markers.css');
 
-$cs->registerScriptFile('http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js' , CClientScript::POS_END);
-$cs->registerScriptFile($this->module->assetsUrl.'/js/sig/leaflet.draw-src.js' , CClientScript::POS_END);
-$cs->registerScriptFile($this->module->assetsUrl.'/js/sig/leaflet.draw.js' , CClientScript::POS_END);
-$cs->registerScriptFile($this->module->assetsUrl.'/js/sig/leaflet.markercluster-src.js' , CClientScript::POS_END);
-$cs->registerScriptFile($this->module->assetsUrl.'/js/sig/leaflet.awesome-markers.min.js' , CClientScript::POS_END);
 
 $this->pageTitle=$this::moduleTitle;
 
@@ -146,6 +141,7 @@ jQuery(document).ready(function()
 $( window ).resize(function() { resizeMap(); resizeGraph(); });
 	
 	
+
 	
 	//##
 	//##	MAP	##

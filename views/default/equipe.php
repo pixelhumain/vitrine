@@ -3,7 +3,7 @@
  .mapCanvasSlider{
  	width:100%;
  	height:730px;
- 	background-color:#456074;
+ 	background-color:#2A3945;
  	color:black;
  }
  #carto{
@@ -36,7 +36,7 @@
  .item_panel_map.selected{
  	background-color:rgba(194, 203, 222, 0.6);
  }
-.item_panel_map.selected a{
+ .item_panel_map.selected a{
  	text-decoration:none !important;
  	color:white !important;
  }
@@ -51,6 +51,9 @@
 	margin-top:10px !important;
 	float:left;
 }
+
+/* boutons */
+ 
 .btn-group-map{
 	float:right;
  	top:-1100px;
@@ -64,25 +67,30 @@
 }
 .btn-map.playing{
 	background-color:#5CB85C;
+	color:white !important;
 }
 .btn-map:hover{
 	background-color:#5896AB;
 }
-
 .btn-start-animation{
 	background-color:#E6D414;
+	color:#213042 !important;
 }
 .btn-start-animation:hover{
-	background-color:#92BE1F;
+	background-color:#5CB85C;	
+	color:white !important;
 }
+
+/* icon rechargement de la carte */
 #ico_reload{
 	display:inline;
 	color:#E6D414;
 	padding:13px;
 	float:left;
-/* 	background-color:rgba(82, 103, 119, 0.78); */
 	border-radius:5px;
 }
+
+/* 
 #spin_loading_map{
 	margin-bottom:0px;
 	text-align:center !important;
@@ -91,14 +99,17 @@
 	width:100%;
 	display:none;
 }
-  i.fa { padding:8px; }
   i.fa.fa-user{ color:yellow; }
   i.fa.fa-circle.red{ color:red; }
   i.fa.fa-circle.yellow{ color:yellow; }
   i.fa.fa-caret-up{ color:green; font-size:30px; }
-/*   i.fa.fa-stop{ color:blue; } */
+  i.fa.fa-stop{ color:blue; }
   i.fa.fa-lightbulb-o{ color:yellow; }
   i.fa.fa-rocket{ color:yellow; }
+ */
+i.fa { padding:8px; }
+  
+/* labels msg */
 
 #lbl_msg_animation{
 	position:relative;
@@ -122,6 +133,9 @@
 	font-size:22px;
 	margin-top:5px;
 }
+
+/* progress bar */
+
 #progress-bar-anim{
 	float:left;
 	width:25%;
@@ -139,8 +153,9 @@
 				<h1><img src="images/heart.png" ><br>L'Equipe</h1>
 				<h3>Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres<br> d'intérêt, le même sentiment de nécessité et urgence d'agir et de se regrouper,<br>
 			 de se sentir utile pour la société. <span>Aujourd'hui, le Pixel Humain, c'est aussi vous !...</span></h3>
+			 <a href="#btn-play-anim">
 			 <button type="button" class="btn btn-start-animation" id="btn-play-anim"><i class="fa fa-play"></i> Lancer l'animation</button>
-			
+			</a>
 			
 			</br> </br>
 			</div>
@@ -148,6 +163,7 @@
 			<div id="carto" class="section mapProject" >
 
 			        	<div class="mapCanvasSlider" id="mapCanvasSlide1">
+			        		<center><img style="margin-top:50px;" src="<?php echo $this->module->assetsUrl; ?>/images/world_pixelized.png"></center>
 			            </div>
 			        	
 			        	<div class="panel_map">
@@ -226,59 +242,92 @@
 
 jQuery(document).ready(function()
 { 	
-	//$.getScript(assetPath+"/js/sig/leaflet.js", 						function( data, textStatus, jqxhr ) { });
+	timerLoader = setTimeout('startLoadingAnimation()', 5000); 
+	$( "#btn-play-anim" ).click(function (){ startPlaying(); });
+	$( window ).resize(function() { resizeMap(); });
+});
+
+
+
+var nbScriptTotal = 4;
+var nbScriptLoaded = 0;	
+var timerLoader; 
+function startLoadingAnimation(){
+	
+	if(nbScriptLoaded < nbScriptTotal) {
+		clearTimeout(timerLoader);
+		timerLoader = setTimeout('startLoadingAnimation()', 2000); 
+	}
+	
+	nbScriptLoaded = 0;
 	//$.getScript("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js", 	function( data, textStatus, jqxhr ) { });
-//	$.getScript(assetPath+"/js/sig/leaflet.js", 						function( data, textStatus, jqxhr ) { });
-//	$.getScript(assetPath+"/js/sig/leaflet.draw-src.js", 				function( data, textStatus, jqxhr ) { });
-//	$.getScript(assetPath+"/js/sig/leaflet.draw.js", 					function( data, textStatus, jqxhr ) { });
-//	$.getScript(assetPath+"/js/sig/leaflet.markercluster-src.js", 		function( data, textStatus, jqxhr ) { 
+	$.getScript(assetPath+"/js/sig/leaflet.js", 						function( ) {  checkLoadLib(); });
+	$.getScript(assetPath+"/js/sig/leaflet.draw-src.js", 				function( ) {  checkLoadLib(); });	
+	$.getScript(assetPath+"/js/sig/leaflet.draw.js", 					function( ) {  checkLoadLib(); });	
+	$.getScript(assetPath+"/js/sig/leaflet.markercluster-src.js", 		function( ) {  checkLoadLib(); });
 	
 	
-	//});
+}
+function checkLoadLib(){ 	
+	nbScriptLoaded++; 
+				
+	if(nbScriptLoaded >= nbScriptTotal) {
+		clearTimeout(timerLoader);
+		initAll();
+		$("#progress-bar-anim").css({"display":"none"});
+	} 
+	else { $("#progress-bar-anim").css({"display":"inline"}); }
 	
+	$("#progress-bar-animation").attr('aria-valuenow', (nbScriptLoaded*25) + "%");
+	$("#progress-bar-animation").css({"width": (nbScriptLoaded*25) + "%" });	
+}
+
+function initAll(){
 		
 	$( "#btn-play" ).tooltip({ content: "lancer l'animation" });
 	$( "#btn-stop" ).tooltip({ content: "arrêter l'animation" });
 	
-	$( "#btn-play-anim" ).click(function (){ startPlaying(); });
-	$( "#btn-play" ).click(function (){ startPlaying(); });
-	$( "#btn-stop" ).click(function (){ stopMapAnimation(); });
-	$( "#btn-zoom-in" ).click(function (){ zoomIn(); });
-	$( "#btn-zoom-out" ).click(function (){ zoomOut(); });
+	$( "#btn-play" )		.click(function (){ startPlaying(); });
+	$( "#btn-stop" )		.click(function (){ stopMapAnimation(); });
+	$( "#btn-zoom-in" )		.click(function (){ zoomIn(); });
+	$( "#btn-zoom-out" )	.click(function (){ zoomOut(); });
 	
 
-	//charge la première carte (pixel actif)
+	$("#mapCanvasSlide1").html("");
+	$("#mapCanvasSlide1").css({"background-color": "#456074"});
 
+	$("#progress-bar-anim").css({"display":"none"});
+		
 	//charge la carte
 	map1 = loadMap("mapCanvasSlide1");
 	map1.setView([-21.13318, 55.5314], 10);//[30.29702, -21.97266], 3);
 	listId["getPixelActif"] = new Array("init");
 	
 	map1.on('dragend', function(e) {
-    		//showCitoyensClusters(map1, "getPixelActif", listId);
+    		//showMapElements(map1, "getPixelActif", listId);
 		});
 		
 	map1.on('zoomend', function(e) {
-    		//showCitoyensClusters(map1, "getPixelActif", listId);
-		}); showCitoyensClusters(map1, "getPixelActif", listId);
-		
+    		//showMapElements(map1, "getPixelActif", listId);
+		}); showMapElements(map1, "getPixelActif", listId);
+	
+	//récupérer la position du centre de la carte, et la valeur du zoom	
+	//pour établir la liste des Places de l'animation (animationPlan)
 	map1.on('click', function(e) {
     		//alert(map1.getCenter() + " - " + map1.getZoom());
 		}); 
 		
 	initAnimation();
 	resizeMap();
-	//timerMapPlay = setTimeout('playMapAnimation()', 5000); 
-});
-
-$( window ).resize(function() { resizeMap(); });
+	
+	//startPlaying();
+}
 	
 	
 	//##
 	//##	MAP	##
 	//##
-	
-	
+		
 	var assetPath = "<?php echo $this->module->assetsUrl; ?>";
 	
 	//mémorise les identifiants des éléments de chaque carte
@@ -293,11 +342,35 @@ $( window ).resize(function() { resizeMap(); });
 	var map1;
 	function zoomIn(){ map1.zoomIn(); }
 	function zoomOut(){ map1.zoomOut(); }
-	function reloadMap(){ showCitoyensClusters(map1, "getPixelActif", listId);  }
 	
+	//##
+	//réduit la taille du panel d'option de la carte
+	//si la largeur de l'écran est inférieur à 700px
+	function resizeMap(){
+		if($( "body" ).width() < 700){
+			$(".filter_name").css({"display":"none"});
+			$(".panel_map").css({"max-width":"60px"});
+			$("#lbl_msg_animation").css({"width":"45%", "margin-left":"53%"});
+			$("#progress-bar-anim").css({"width":"45%", "margin-left":"53%"});
+			$("#h3MsgAnim").css({"display":"none"});
+		}
+		else{
+			$(".filter_name").css({"display":"inline"});
+			$(".panel_map").css({"max-width":"280px"});
+			$("#lbl_msg_animation").css({"width":"25%", "margin-left":"73%"});
+			$("#progress-bar-anim").css({"width":"25%", "margin-left":"73%"});
+			$("#h3MsgAnim").css({"display":"inline"});
+		
+		}
+	}
+		
 	function loadMap(canvasId){
 		//initialisation des variables de départ de la carte
-		var map = L.map(canvasId, { "zoomControl" : false, "scrollWheelZoom":false, "worldCopyJump" : true }).setView([51.505, -0.09], 4);
+		var map = L.map(canvasId, { "zoomControl" : false, 
+									"scrollWheelZoom":false, 
+									"center" : [51.505, -0.09],
+									"zoom" : 4,
+									"worldCopyJump" : true });
 
 		L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
@@ -305,10 +378,6 @@ $( window ).resize(function() { resizeMap(); });
 			minZoom: 0,
 			maxZoom: 20
 		}).setOpacity(0.4).addTo(map);
-	
-		map.on('click', function(e) {
-    		//alert(e.latlng);
-		});
 	
 		return map;
 	}								
@@ -319,11 +388,10 @@ $( window ).resize(function() { resizeMap(); });
 	var markersLayer = "";
 	var geoJsonCollection = "";
 	var currentFilter = "none";
-	function showCitoyensClusters(mapClusters, origine, listId){ 
+	function showMapElements(mapClusters, origine, listId){ 
 			
 		if(markersLayer != "")
 			clearMap(mapClusters);
-		//	mapClusters.removeLayer(markersLayer);
 			
 		markersLayer = new L.MarkerClusterGroup({"maxClusterRadius" : 40});
 		mapClusters.addLayer(markersLayer);
@@ -339,22 +407,19 @@ $( window ).resize(function() { resizeMap(); });
 			"types"		  :  new Array()			
 		};
 		
-		//params["types"] = new Array();
-		/*$('input[type=checkbox][name="chk_panel_map"]').each(function () {
-           if (this.checked) {
-               params["types"].push($(this).val()); 
-           }
-		});
-		*/
-		
 		if(currentFilter != "all")  params["types"].push(currentFilter); 
 		else 						params["types"] = allTagFilter;
 		//alert(JSON.stringify(params)); //return;
 		
 		$('#ico_reload').addClass("fa-spin");
 		$('#ico_reload').css({"display":"inline-block"});
-		testitpost("showCitoyensResult", '/ph/<?php echo $this::$moduleKey?>/api/' + origine, params,
-			function (data){ 		//alert(JSON.stringify(data));
+		
+		$.ajax({
+			url:'/ph/<?php echo $this::$moduleKey?>/api/' + origine,
+			data:params,
+			type:"POST",
+			dataType:"json",
+			success:function(data) { 		//alert(JSON.stringify(data));
 				$.each(data, function() { 			
 					if(this._id != null){
 				
@@ -482,7 +547,13 @@ $( window ).resize(function() { resizeMap(); });
 				$('#ico_reload').removeClass("fa-spin");
 				$('#ico_reload').css({"display":"none"});
 		
-			});							
+			},
+			error:function (xhr, ajaxOptions, thrownError){
+			  //toastr.error(thrownError);
+			  
+			} 
+		  });
+						
 	}
 	
 	//##
@@ -523,17 +594,6 @@ $( window ).resize(function() { resizeMap(); });
 		});
 		
 		return marker;
-	}
-	
-	//##
-	//supprime tous les marker de la carte
-	function clearMap(theMap){
-		if(markersLayer != "")
-			markersLayer.clearLayers();
-		
-		$.each(markerSingleList, function(){
-			theMap.removeLayer(this);
-		});
 	}
 	
 	//##
@@ -586,6 +646,22 @@ $( window ).resize(function() { resizeMap(); });
 												popupAnchor: 	[0, -14] });			  						
 	}
 
+	//##
+	//recharge les marker de la carte
+	function reloadMap(){ showMapElements(map1, "getPixelActif", listId);  }
+	
+	//##
+	//supprime tous les marker de la carte
+	function clearMap(theMap){
+		if(markersLayer != "")
+			markersLayer.clearLayers();
+		
+		$.each(markerSingleList, function(){
+			theMap.removeLayer(this);
+		});
+	}
+	
+	
 	
 	
 	//##
@@ -594,29 +670,12 @@ $( window ).resize(function() { resizeMap(); });
 	
 	function changeFilter(val){ 	
 		if(currentFilter != "")
-			$('#item_panel_map_' + currentFilter).removeClass("selected");		
+			$('#item_panel_map_' + currentFilter).removeClass("selected");	
+				
 		$('#item_panel_map_' + val).addClass("selected");
 		currentFilter = val;	
-		showCitoyensClusters(map1, "getPixelActif", listId);	
+		showMapElements(map1, "getPixelActif", listId);	
 	}		
-	
-	//##
-	//réduit la taille du panel d'option de la carte
-	//si la largeur de l'écran est inférieur à 700px
-	function resizeMap(){
-		if($( "body" ).width() < 700){
-			$(".filter_name").css({"display":"none"});
-			$(".panel_map").css({"max-width":"60px"});
-			$("#lbl_msg_animation").css({"width":"45%", "margin-left":"55%"});
-		}
-		else{
-			$(".filter_name").css({"display":"inline"});
-			$(".panel_map").css({"max-width":"280px"});
-			$("#lbl_msg_animation").css({"width":"25%", "margin-left":"73%"});
-		
-		}
-	}
-	
 	
 	
 	//##
@@ -625,7 +684,7 @@ $( window ).resize(function() { resizeMap(); });
 	
 	
 	var timerMapPlay;// = setTimeout('playMapAnimation()', 5000); 
-	var allowToPlay = true;
+	var allowToPlay = false;
 	//##
 	//liste de lieux à utiliser pendant l'animation
 	var animationPlaces = { 
@@ -717,7 +776,10 @@ $( window ).resize(function() { resizeMap(); });
 										   "name" : "rocket" }
 							},	
 		"all" : 	{ 	"places" : [ { 	"place" : animationPlaces.world, 
-										"msg" : "Message final pour le monde entier" }
+										"msg" : "Message final pour le monde entier" },
+									 {	"place" : animationPlaces.world, 
+										"msg" : "Message final pour le monde entier" },
+										
 									],
 									"title" : "Tous",
 									"icon" : { "color" : "white",
@@ -737,40 +799,60 @@ $( window ).resize(function() { resizeMap(); });
 	}
 	
 	function startPlaying(){
-		allowToPlay = true;	
-		playMapAnimation();
+		//si les script js ne sont pas encore chargé, il faut les charger d'abord
+		if(nbScriptLoaded < nbScriptTotal) 
+			{ startLoadingAnimation(); return; }
+		
+		
+		if(allowToPlay == false){
+			allowToPlay = true;	
+						
+			map1.scrollWheelZoom.enable();
+			
+			cntTime = 10;
+			playMapAnimation();
+		}
 	}
 	
 	//##
 	//fonction appelé par timeout pour faire avancer l'animation d'une étape à chaque fois
-	var cntTime = 10;
+	var cntTime = 10;	 //compteur de temps, pour faire défiler l'animation et la progress-bar (init 10 pour lancer l'anim tout de suite)
 	var cntTimeMax = 10; //nombre de secondes entre chaque étape de l'animation
 	
-	var cntTag = 0;
-	var cntPlaces = 0;
-	var tagLimit = "";
+	var cntTag = 0;		//pour changer les filtres pendant l'animation
+	var cntPlaces = 0;	//pour changer de lieu pendant l'animation
+	
 	function playMapAnimation(newTag)
 	{
+		//active le bouton play (vert)
 		$("#btn-play").addClass("playing");
 		
+		//si le temps n'est pas écoulé ET qu'on ne change pas de filtre
 		if(cntTime < cntTimeMax && newTag == null) { 
+			//avance le temps
 			cntTime++; 
+			//éteint le timer
 			clearTimeout(timerMapPlay);
+			//relance le timer 
 			timerMapPlay = setTimeout('playMapAnimation()', 1000); 
+			//fait avancer la progress-bar
 			$("#progress-bar-animation").attr('aria-valuenow', (cntTime*10) + "%");
 			$("#progress-bar-animation").css({"width": (cntTime*10) + "%"});
 			return; 
-		} else if(newTag != null) {
-			cntPlaces = 0;
-		}
+		} 
 		
+		//remet à zéro le compteur de temps
 		cntTime = 0;
-			
+		//récupère le nom du tag correspondant à la valeur du 	
 		var currentTag = allTagAnimation[cntTag];
 		
+		//si on change de filtre
 		if(newTag != null) { 
+			//actualise le nom du filtre courant
 			currentTag = newTag;
+			//lance le nouveau filtre sur le premier lieu de la liste (!)
 			cntPlaces = 0; 
+			//récupère la valeur numérique du nouveau filtre
 			var i=0;
 			$.each(allTagAnimation, function(){
 				if(this == newTag) cntTag = i;
@@ -778,67 +860,87 @@ $( window ).resize(function() { resizeMap(); });
 			});
 		} //alert(cntTag + " - " + currentTag + " - " + cntPlaces);
 		
+		//récupère les données du lieu à afficher
 		var currentPlace = animationPlan[currentTag].places[cntPlaces].place;
-		tagLimit = currentTag; 
-			
+		
+		//récupère la valeur du zoom à afficher	
 		var zoom = currentPlace.zoom
+		//si la fenêtre mesure moins de 700px de large, on recule le zoom de 1 niveau
 		if($( "body" ).width() < 700) zoom = zoom-1;
 		
-		changeFilter(currentTag);
-		
+		//si l'utilisateur n'a pas cliqué sur pause : allowToPlay = true
 		if(allowToPlay){
 			
+			//affiche le message et la progress-bar
 			$("#lbl_msg_animation").css({"display":"inline"});
 			$("#progress-bar-anim").css({"display":"inline"});
+			
+			//modifie la valeur du zoom de la carte (sans animation pour éviter quelques bugs)
 			map1.setZoom(zoom, { "animate" : false });
+			//déplace le centre de la carte jusqu'au lieu en cours
 			map1.panTo(currentPlace.latlng);
 		
-			var txtMsg = //"<h1><img src='" + assetPath + "/images/iconAnimation/" + animationPlan[currentTag].icon.name + ".png' height=50><br>" + animationPlan[currentTag].title + "</h1>" +
-						 "<h1><i class='fa fa-" + animationPlan[currentTag].icon.name + " fa-3x' style='color:"+animationPlan[currentTag].icon.color+"'></i></br>" + 
-							animationPlan[currentTag].title + 
+			//création du header du message à afficher
+			var txtMsg = "<h1><i class='fa fa-" + animationPlan[currentTag].icon.name + " fa-3x' "+
+								 "style='color:"+animationPlan[currentTag].icon.color+"'>"+
+							  "</i>" + 
+							  "</br>" + 
+							  animationPlan[currentTag].title + 
 						 "</h1>";
+			
+			var style = "";
+			//si la fenêtre mesure moins de 700px de large, efface le message
+			if($( "body" ).width() < 700) style = "style='display:none;'";
+			
+			//création du corp du message (invisible si width() < 700)
+			txtMsg += "<h3 id='h3MsgAnim' "+style+">"+
+						animationPlan[currentTag].places[cntPlaces].msg +
+						"</h3>" + 
+						"<br> <br>";
 					 
-			if($( "body" ).width() > 700)
-				txtMsg += "<h3>"+
-							animationPlan[currentTag].places[cntPlaces].msg +
-						  "</h3>" + 
-						  "<br> <br>";
-					 
-					 
+			//affiche le message		 
 			$("#lbl_msg_animation").html(txtMsg);
 			$("#lbl_msg_animation").css({"display":"inline"});
 			
+			//demande l'actualisation des markers de la carte (avec le filtre en cours)
+			changeFilter(currentTag);
+		
+			//avance d'un lieu
 			cntPlaces++;
+			//si c'est le dernier lieu de la liste pour le filtre en cours
 			if(cntPlaces >= animationPlan[currentTag].places.length){
+				//réinitialise le compteur de lieu
 				cntPlaces = 0;
+				//avance d'un filtre
 				cntTag++;
 			}
-			// if(tagLimit != allTagAnimation[cntTag]) {
-	// 			cntTag = 0;
-	// 			stopMapAnimation();
-	// 			return;
-	// 		}
+			//si c'est le dernier compteur de filtre
 			if(cntTag >= allTagAnimation.length){
+				//réinitialise tout
 				cntPlaces = 0;
 				cntTag = 0;
+				//arrête l'animation
 				stopMapAnimation();
+				//et quitte
 				return;
 			}
 		
+			//relance le timer
 			clearTimeout(timerMapPlay);
 			timerMapPlay = setTimeout('playMapAnimation()', 1000); 
 		}
-		else{
-			$("#btn-play").removeClass("playing");
-			$("#lbl_msg_animation").css({"display":"none"});
-			$("#progress-bar-anim").css({"display":"none"});
+		else{ //si l'animation est en pause
+			$("#btn-play").removeClass("playing"); 				//affiche le bouton play en jaune
+			$("#lbl_msg_animation").css({"display":"none"});	//efface le message d'animation
+			$("#progress-bar-anim").css({"display":"none"});	//efface la progess-bar
 			
 		}
 	}
 	
 	function stopMapAnimation(){ 
 		allowToPlay = false;
-		clearTimeout(timerMapPlay); 
+		clearTimeout(timerMapPlay);
+		 
 		$("#btn-play").removeClass("playing");
 		$("#lbl_msg_animation").css({"display":"none"});
 		
