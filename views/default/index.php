@@ -36,41 +36,11 @@ $this->pageTitle=$this::moduleTitle;
 		
 			<?php 
 				$this->renderPartial('banniere');
+				$this -> renderPartial('projet');
 			?>
+
+
 		
-
-		<!-- START TEAM SECTION -->
-		<section id="description" class="center section with-arrow">
-			<!-- SECTION TITLE -->
-			<div class="section-header sub-hero">
-				<h1><img src="images/icon.png" width="80" height="79"><br>Le Projet</h1><hr>
-			</div>
-			<!-- SECTION CONTENT -->
-			<div class="section-content section-no-top-padding" id ="section-video">
-				<div class="container">
-					<h3>Pixel Humain est le premier réseau social citoyen libre de droit, <br>
-		d'accès, d'opinion, d'utilisation, d'évolution ...<br>
-		Pixel humain est une plateforme en construction et recherche de financements.
-					</h3>
-					<img class="img-responsive img-thumbnail" src="images/video.jpg" data-toggle="modal" data-target="#largeModal"/>
-				</div>
-			</div>
-		</section>
-		<!-- END TEAM SECTION -->
-
-		<!-- Modal -->
-		<div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-		  <div class="modal-dialog modal-lg">
-		    <div class="modal-content">
-		      <div class ="modal-header">
-		      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      </div>
-		      	<div class="modal-body">
-		      		<iframe src="http://player.vimeo.com/video/74212373?api=1&title=0&amp;byline=0&amp;portrait=0&amp;color=57c0d4" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video" aria-hidden="true" tabindex="-1"></iframe>
-		      	</div>
-		    </div>
-		  </div>
-		</div>
 	
 
 
@@ -87,52 +57,9 @@ $this->pageTitle=$this::moduleTitle;
 		<!-- START SERVICES SECTION -->
 			<section id="services" class="section section-full-colored">
 				<!-- SECTION TITLE -->
-				<div class="section-header">
-				
-					<h1 class="parnet">	<img src="images/hand.png"  ><br>PARTICIPER</h1>
-					<p class="parnet">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet <br>dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam<br> nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-				</div>
-				<!-- SECTION CONTENT -->
-				<div class="section-content">
-					<div class="container">
-						<div class="services-slider ">
-		                    <ul class="slides">
-								<!-- START SERVICE -->
-		                    <div class="col-md-3">   <li>
-		                            <div class="slide">
-										
-										<h3>Je me communecte</h3>
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
-									</div>
-								</li></div>  
-								<!-- END SERVICE -->
-		                     <div class="col-md-3">   <li>
-		                            <div class="slide">
-										
-										<h3>J'adhère</h3>
-										<p>Vous adhérez à la philosophie du projet Pixel Humain ? Ce projet est porté par  l'association Open Atlas. En adhérant, vous soutenez le projet Pixel Humain....</p>
-									</div>
-								</li></div>
-		                      <div class="col-md-3">  <li>
-		                            <div class="slide">
-									
-										<h3>Je donne</h3>
-										<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
-									</div>
-								</li></div>
-		                     <div class="col-md-3">   <li>
-		                            <div class="slide">
-										
-										<h3>Je participe</h3>
-										<p>Here it's just an example of the activities that you can do with your charity to get funds. Or something else...</p>
-									</div>
-								</li></div>
-							</ul>
-						</div>
-						<!-- SECTION BUTTON -->
-						
-					</div>
-				</div>
+				<?php 
+					$this->renderPartial('service');
+				?>
 			</section>
 			<!-- END SERVICES SECTION -->
 			<!-- START DONATION SECTION -->
@@ -177,9 +104,11 @@ $this->pageTitle=$this::moduleTitle;
 
 
 <script type="text/javascript">
-
+	var baseUrl = "http://127.0.0.1/ph";
 jQuery(document).ready(function()
-{ 	
+{
+	
+
 	var sliderSvg = $('.flexslider').flexslider();
 	jQuery.fn.d3MouseOver = function () {
 	    this.each(function (i, e) {
@@ -205,17 +134,18 @@ jQuery(document).ready(function()
 	/*-------------------------------------------------------
 	---- Graph
 	---------------------------------------------------------*/
+
 	
-	grapLinkBanner("data/data.json");
+	resizeGraph();
 			
 	
 
 });
 
 
-$( window ).resize(function() { resizeMap(); resizeGraph("data/data.json"); });
+$( window ).resize(function() { resizeMap(); resizeGraph(); });
 	
-
+	
 	
 	//##
 	//##	MAP	##

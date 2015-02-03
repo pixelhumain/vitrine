@@ -9,7 +9,7 @@
  */
 class DefaultController extends Controller {
 
-    const moduleTitle = "SIG";
+    const moduleTitle = "Vitrine";
     public $keywords = "";
     public $description = "";
     public static $moduleKey = "sig";

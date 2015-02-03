@@ -1,5 +1,15 @@
+<style>
+
+#modalComment{
+	height: 30%;
+	width: 500px;
+}
+</style>
+
 <script src="http://code.jquery.com/jquery.js"></script>
+
 <section id="sectionsvg" class="section">
+	<div id="response" style="display: none"></div>
 	<div class="svgAndImg">
 		<div id="svg"></div>
 		<div id="patterns"></div>
@@ -29,12 +39,57 @@
 		</div> 
 
 	</div>
+
+	<div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+	  <div class="modal-dialog modal-xs" id = "modalComment">
+	    <div class="modal-content">
+	      <div class ="modal-header">
+	      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	      </div>
+	      	<div class="modal-body">
+	      		
+				<span class="input-icon">
+					<label for="senCommentemail"><i class="fa fa-user"></i> Email </label>
+					<input id="sendCommentemail" class="form-control" type="mail" placeholder="Email">
+					
+				</span>
+				
+				<div class="form-group">
+					<label for="senCommentmsg"> Commentaire </label>
+					<textarea id="sendCommentmsg" class="form-control" placeholder="Commdentaire" style="height: 120px;"></textarea>
+				</div>
+				
+				<span class="input-icon">
+					<label for="cpComment"> <i class="fa fa-hand-o-right"></i>Code Postal </label>
+					<input id="cpComment" class="form-control" type="text" placeholder="Code Postal">
+					
+				</span>
+				
+	      		<!--Commentaire  : <textarea name="sendCommentmsg" id="sendCommentmsg"></textarea> <br/>
+				email(s) : <textarea type="text" name="sendCommentemail" id="sendCommentemail"><?php echo $this->module->id?>@<?php echo $this->module->id?>.com</textarea><br/>
+				code postal : <textarea type="number" name="cpComment" id="cpComment"></textarea><br/> -->
+				<a class="btn" href="javascript:sendCommentVitrine()">Send it</a><br/>
+				<div id="sendCommentResult" class="result fss"></div>
+				<script>
+					function sendCommentVitrine(){
+						params = { 
+				    	   "email" : $("#sendCommentemail").val() , 
+				    	   "msg" : $("#sendCommentmsg").val(),
+				    	   "cp" : $("#cpComment").val(),
+				    	   };
+						testitpost("sendCommentResult",baseUrl+'/<?php echo $this->module->id?>/api/sendmessagevitrine',params);
+						$(".modal").css("display", "none");
+						resizeGraph();
+					}
+				</script>
+	      	</div>
+	    </div>
+	  </div>
+	</div>
 </section>
 
 <script type="text/javascript">
 
-
-var link;
 var vertices = [];
 var linkValue;
 var dataFile;
@@ -45,17 +100,19 @@ var objectTarget = null;
 var width;
 var height;
 var anime;
-var tipCirclePack0;
+var numTip = 0;
+var tipCirclePack;
 var tipCirclePack1;
 var tipCirclePack2;
 var tipCirclePack3;
 var tipCirclePack4;
-
-
-
-function grapLinkBanner(datafile){
- 
-	tipCirclePack = d3.tip()
+var datajson;
+var tipOpen = false;
+var svg;
+function grapLinkBanner(data){
+ 	$("#svgGrap").remove();
+ 	$("svgPath").remove();
+ 	tipCirclePack = d3.tip()
 	  .attr('class', 'd3-tip')
 	  .offset([-10, 0]);
 
@@ -74,26 +131,26 @@ function grapLinkBanner(datafile){
 	tipCirclePack4 = d3.tip()
 	  .attr('class', 'd3-tip')
 	  .offset([-10, 0]);
-
-  	var svg = d3.select("#svg").append("svg")
+	
+	 svg = d3.select("#svg").append("svg").attr("id", "svgGrap")
       .call(tipCirclePack1)
       .call(tipCirclePack2)
       .call(tipCirclePack3)
       .call(tipCirclePack4)
       .call(tipCirclePack);
+  	
 
-	  width = $("#sectionsvg").width();
+	 width = $("#sectionsvg").width();
 
-	  var height = $("#sectionsvg").height();
+	 var height = $("#sectionsvg").height();
 
-	  svg.attr("height", height)
+	 svg.attr("height", height)
 	      .attr("width", width);
-	var svg2 = d3.select("#patterns").append("svg").append("defs");
-	  d3.json(datafile, function(error, data) {
-	    dataFile=data;
-	    var circleRadius = 10;
+	var svg2 = d3.select("#patterns").append("svg").attr("id", "svgPath").append("defs");
+	dataFile=data;
+	var circleRadius = 10;
 	    
-	    link = svg.selectAll("line");
+	    var link = svg.selectAll("line");
 
 	    var t = [];
 	    var n = 0;
@@ -125,17 +182,14 @@ function grapLinkBanner(datafile){
 	    var vertices1 = [];
 	    var vertices2 = [];
 
-	    nodes.append("image")
-	      .attr("xlink:href", "images/img3.png")
-
-
-
 	    for (var i = 0; i<vertices.length; i ++){
 	      if(i<compt/2){
 	        vertices1[i] = vertices[i];
+	        var c = i+1
+	        console.log("i1", i)
 	      }
 	      else{
-	        vertices2[i-compt/2] = vertices[i];
+	        vertices2[i-c] = vertices[i];
 	        }
 	    }
 	    for(var i=0; i<4; i++){
@@ -212,35 +266,21 @@ function grapLinkBanner(datafile){
 	      .on("mouseover", expandNode)
 	      .on("mouseout", contractNode);
 
-	    getTipsOpen(20);
-	    animateTips(20, true);          
-	})
+	     $("#1").d3MouseOver();
+	    //getTipsOpen(20);
+	    //animateTips(20);          
+	
 	}
 
 
-	function getTipsOpen(c){
-	  var id = [];
-	  for(var i=0; i<5; i++){
-	    var n = _.random(1, c)
-	    while($.inArray(n, id) != -1){
-	      n=_.random(1, c);
-	    }
-	    id[i] = n;
-	  }
-	  //console.log(id);
-	}
+	
 
-	function animateTips(c, b){
-	  
-	  if(b == true){
-	    var id = _.random(1, c);
+	function animateTips(c){
+	    var id = _.random(1, c+1);
 	    $("#"+id).d3MouseOver();
-	      anime = setTimeout(function(){
-	      animateTips(c, true);
-	    }, 5000); 
-	  }else{
-	    clearTimeout(anime);
-	  }
+	    anime = setTimeout(function(){
+	      	animateTips(c);
+	    }, 10000); 
 	}
 
 
@@ -252,97 +292,64 @@ function grapLinkBanner(datafile){
         var commentTips = "";
         var d = null;
         var returnObj = null;
-        console.log("tab", tabTick,"tabId", tabId);
+        
         $.each(dataFile, function(key,obj){
-            //console.log("n", n, "id", id);
-             if(n == id){
-              //console.log("------------------------", obj);
-                d = obj;
-                comment = obj.comment.comment;
+            if(n == id){
+               d = obj;
+               comment = obj.comment.comment;
                 //console.log(obj.comment, obj["comment"]);
               }
               n++
           });
-        var n = _.random(1, 5);
-        tip = chooseTips(n);
         
-        //verification des tips ouvert
-        var index = $.inArray(n, tabTick);
-        if(index !=-1){
-          tabTick = $.grep(tabTick, function(value) {
-            return value != n;
-          });
-          
-          //console.log(tabId[index]);
-          var indexTab = tabId[index];
-          if($.inArray(indexTab, tabId)==-1){
-            $("#"+indexTab).d3MouseOut();
-          }
-  
-          $("#"+indexTab).css("fill", "#ccc");
-          tabId = $.grep(tabId, function(value) {
-            return value != indexTab;
-          });
-          if($.inArray(indexTab, tabId)==-1){
-            $("#"+indexTab).d3MouseOut();
-          }
-        }
-        if($.inArray(id, tabId) ==-1){
-          tabTick.push(n);
-          tabId.push(id);
-          $("#"+id).css("fill", "url(#img"+id+")");
-        //console.log("tab", tabTick,"tabId", tabId);
-          tip.html("<div id ='tool-d3'> <span><strong>"+ d.name+": </strong> </br>"+comment+"</span></div>")
-          returnObj = tip.show(object); 
-        }
-        return returnObj;  
+        tip = chooseTips(numTip);
+        if($.inArray(id, tabId) == -1){
+	        if(tabId.length>=5){
+	        	$("#"+tabId[0]).d3MouseOut();
+	        	tabId.shift();
+	        	tabTick.shift();
+	        }
+	        tabId.push(id);
+	        tabTick.push(numTip);
+	        numTip++;
+	        if(numTip>4){
+	        	numTip = 0;
+	        };
+	        console.log("tips", numTip, "tabId", tabId);
+	        
+		    $("#"+id).css("fill", "url(#img"+id+")");
+		    
+	      	tip.html("<div id ='tool-d3'> <span><strong>"+ d.name+": </strong> </br>"+comment+"</span></div>")
+	      	returnObj = tip.show($("#"+id));
+	      }    
+        return returnObj; 
       }
 
 	function closeTips(obj, id){
-        var n = 1;
-        var n = _.random(1, 5);
-        tip = chooseTips(n);
-        
         //verification des tips ouvert
-        var index = $.inArray(id, tabId);
+        tip = chooseTips(tabTick[$.inArray(id, tabId)]).hide();
+        $("#"+id).css("fill", "#ccc");
 
-        if(index !=-1){
-          var indexTab = tabId[index];
-          console.log(index, "indextab", indexTab);
-          tabId = $.grep(tabId, function(value) {
-            return value != indexTab;
-          });
-          var indexTick = tabTick[index];
-          $("#"+indexTab).css("fill", "#ccc");
-
-          tabTick = $.grep(tabTick, function(value) {
-            return value != indexTick;
-          });
-          console.log("indexTick", indexTick);
-          tip = chooseTips(indexTick);
-          tip.hide(obj);
-          console.log(tabId, "tabTick", tabTick);
-      }
-	    }
+	}
 
 	// Choose of the tooltip layout
 	function chooseTips(n){
 	  
 	  var tips;
 	  switch(n){
-	    case(1):
+	    case(0):
 	      tips= tipCirclePack;
 	    break;
-	    case(2):
+	    case(1):
 	      tips= tipCirclePack1;
 	    break;
-	    case(3):
+	    case(2):
 	      tips = tipCirclePack2;
 	    break;
-	    case(4):
+	    case(3):
 	      tips = tipCirclePack3;
 	    break;
-	    case(5):
+	    case(4):
 	      tips = tipCirclePack4;
 	    break;
 	  }
@@ -360,10 +367,10 @@ function grapLinkBanner(datafile){
 	          d = obj;
 	         //console.log(d);
 	          if(obj.image){
-	           //console.log(obj.image)
+	           console.log(obj.image.url)
 	            url = path+obj.image.url;
 	          }
-	          if(!url){
+	          if(!url || url == path+""){
 	            url = path+"img3.png"
 	          }
 	        }
@@ -424,14 +431,44 @@ function grapLinkBanner(datafile){
 	    });
 	  };
 
-	function resizeGraph(datafile){
-	  $("#svg").remove();
-	  $("#patterns").remove();
-	  var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
-	  var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
-	  $("#patterns").insertBefore(".flexslider");
-	  $("#svg").insertBefore("#patterns");
-	  animateTips(null, false);
-	  grapLinkBanner(datafile);
+	function resizeGraph(){
+		
+		tabId =[];
+		clearTimeout(anime);
+		$("#svgGrap").remove();
+		$("#svgPath").remove();
+		$(".d3-tip").remove();
+		$("#svg").remove();
+		$("#patterns").remove();
+		var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
+		var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
+		$("#patterns").insertBefore(".flexslider");
+		$("#svg").insertBefore("#patterns");
+		getMessageVitrine();
 	}
+	function getMessageVitrine(){
+		var fields = "name,comment,image" ;
+		var params = {"applications.<?php echo $this->module->id?>.usertype":"event","limit":30};
+		params.fields = fields.split(",");
+		$.ajax({
+		        type: "GET",
+		        url: baseUrl+'/<?php echo $this->module->id?>/api/getmessagevitby',
+		        dataType : "json",
+		        data: params
+		    })
+		    .done(function (data) 
+		    {
+		        if (data) {               
+		        	console.log("getmessagevitby1",datajson)
+		        	datajson = data;
+		        	grapLinkBanner(datajson);
+		        	console.log("getmessagevitby2",datajson)
+		        } else {
+		            console.error("bug get "+id);
+		        }
+		    });
+		 animateTips(30);
+	}
+
+
 </script>

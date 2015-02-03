@@ -7,8 +7,8 @@
  */
 class ApiController extends Controller {
 
-    const moduleTitle = "Sig";
-    public static $moduleKey = "sig";
+    const moduleTitle = "Vitrine";
+    public static $moduleKey = "vitrine";
     public $percent = 60; //TODO link it to unit test
 
     protected function beforeAction($action)
@@ -19,7 +19,8 @@ class ApiController extends Controller {
 
     public function actions()
     {
-        array_push($this->sidebar1,Api::getSigMap()); 
+        array_push($this->sidebar1,Api::getSigMap());
+        array_push($this->sidebar1, Api::getCommunicationMap()); 
         return Api::buildActionMap($this->sidebar1);
     }
 }
