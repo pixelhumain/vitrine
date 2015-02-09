@@ -9,12 +9,21 @@
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <section id="sectionsvg" class="section">
-	<div id="response" style="display: none"></div>
 	<div class="svgAndImg">
 		<div id="svg"></div>
 		<div id="patterns"></div>
 		<div class="flexslider">
 			<ul class="slides">
+			<li>
+				<div class="imgSvg" id="slide1">
+					<img src="images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<h1>Découvrez <strong>Pixel Humain</strong></h1>
+		            	<h3>Le premier réseau social citoyen libre<br>
+		Citoyens, Associations, Entreprises, Collectivités : <br>
+		Découvrez ce qui se passe en ce moment dans votre commune<br>
+		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+				</div>
+			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
 					<img src="images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>

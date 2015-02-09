@@ -30,13 +30,14 @@
     font-size: 1em;
 }
 #container{
-	position: relative;
 	z-index: 1;
 }
 #divAction{
-	position: absolute;
 	display: none;
 	z-index: 10;
+	width: 30%;
+	margin-left: 35%;
+	text-align: center;
 }
 
 </style>
@@ -48,8 +49,9 @@
 <!-- SECTION CONTENT -->
 <div class="section-content">
 	<div id="container">
-		<p class="parnet">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet <br>dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam<br> nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+		
 		<div class="services-slider ">
+			<p class="parnet">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet <br>dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam<br> nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
             <ul class="slides">
 				<!-- START SERVICE -->
 	            <div id="communecte">   
@@ -95,16 +97,42 @@
 				</div>
 			</ul>
 		</div>
+		</div>
 		<!-- SECTION BUTTON -->
 		<div id="divAction">
-			<span>test</span>
+			<div class="form-group">
+				<h1>Je me communecte  <a href="javascript:closeform()"><img src="images/close.png"/></a></h1></br>
+				
+				<input id="form-field-1" class="form-control" type="text" placeholder="login de connexion"></br>
+				<input id="form-field-2" class="form-control" type="password" placeholder="Password"></br>
+				<a href="">Mot de passe oublié?</a>
+				<div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Rester connecté</input>
+				    </label>
+				</div>
+				<ul class="social-list">
+					<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
+					<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
+					<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
+				</ul>
+				 <button type="submit" class="btn btn-success">C'est parti !</button></br>
+				 <span>Pas encore pixel actif? C'est facile !</span></br>
+				 <a href="#">Inscrivez-vous maintenant</a>
+			</div>
 		</div>
 	</div>
-	<div
-</div>
+
 
 <script>
 	function openform(id){
+		$("#divAction").css("height", ""+$(".services-slider").height());
+		$(".services-slider").css("display", "none");
 		$("#divAction").css("display", "block");
+	}
+
+	function closeform(){
+		$(".services-slider").css("display", "block");
+		$("#divAction").css("display", "none");
 	}
 </script>
