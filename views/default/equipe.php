@@ -226,7 +226,7 @@ i.fa { padding:8px; }
 			        		<button type="button" class="btn btn-map" id="btn-stop"><i class="fa fa-pause"></i></button>
 			        	</div>
 			        	<div class="btn-group btn-group-lg btn-group-map">
-			        		<i class="fa fa-refresh fa-2x" id="ico_reload"></i>
+			        		<i class="fa fa-refresh fa-spin fa-2x" id="ico_reload"></i>
 			        	</div>
 			        	 <div class="progress progress-striped active center-block" id="progress-bar-anim">
 							<div id="progress-bar-animation" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" style="width: 10%">
@@ -824,8 +824,6 @@ function initAll(){
 	
 	function playMapAnimation(newTag)
 	{
-		//active le bouton play (vert)
-		$("#btn-play").addClass("playing");
 		
 		//si le temps n'est pas écoulé ET qu'on ne change pas de filtre
 		if(cntTime < cntTimeMax && newTag == null) { 
@@ -838,6 +836,7 @@ function initAll(){
 			//fait avancer la progress-bar
 			$("#progress-bar-animation").attr('aria-valuenow', (cntTime*10) + "%");
 			$("#progress-bar-animation").css({"width": (cntTime*10) + "%"});
+			//et stop ici
 			return; 
 		} 
 		
@@ -871,6 +870,9 @@ function initAll(){
 		//si l'utilisateur n'a pas cliqué sur pause : allowToPlay = true
 		if(allowToPlay){
 			
+			//active le bouton play (vert)
+			$("#btn-play").addClass("playing");
+		
 			//affiche le message et la progress-bar
 			$("#lbl_msg_animation").css({"display":"inline"});
 			$("#progress-bar-anim").css({"display":"inline"});
@@ -929,11 +931,9 @@ function initAll(){
 			clearTimeout(timerMapPlay);
 			timerMapPlay = setTimeout('playMapAnimation()', 1000); 
 		}
-		else{ //si l'animation est en pause
-			$("#btn-play").removeClass("playing"); 				//affiche le bouton play en jaune
-			$("#lbl_msg_animation").css({"display":"none"});	//efface le message d'animation
-			$("#progress-bar-anim").css({"display":"none"});	//efface la progess-bar
-			
+		else{ 
+			//demande l'actualisation des markers de la carte (avec le filtre en cours)
+			changeFilter(currentTag);
 		}
 	}
 	
