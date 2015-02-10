@@ -4,6 +4,10 @@
 	height: 30%;
 	width: 500px;
 }
+
+.slideTitle_pix{
+	color: #2a3945;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -17,7 +21,7 @@
 			<li>
 				<div class="imgSvg" id="slide1">
 					<img src="images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1>Découvrez <strong>Pixel Humain</strong></h1>
+					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
 		            	<h3>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
 		Découvrez ce qui se passe en ce moment dans votre commune<br>
@@ -27,7 +31,7 @@
 			<li>
 				<div class="imgSvg" id="slide1">
 					<img src="images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1>Découvrez <strong>Pixel Humain</strong></h1>
+					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
 		            	<h3>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
 		Découvrez ce qui se passe en ce moment dans votre commune<br>
@@ -37,7 +41,7 @@
 			<li>
 				<div class="imgSvg" id="slide1">
 					<img src="images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1>Découvrez <strong>Pixel Humain</strong></h1>
+					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
 		            	<h3>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
 		Découvrez ce qui se passe en ce moment dans votre commune<br>
@@ -148,7 +152,7 @@ function grapLinkBanner(data){
       .call(tipCirclePack4)
       .call(tipCirclePack);
   	
-
+    
 	 width = $("#sectionsvg").width();
 
 	 var height = $("#sectionsvg").height();
@@ -157,129 +161,129 @@ function grapLinkBanner(data){
 	      .attr("width", width);
 	var svg2 = d3.select("#patterns").append("svg").attr("id", "svgPath").append("defs");
 	dataFile=data;
-	var circleRadius = 10;
+	var circleRadius = 5;
 	    
-	    var link = svg.selectAll("line");
+    var link = svg.selectAll("line");
 
-	    var t = [];
-	    var n = 0;
-	    var compt = 0;
-	    $.each(data, function (k, elem) {
-	      compt++;
-	    });
-	    $.each(data, function (k, elem) {
-	      if(n<compt/2){
-	        elem.x = _.random(0, width/4);
-	        elem.y = _.random(0, height);
-	      }else{
-	        elem.x = _.random((3/4)*width, width);
-	        elem.y = _.random(0, height);
-	      }
-	      t[n]= elem;
-	      vertices[n] = [elem.x, elem.y];
-	      n++;
+    var t = [];
+    var n = 0;
+    var compt = 0;
+    $.each(data, function (k, elem) {
+      compt++;
+    });
+    $.each(data, function (k, elem) {
+      if(n<compt/2){
+        elem.x = _.random(0, width/4);
+        elem.y = _.random(0, height);
+      }else{
+        elem.x = _.random((3/4)*width, width);
+        elem.y = _.random(0, height);
+      }
+      t[n]= elem;
+      vertices[n] = [elem.x, elem.y];
+      n++;
 
-	    })
+    })
+    
+    var nodes = svg.selectAll("circle")
+      .data(t);
+    var nodes2 = svg2.selectAll("images")
+      .data(t);
+    //nodes.call(tipCirclePack);
+    var idCompt = 0;
+    
+    var vertices1 = [];
+    var vertices2 = [];
 
-	    var nodes = svg.selectAll("circle")
-	      .data(t);
-	    var nodes2 = svg2.selectAll("images")
-	      .data(t);
-	    //nodes.call(tipCirclePack);
-	    var idCompt = 0;
-	    
-	    var vertices1 = [];
-	    var vertices2 = [];
+    for (var i = 0; i<vertices.length; i ++){
+      if(i<compt/2){
+        vertices1[i] = vertices[i];
+        var c = i+1
+        console.log("i1", i)
+      }
+      else{
+        vertices2[i-c] = vertices[i];
+        }
+    }
+    for(var i=0; i<4; i++){
+      vertices1[vertices1.length] = [0, _.random(0, height)];
+      vertices1[vertices1.length] = [_.random(0, width/4), 0];
+      vertices1[vertices1.length] = [_.random(0, width/4), height];
+      vertices2[vertices2.length] = [width, _.random(0, height)];
+      vertices2[vertices2.length] = [_.random(3/4*width, width), 0];
+      vertices2[vertices2.length] = [_.random(3/4*width, width), height];
+    }
+    var linkValuePart1 = d3.geom.delaunay(vertices1);
+    var linkValuePart2 = d3.geom.delaunay(vertices2);
+   
+    var linkValueR = [];
+    
+    for(var i= 0; i<(linkValuePart1.length+linkValuePart2.length); i++){
+      if(i<linkValuePart1.length){
+         linkValueR[i] = linkValuePart1[i];
+       }else{
+          linkValueR[i] = linkValuePart2[i-linkValuePart1.length];
+       }
+    }
+    
+    linkValue = [];
+    var n = 0;
+    for(var i = 0; i<linkValueR.length; i++){
+      for(var j =0; j<linkValueR[i].length-1; j ++){
+        linkValue[n]=[];
+        linkValue[n][0] = linkValueR[i][j][0];
+        linkValue[n][1] = linkValueR[i][j][1];
+        linkValue[n][2] = linkValueR[i][j+1][0];
+        linkValue[n][3] = linkValueR[i][j+1][1];
+        n++;
+        if(j+2<linkValueR[i].length){
+          linkValue[n]=[];
+          linkValue[n][0] = linkValueR[i][j][0];
+          linkValue[n][1] = linkValueR[i][j][1];
+          linkValue[n][2] = linkValueR[i][j+2][0];
+          linkValue[n][3] = linkValueR[i][j+2][1];
+          n++;
+        }
+      }    
+    }
+    link.data(linkValue).enter().append("line")
+                .attr("class", "bindLine")
+                .attr("x1", function(d){return d[0];})
+                .attr("y1", function(d){return d[1];})
+                .attr("x2", function(d){return d[2];})
+                .attr("y2", function(d){return d[3];});
 
-	    for (var i = 0; i<vertices.length; i ++){
-	      if(i<compt/2){
-	        vertices1[i] = vertices[i];
-	        var c = i+1
-	        console.log("i1", i)
-	      }
-	      else{
-	        vertices2[i-c] = vertices[i];
-	        }
-	    }
-	    for(var i=0; i<4; i++){
-	      vertices1[vertices1.length] = [0, _.random(0, height)];
-	      vertices1[vertices1.length] = [_.random(0, width/4), 0];
-	      vertices1[vertices1.length] = [_.random(0, width/4), height];
-	      vertices2[vertices2.length] = [width, _.random(0, height)];
-	      vertices2[vertices2.length] = [_.random(3/4*width, width), 0];
-	      vertices2[vertices2.length] = [_.random(3/4*width, width), height];
-	    }
-	    var linkValuePart1 = d3.geom.delaunay(vertices1);
-	    var linkValuePart2 = d3.geom.delaunay(vertices2);
-	   
-	    var linkValueR = [];
-	    
-	    for(var i= 0; i<(linkValuePart1.length+linkValuePart2.length); i++){
-	      if(i<linkValuePart1.length){
-	         linkValueR[i] = linkValuePart1[i];
-	       }else{
-	          linkValueR[i] = linkValuePart2[i-linkValuePart1.length];
-	       }
-	    }
-	    
-	    linkValue = [];
-	    var n = 0;
-	    for(var i = 0; i<linkValueR.length; i++){
-	      for(var j =0; j<linkValueR[i].length-1; j ++){
-	        linkValue[n]=[];
-	        linkValue[n][0] = linkValueR[i][j][0];
-	        linkValue[n][1] = linkValueR[i][j][1];
-	        linkValue[n][2] = linkValueR[i][j+1][0];
-	        linkValue[n][3] = linkValueR[i][j+1][1];
-	        n++;
-	        if(j+2<linkValueR[i].length){
-	          linkValue[n]=[];
-	          linkValue[n][0] = linkValueR[i][j][0];
-	          linkValue[n][1] = linkValueR[i][j][1];
-	          linkValue[n][2] = linkValueR[i][j+2][0];
-	          linkValue[n][3] = linkValueR[i][j+2][1];
-	          n++;
-	        }
-	      }    
-	    }
-	    link.data(linkValue).enter().append("line")
-	                .attr("class", "bindLine")
-	                .attr("x1", function(d){return d[0];})
-	                .attr("y1", function(d){return d[1];})
-	                .attr("x2", function(d){return d[2];})
-	                .attr("y2", function(d){return d[3];});
+   
+  var attribute ="xlink:href";
+   
+   	nodes2.enter().append("pattern")
+      .attr("id", function(d, idCompt){idCompt++; return "img"+idCompt})
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 40)
+      .attr("height", 40)
+      .append("image")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 40)
+      .attr("height", 40)
+      .attr(attribute, function(d, idCompt){return getPhoto(idCompt+1);});
 
-	   
-	  var attribute ="xlink:href";
-	   
-	   nodes2.enter().append("pattern")
-	          .attr("id", function(d, idCompt){idCompt++; return "img"+idCompt})
-	          .attr("x", 0)
-	          .attr("y", 0)
-	          .attr("width", 40)
-	          .attr("height", 40)
-	          .append("image")
-	          .attr("x", 0)
-	          .attr("y", 0)
-	          .attr("width", 40)
-	          .attr("height", 40)
-	          .attr(attribute, function(d, idCompt){return getPhoto(idCompt+1);});
+    idCompt = 0;
+    nodes.enter().append("circle")
+      .attr("class", "node")
+      .attr("id", function(d, idCompt){idCompt++; return idCompt;})
+      .attr("cy", function(d) {return d.y;})
+      .attr("cx", function(d) {return d.x;})
+      .attr("r", circleRadius)
+      .on("mouseover", expandNode)
+      .on("mouseout", contractNode);
 
-	    idCompt = 0;
-	    nodes.enter().append("circle")
-	      .attr("class", "node")
-	      .attr("id", function(d, idCompt){idCompt++; return idCompt;})
-	      .attr("cy", function(d) {return d.y;})
-	      .attr("cx", function(d) {return d.x;})
-	      .attr("r", circleRadius)
-	      .on("mouseover", expandNode)
-	      .on("mouseout", contractNode);
+     $("#1").d3MouseOver();
+    //getTipsOpen(20);
+    //animateTips(20);          
 
-	     $("#1").d3MouseOver();
-	    //getTipsOpen(20);
-	    //animateTips(20);          
-	
-	}
+}
 
 
 	
@@ -408,7 +412,7 @@ function grapLinkBanner(data){
 	          closeTips(d3.select(this), d3.select(this).attr("id"));
 	          d3.select(this).transition()
 	              .duration(100)
-	              .attr("r",10)
+	              .attr("r",5)
 
 	      };
 

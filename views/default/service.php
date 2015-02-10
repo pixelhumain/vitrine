@@ -43,7 +43,7 @@
 </style>
 <div class="section-header">
 
-<h1 class="parnet">	<img src="images/hand.png"  ><br>PARTICIPER</h1>
+<h1 class="parnet title_fontHome">	<img src="images/hand.png"  ><br>PARTICIPER</h1>
 	
 </div>
 <!-- SECTION CONTENT -->
