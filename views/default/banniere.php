@@ -112,7 +112,7 @@ var tabId = [];
 var objectTarget = null;
 var width;
 var height;
-var anime;
+var anime, timer;
 var numTip = 0;
 var tipCirclePack;
 var tipCirclePack1;
@@ -448,17 +448,20 @@ function grapLinkBanner(data){
 	function resizeGraph(){
 		
 		tabId =[];
-		clearTimeout(anime);
-		$("#svgGrap").remove();
-		$("#svgPath").remove();
-		$(".d3-tip").remove();
-		$("#svg").remove();
-		$("#patterns").remove();
-		var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
-		var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
-		$("#patterns").insertBefore(".flexslider");
-		$("#svg").insertBefore("#patterns");
-		getMessageVitrine();
+		clearTimeout(timer);
+		timer = setTimeout(function(){
+			clearTimeout(anime);
+			$("#svgGrap").remove();
+			$("#svgPath").remove();
+			$(".d3-tip").remove();
+			$("#svg").remove();
+			$("#patterns").remove();
+			var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
+			var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
+			$("#patterns").insertBefore(".flexslider");
+			$("#svg").insertBefore("#patterns");
+			getMessageVitrine();
+		} , 200);
 	}
 	function getMessageVitrine(){
 		var fields = "name,comment,image" ;

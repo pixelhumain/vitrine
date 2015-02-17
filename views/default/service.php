@@ -2,30 +2,36 @@
 
  #communecte, #adhesion, #don, #participe{
 	color: #2a3945;
-    margin-left: 43%;
-    margin-right: 43%;
-    position: relative;
-    width: 14%;
-    font-family: "Varela Round",arial,sans-serif;
+    /*margin-left: 43%;
+    margin-right: 43%;*/
+    width: 75%;
+    font-family: "Homestead",arial,sans-serif;
 }
 
-
+#communecte, #participe{
+	text-align: center;
+	margin-left: auto;
+    margin-right: auto;
+}
 #adhesion{
 	float: right;
-    margin-right: 55%;	
+	text-align: center;	
 }
 
 #don{
-	float: left;
-    margin-left: 55%;
-    position: absolute;   
+	float: left; 
+	text-align: center;
 }
 
 
+h1{
+    font-family: "Homestead",arial,sans-serif;
+}
 .btn-success {
     background-color: yellow;
     border-color: yellow;
     color: #000;
+    text-align: center;
     font-family: "Varela Round",arial,sans-serif;
     font-size: 1em;
 }
@@ -49,53 +55,47 @@
 <!-- SECTION CONTENT -->
 <div class="section-content">
 	<div id="container">
-		
 		<div class="services-slider ">
-			<p class="parnet">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet <br>dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam<br> nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
-            <ul class="slides">
+			<div class="row">
+				<p class="parnet">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet <br>dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam<br> nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
+			</div>
 				<!-- START SERVICE -->
-	            <div id="communecte">   
-	            	<li>
-	                    <div class="slide">
-							
-							<h3>Je me communecte</h3>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
-							<button onclick="javascript:openform('communecte')" class="btn btn-success">Je me communecte à la plateforme</button>
-						</div>
-					</li>
-				</div>  
-					<!-- END SERVICE -->
-	             <div id="adhesion" >   
-	             	<li>
-	                    <div class="slide">
-							
-							<h3>J'adhère</h3>
-							<p>Vous adhérez à la philosophie du projet Pixel Humain ? Ce projet est porté par  l'association Open Atlas. En adhérant, vous soutenez le projet Pixel Humain....</p>
-							<button onclick="javascript:openform('adhesion')" class="btn btn-success">J'adhere à l'association</button>
-						</div>
-					</li>
+            <div class="row" id="communecte">
+            	<div class="col-md-4"></div>
+            	<div class="col-md-4">   
+					<h2>Je me communecte</h2>
+					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
+					<button onclick="javascript:openform('communecte')" class="btn btn-success">Je me communecte à la plateforme</button>
 				</div>
-	            <div id="don">  
-	              	<li>
-	                    <div class="slide">
-						
-							<h3>Je donne</h3>
-							<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
-							<button onclick="javascript:openform('don')" class="btn btn-success">Je fais un don à l'association</button>
-						</div>
-					</li>
+			</div>  
+				<!-- END SERVICE -->
+			<div class="row">
+				<div class="col-md-5">
+		            <div align="right" id="adhesion">   
+						<h2>J'adhère</h2>
+						<p>Vous adhérez à la philosophie du projet Pixel Humain ? Ce projet est porté par  l'association Open Atlas. En adhérant, vous soutenez le projet Pixel Humain....</p>
+						<button onclick="javascript:openform('adhesion')" class="btn btn-success">J'adhere à l'association</button>
+					</div>
 				</div>
-	            <div id="participe" >   
-	             	<li>
-	                    <div class="slide">
-							
-							<h3>Je participe</h3>
-							<p>Here it's just an example of the activities that you can do with your charity to get funds. Or something else...</p>
-							<button type="button" onclick="javascript:openform('participe')" class="btn btn-success">Je participe au projet</button>
-						</div>
-					</li>
+				<div class="col-md-2"></div>
+				<div class="col-md-5">
+		            <div id="don">  
+						<h2>Je donne</h2>
+						<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
+						<button onclick="javascript:openform('don')" class="btn btn-success">Je fais un don à l'association</button>
+					</div>
 				</div>
-			</ul>
+			</div>
+			<div class="row">
+				<div class="col-md-4"></div>
+				<div class="col-md-4">
+		            <div id="participe" >   
+	                    <h2>Je participe</h2>
+						<p>Here it's just an example of the activities that you can do with your charity to get funds. Or something else...</p>
+						<button type="button" onclick="javascript:openform('participe')" class="btn btn-success">Je participe au projet</button>
+					</div>
+				</div>
+			</div>
 		</div>
 		</div>
 		<!-- SECTION BUTTON -->
@@ -121,6 +121,7 @@
 				 <a href="#">Inscrivez-vous maintenant</a>
 			</div>
 		</div>
+		<div class="space20"></div>
 	</div>
 
 
