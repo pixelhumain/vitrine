@@ -28,7 +28,7 @@
 <section id="description" class="center section with-arrow">
 	<!-- SECTION TITLE -->
 	<div class="section-header sub-hero">
-		<h1 class="title_fontHome"><img src="images/icon.png" width="80" height="79"><br>Le Projet</h1><br/>
+		<h1 class="title_fontHome"><img src="<?php echo $this->module->assetsUrl; ?>/images/icon.png" width="80" height="79"><br>Le Projet</h1><br/>
 	</div>
 	<!-- SECTION CONTENT -->
 	<div class="section-content section-no-top-padding" id ="section-video">
@@ -46,7 +46,7 @@ Pixel humain est une plateforme en construction et recherche de financements.
 				</object>
 			</div>-->
 			<div class="imageSection">
-				<img id="img_pixel" class="img-responsive img-thumbnail" src="images/video.jpg" onclick="openVideo()"/>
+				<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video.jpg" onclick="openVideo()"/>
 			</div>
 		</div>
 	</div>

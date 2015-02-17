@@ -43,7 +43,7 @@
 </style>
 <div class="section-header">
 
-<h1 class="parnet title_fontHome">	<img src="images/hand.png"  ><br>PARTICIPER</h1>
+<h1 class="parnet title_fontHome">	<img src="<?php echo $this->module->assetsUrl; ?>/images/hand.png"  ><br>PARTICIPER</h1>
 	
 </div>
 <!-- SECTION CONTENT -->
@@ -101,7 +101,7 @@
 		<!-- SECTION BUTTON -->
 		<div id="divAction">
 			<div class="form-group">
-				<h1>Je me communecte  <a href="javascript:closeform()"><img src="images/close.png"/></a></h1></br>
+				<h1>Je me communecte  <a href="javascript:closeform()"><img src="<?php echo $this->module->assetsUrl; ?>/images/close.png"/></a></h1></br>
 				
 				<input id="form-field-1" class="form-control" type="text" placeholder="login de connexion"></br>
 				<input id="form-field-2" class="form-control" type="password" placeholder="Password"></br>

@@ -20,7 +20,7 @@
 			<ul class="slides">
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
 		            	<h3>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
@@ -30,7 +30,7 @@
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
 		            	<h3>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
@@ -40,7 +40,7 @@
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
 		            	<h3>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
@@ -156,6 +156,7 @@ function grapLinkBanner(data){
 	 width = $("#sectionsvg").width();
 
 	 var height = $("#sectionsvg").height();
+	 console.log("height", height);
 
 	 svg.attr("height", height)
 	      .attr("width", width);
@@ -173,11 +174,11 @@ function grapLinkBanner(data){
     });
     $.each(data, function (k, elem) {
       if(n<compt/2){
-        elem.x = _.random(0, width/4);
-        elem.y = _.random(0, height);
+        elem.x = Math.floor(Math.random() * width/4);
+        elem.y = Math.floor(Math.random()* height);
       }else{
-        elem.x = _.random((3/4)*width, width);
-        elem.y = _.random(0, height);
+        elem.x = Math.floor(Math.random()*(1/4)*width+ (3/4)*width);
+        elem.y = Math.floor(Math.random()* height);
       }
       t[n]= elem;
       vertices[n] = [elem.x, elem.y];
@@ -206,12 +207,12 @@ function grapLinkBanner(data){
         }
     }
     for(var i=0; i<4; i++){
-      vertices1[vertices1.length] = [0, _.random(0, height)];
-      vertices1[vertices1.length] = [_.random(0, width/4), 0];
-      vertices1[vertices1.length] = [_.random(0, width/4), height];
-      vertices2[vertices2.length] = [width, _.random(0, height)];
-      vertices2[vertices2.length] = [_.random(3/4*width, width), 0];
-      vertices2[vertices2.length] = [_.random(3/4*width, width), height];
+      vertices1[vertices1.length] = [0, Math.floor(Math.random()* height)];
+      vertices1[vertices1.length] = [Math.floor(Math.random()*width/4), 0];
+      vertices1[vertices1.length] = [Math.floor(Math.random()*width/4), height];
+      vertices2[vertices2.length] = [width, Math.floor(Math.random()*height)];
+      vertices2[vertices2.length] = [Math.floor(Math.random()*(1/4)*width+ (3/4)*width), 0];
+      vertices2[vertices2.length] = [Math.floor(Math.random()*(1/4)*width+ (3/4)*width), height];
     }
     var linkValuePart1 = d3.geom.delaunay(vertices1);
     var linkValuePart2 = d3.geom.delaunay(vertices2);
@@ -289,7 +290,7 @@ function grapLinkBanner(data){
 	
 
 	function animateTips(c){
-	    var id = _.random(1, c+1);
+	    var id = Math.floor(Math.random()*c+1);
 	    $("#"+id).d3MouseOver();
 	    anime = setTimeout(function(){
 	      	animateTips(c);
