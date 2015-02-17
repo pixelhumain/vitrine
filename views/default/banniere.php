@@ -1,8 +1,8 @@
 <style>
 
 #modalComment{
-	height: 30%;
-	width: 500px;
+	max-height: 600px;
+	width: 450px;
 }
 
 .slideTitle_pix{

@@ -43,6 +43,7 @@ h1{
 	z-index: 10;
 	width: 30%;
 	margin-left: 35%;
+	margin-right: 35%
 	text-align: center;
 }
 
@@ -54,7 +55,7 @@ h1{
 </div>
 <!-- SECTION CONTENT -->
 <div class="section-content">
-	<div id="container">
+	<div class="container-fluid" id="container">
 		<div class="services-slider ">
 			<div class="row">
 				<p class="parnet">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet <br>dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam<br> nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>
@@ -97,7 +98,7 @@ h1{
 				</div>
 			</div>
 		</div>
-		</div>
+		
 		<!-- SECTION BUTTON -->
 		<div id="divAction">
 			<div class="form-group">
@@ -123,6 +124,8 @@ h1{
 		</div>
 		<div class="space20"></div>
 	</div>
+		
+</div>
 
 
 <script>
