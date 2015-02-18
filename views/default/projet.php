@@ -15,28 +15,42 @@
 }
 .imageSection{
 	position: relative;
-	
+	margin: auto;
+	width: 50%;
+	height: 50%;	
 }
 .videoSection{
-	 position: absolute;
-	
+	 position: absolute;	
 }
+
 #img_pixel{
 	display: inline-block;
 }
+
+#description p{
+	font-size: 0.8em;
+}
+
+#textVid{
+	padding: 0 0 30px;
+}
+
 </style>
 <section id="description" class="center section with-arrow">
 	<!-- SECTION TITLE -->
 	<div class="section-header sub-hero">
-		<h1 class="title_fontHome"><img src="<?php echo $this->module->assetsUrl; ?>/images/icon.png" width="80" height="79"><br>Le Projet</h1><br/>
+		<img class='icon_section' src="<?php echo $this->module->assetsUrl; ?>/images/icon.png">
+		<h1 class="title_fontHome">Le Projet</h1>
 	</div>
 	<!-- SECTION CONTENT -->
 	<div class="section-content section-no-top-padding" id ="section-video">
 		<div class="container">
-			<p>Pixel Humain est le premier réseau social citoyen libre de droit, <br>
-d'accès, d'opinion, d'utilisation, d'évolution ...<br>
+			<div id="textVid">
+				<p><strong>Pixel Humain est le premier réseau social citoyen libre de droit, <br>
+d'accès, d'opinion, d'utilisation, d'évolution ...</strong><br>
 Pixel humain est une plateforme en construction et recherche de financements.
-			</p>
+				</p>
+			</div>
 			
 			<!--<div class="videoSection">
 				<object id="video_pixel" width="940" height="540" data="http://vimeo.com/moogaloop.swf?clip_id=74212373" type="application/x-shockwave-flash">

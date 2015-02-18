@@ -150,7 +150,7 @@ i.fa { padding:8px; }
 			<!-- SECTION TITLE -->		
 			<!-- SECTION CONTENT -->
 			<div class="section-header new"><!--  id="lbl_msg_animation" -->
-				<h1 class="title_fontHome"><img src="<?php echo $this->module->assetsUrl; ?>/images/heart.png" ><br>L'Equipe</h1>
+				<h1 class="title_fontHome"><img class="icon_section" src="<?php echo $this->module->assetsUrl; ?>/images/heart.png" ><br>L'Equipe</h1>
 				<h3>Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres<br> d'intérêt, le même sentiment de nécessité et urgence d'agir et de se regrouper,<br>
 			 de se sentir utile pour la société. <span>Aujourd'hui, le Pixel Humain, c'est aussi vous !...</span></h3>
 			 <a href="#btn-play-anim">

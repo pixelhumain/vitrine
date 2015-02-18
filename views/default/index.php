@@ -65,7 +65,7 @@ $this->pageTitle=$this::moduleTitle;
 			<section id="contact" class="section contact-map">
 				<!-- SECTION TITLE -->
 				<div class="section-header with-arrow">
-					<h1 class="parnet title_fontHome"><img src="<?php echo $this->module->assetsUrl; ?>/images/mapping.png" width="53" height="80"><br/>CONTACT</h1><div class="section-content"><br/>
+					<h1 class="parnet title_fontHome"><img class="icon_section img_cont" src="<?php echo $this->module->assetsUrl; ?>/images/mapping.png"><br/>CONTACT</h1><div class="section-content"><br/>
 					<div class="container">
 						<div class="row">	
 							<!-- CONTACT TEXT -->

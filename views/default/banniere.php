@@ -8,6 +8,20 @@
 .slideTitle_pix{
 	color: #2a3945;
 }
+
+.d3-tip{
+	z-index: 20;
+}
+#sectionsvg p{
+	font-size: 0.2em;
+}
+#sectionsvg h1{
+	font-size: 25px;
+	font-family: "Varela Round",arial,sans-serif;
+}
+.tip-title{
+	color: steelblue;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -22,30 +36,30 @@
 				<div class="imgSvg" id="slide1">
 					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
+		            	<p>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
 		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</p>
 				</div>
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
 					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
-		Citoyens, Associations, Entreprises, Collectivités : <br>
-		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+					
+					<h1 class="slideTitle_pix title_fontHome">L'équipe Pixel Humain</h1>
+		            	<p><strong>Qui est derrière le Pixel Humain? Tout le monde! Vous, eux, nous.</strong><br>
+		Le Pixel humain : une plateforme d'échanges citoyenne, un catalyseur transformant les initiatives<br>
+		individuelles locales en initiatives locales collaboratives</p>
+		
 				</div>
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
 					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
-		Citoyens, Associations, Entreprises, Collectivités : <br>
-		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+					<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
+		            	<p><strong>Aujourd'hui, le Pixel Humain, c'est aussi vous!</strong><br>
+		Comme le Pixel Humain, vous partagez le même sentiment de nécessité et d'urgence d'agir,<br>
+		de vous regrouper, de vous sentir utile pour la société: Participez au projet !</p>
 				</div>
 			</li>
 			</ul>
@@ -62,21 +76,18 @@
 	      	<div class="modal-body">
 	      		
 				<span class="input-icon">
-					<label for="senCommentemail"><i class="fa fa-user"></i> Email </label>
+					<label for="senCommentemail"><i class="fa fa-user"></i> Identité </label>
 					<input id="sendCommentemail" class="form-control" type="mail" placeholder="Email">
-					
-				</span>
-				
-				<div class="form-group">
-					<label for="senCommentmsg"> Commentaire </label>
-					<textarea id="sendCommentmsg" class="form-control" placeholder="Commdentaire" style="height: 120px;"></textarea>
-				</div>
-				
-				<span class="input-icon">
-					<label for="cpComment"> <i class="fa fa-hand-o-right"></i>Code Postal </label>
+					<input id="nameComment" class="form-control" placeholder="Nom">
+					<input id="firstnameComment" class="form-control" placeholder="Prenom">
+					<label for="cpComment"> <i class="fa fa-home"></i>Code Postal </label>
 					<input id="cpComment" class="form-control" type="text" placeholder="Code Postal">
-					
+					<div class="form-group">
+						<label for="senCommentmsg"> <i class="fa fa-pencil-square-o"></i>Commentaire </label>
+						<textarea id="sendCommentmsg" class="form-control" placeholder="Commentaire (144 caracteres max)" style="height: 120px" maxlength="144"></textarea>
+					</div>
 				</span>
+				
 				
 	      		<!--Commentaire  : <textarea name="sendCommentmsg" id="sendCommentmsg"></textarea> <br/>
 				email(s) : <textarea type="text" name="sendCommentemail" id="sendCommentemail"><?php echo $this->module->id?>@<?php echo $this->module->id?>.com</textarea><br/>
@@ -89,6 +100,8 @@
 				    	   "email" : $("#sendCommentemail").val() , 
 				    	   "msg" : $("#sendCommentmsg").val(),
 				    	   "cp" : $("#cpComment").val(),
+				    	   "name" : $("#nameComment").val(),
+				    	   "firstname" : $("#firstnameComment").val()
 				    	   };
 						testitpost("sendCommentResult",baseUrl+'/<?php echo $this->module->id?>/api/sendmessagevitrine',params);
 						$(".modal").css("display", "none");
@@ -174,11 +187,11 @@ function grapLinkBanner(data){
     });
     $.each(data, function (k, elem) {
       if(n<compt/2){
-        elem.x = Math.floor(Math.random() * width/4);
-        elem.y = Math.floor(Math.random()* height);
+        elem.x = Math.floor(Math.random() * width/3);
+        elem.y = Math.floor(Math.random()* (height -76) +76);
       }else{
-        elem.x = Math.floor(Math.random()*(1/4)*width+ (3/4)*width);
-        elem.y = Math.floor(Math.random()* height);
+        elem.x = Math.floor(Math.random()*(1/3)*width+ (2/3)*width);
+        elem.y = Math.floor(Math.random()* (height -76) +76);
       }
       t[n]= elem;
       vertices[n] = [elem.x, elem.y];
@@ -333,7 +346,7 @@ function grapLinkBanner(data){
 	        
 		    $("#"+id).css("fill", "url(#img"+id+")");
 		    
-	      	tip.html("<div id ='tool-d3'> <span><strong>"+ d.name+": </strong> </br>"+comment+"</span></div>")
+	      	tip.html("<div id ='tool-d3'> <span><span class='tip-title'><strong>"+ d.name+" "+d.firstname+": </strong> </span></br>"+comment+"</span></div>")
 	      	returnObj = tip.show($("#"+id));
 	      }    
         return returnObj; 
