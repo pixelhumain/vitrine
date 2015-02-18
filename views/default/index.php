@@ -23,7 +23,7 @@ $this->pageTitle=$this::moduleTitle;
 	
 ?>
 
-	<script src="http://code.jquery.com/jquery.js"></script>
+	<!--<script src="http://code.jquery.com/jquery.js"></script>-->
 	<!-- START MAIN CONTAINER -->
 	<div id="main-container">		
 
@@ -66,7 +66,7 @@ $this->pageTitle=$this::moduleTitle;
 			<section id="contact" class="section contact-map">
 				<!-- SECTION TITLE -->
 				<div class="section-header with-arrow">
-					<h1 class="parnet"><img src="images/mapping.png" width="53" height="80"><br>Contact</h1><div class="section-content">
+					<h1 class="parnet title_fontHome"><img class="icon_section img_cont" src="<?php echo $this->module->assetsUrl; ?>/images/mapping.png"><br/>CONTACT</h1><div class="section-content"><br/>
 					<div class="container">
 						<div class="row">	
 							<!-- CONTACT TEXT -->
@@ -80,8 +80,6 @@ $this->pageTitle=$this::moduleTitle;
 									<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
 								</ul>
 							</div>
-                              	<div class="col-md-3"></div>					
-								</div>
 						</div>
 					</div>
 				</div>
@@ -100,7 +98,6 @@ $this->pageTitle=$this::moduleTitle;
 
 
 <script type="text/javascript">
-	var baseUrl = "http://127.0.0.1/ph";
 jQuery(document).ready(function()
 {
 	var sliderSvg = $('.flexslider').flexslider();
@@ -128,12 +125,7 @@ jQuery(document).ready(function()
 	/*-------------------------------------------------------
 	---- Graph
 	---------------------------------------------------------*/
-
-	
 	resizeGraph();
-			
-	
-
 });
 
 

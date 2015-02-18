@@ -1,15 +1,32 @@
 <style>
 
 #modalComment{
-	height: 30%;
-	width: 500px;
+	max-height: 600px;
+	width: 450px;
+}
+
+.slideTitle_pix{
+	color: #2a3945;
+}
+
+.d3-tip{
+	z-index: 20;
+}
+#sectionsvg p{
+	font-size: 0.2em;
+}
+#sectionsvg h1{
+	font-size: 25px;
+	font-family: "Varela Round",arial,sans-serif;
+}
+.tip-title{
+	color: steelblue;
 }
 </style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <section id="sectionsvg" class="section">
-	<div id="response" style="display: none"></div>
 	<div class="svgAndImg">
 		<div id="svg"></div>
 		<div id="patterns"></div>
@@ -17,22 +34,32 @@
 			<ul class="slides">
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1>Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
+		            	<p>Le premier réseau social citoyen libre<br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
 		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</p>
 				</div>
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1>Découvrez <strong>Pixel Humain</strong></h1>
-		            	<h3>Le premier réseau social citoyen libre<br>
-		Citoyens, Associations, Entreprises, Collectivités : <br>
-		Découvrez ce qui se passe en ce moment dans votre commune<br>
-		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</h3>
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					
+					<h1 class="slideTitle_pix title_fontHome">L'équipe Pixel Humain</h1>
+		            	<p><strong>Qui est derrière le Pixel Humain? Tout le monde! Vous, eux, nous.</strong><br>
+		Le Pixel humain : une plateforme d'échanges citoyenne, un catalyseur transformant les initiatives<br>
+		individuelles locales en initiatives locales collaboratives</p>
+		
+				</div>
+			</li>
+			<li>
+				<div class="imgSvg" id="slide1">
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
+		            	<p><strong>Aujourd'hui, le Pixel Humain, c'est aussi vous!</strong><br>
+		Comme le Pixel Humain, vous partagez le même sentiment de nécessité et d'urgence d'agir,<br>
+		de vous regrouper, de vous sentir utile pour la société: Participez au projet !</p>
 				</div>
 			</li>
 			</ul>
@@ -49,21 +76,18 @@
 	      	<div class="modal-body">
 	      		
 				<span class="input-icon">
-					<label for="senCommentemail"><i class="fa fa-user"></i> Email </label>
+					<label for="senCommentemail"><i class="fa fa-user"></i> Identité </label>
 					<input id="sendCommentemail" class="form-control" type="mail" placeholder="Email">
-					
-				</span>
-				
-				<div class="form-group">
-					<label for="senCommentmsg"> Commentaire </label>
-					<textarea id="sendCommentmsg" class="form-control" placeholder="Commdentaire" style="height: 120px;"></textarea>
-				</div>
-				
-				<span class="input-icon">
-					<label for="cpComment"> <i class="fa fa-hand-o-right"></i>Code Postal </label>
+					<input id="nameComment" class="form-control" placeholder="Nom">
+					<input id="firstnameComment" class="form-control" placeholder="Prenom">
+					<label for="cpComment"> <i class="fa fa-home"></i>Code Postal </label>
 					<input id="cpComment" class="form-control" type="text" placeholder="Code Postal">
-					
+					<div class="form-group">
+						<label for="senCommentmsg"> <i class="fa fa-pencil-square-o"></i>Commentaire </label>
+						<textarea id="sendCommentmsg" class="form-control" placeholder="Commentaire (144 caracteres max)" style="height: 120px" maxlength="144"></textarea>
+					</div>
 				</span>
+				
 				
 	      		<!--Commentaire  : <textarea name="sendCommentmsg" id="sendCommentmsg"></textarea> <br/>
 				email(s) : <textarea type="text" name="sendCommentemail" id="sendCommentemail"><?php echo $this->module->id?>@<?php echo $this->module->id?>.com</textarea><br/>
@@ -76,6 +100,8 @@
 				    	   "email" : $("#sendCommentemail").val() , 
 				    	   "msg" : $("#sendCommentmsg").val(),
 				    	   "cp" : $("#cpComment").val(),
+				    	   "name" : $("#nameComment").val(),
+				    	   "firstname" : $("#firstnameComment").val()
 				    	   };
 						testitpost("sendCommentResult",baseUrl+'/<?php echo $this->module->id?>/api/sendmessagevitrine',params);
 						$(".modal").css("display", "none");
@@ -99,7 +125,7 @@ var tabId = [];
 var objectTarget = null;
 var width;
 var height;
-var anime;
+var anime, timer;
 var numTip = 0;
 var tipCirclePack;
 var tipCirclePack1;
@@ -139,144 +165,145 @@ function grapLinkBanner(data){
       .call(tipCirclePack4)
       .call(tipCirclePack);
   	
-
+    
 	 width = $("#sectionsvg").width();
 
 	 var height = $("#sectionsvg").height();
+	 console.log("height", height);
 
 	 svg.attr("height", height)
 	      .attr("width", width);
 	var svg2 = d3.select("#patterns").append("svg").attr("id", "svgPath").append("defs");
 	dataFile=data;
-	var circleRadius = 10;
+	var circleRadius = 5;
 	    
-	    var link = svg.selectAll("line");
+    var link = svg.selectAll("line");
 
-	    var t = [];
-	    var n = 0;
-	    var compt = 0;
-	    $.each(data, function (k, elem) {
-	      compt++;
-	    });
-	    $.each(data, function (k, elem) {
-	      if(n<compt/2){
-	        elem.x = _.random(0, width/4);
-	        elem.y = _.random(0, height);
-	      }else{
-	        elem.x = _.random((3/4)*width, width);
-	        elem.y = _.random(0, height);
-	      }
-	      t[n]= elem;
-	      vertices[n] = [elem.x, elem.y];
-	      n++;
+    var t = [];
+    var n = 0;
+    var compt = 0;
+    $.each(data, function (k, elem) {
+      compt++;
+    });
+    $.each(data, function (k, elem) {
+      if(n<compt/2){
+        elem.x = Math.floor(Math.random() * width/3);
+        elem.y = Math.floor(Math.random()* (height -76) +76);
+      }else{
+        elem.x = Math.floor(Math.random()*(1/3)*width+ (2/3)*width);
+        elem.y = Math.floor(Math.random()* (height -76) +76);
+      }
+      t[n]= elem;
+      vertices[n] = [elem.x, elem.y];
+      n++;
 
-	    })
+    })
+    
+    var nodes = svg.selectAll("circle")
+      .data(t);
+    var nodes2 = svg2.selectAll("images")
+      .data(t);
+    //nodes.call(tipCirclePack);
+    var idCompt = 0;
+    
+    var vertices1 = [];
+    var vertices2 = [];
 
-	    var nodes = svg.selectAll("circle")
-	      .data(t);
-	    var nodes2 = svg2.selectAll("images")
-	      .data(t);
-	    //nodes.call(tipCirclePack);
-	    var idCompt = 0;
-	    
-	    var vertices1 = [];
-	    var vertices2 = [];
+    for (var i = 0; i<vertices.length; i ++){
+      if(i<compt/2){
+        vertices1[i] = vertices[i];
+        var c = i+1
+        console.log("i1", i)
+      }
+      else{
+        vertices2[i-c] = vertices[i];
+        }
+    }
+    for(var i=0; i<4; i++){
+      vertices1[vertices1.length] = [0, Math.floor(Math.random()* height)];
+      vertices1[vertices1.length] = [Math.floor(Math.random()*width/4), 0];
+      vertices1[vertices1.length] = [Math.floor(Math.random()*width/4), height];
+      vertices2[vertices2.length] = [width, Math.floor(Math.random()*height)];
+      vertices2[vertices2.length] = [Math.floor(Math.random()*(1/4)*width+ (3/4)*width), 0];
+      vertices2[vertices2.length] = [Math.floor(Math.random()*(1/4)*width+ (3/4)*width), height];
+    }
+    var linkValuePart1 = d3.geom.delaunay(vertices1);
+    var linkValuePart2 = d3.geom.delaunay(vertices2);
+   
+    var linkValueR = [];
+    
+    for(var i= 0; i<(linkValuePart1.length+linkValuePart2.length); i++){
+      if(i<linkValuePart1.length){
+         linkValueR[i] = linkValuePart1[i];
+       }else{
+          linkValueR[i] = linkValuePart2[i-linkValuePart1.length];
+       }
+    }
+    
+    linkValue = [];
+    var n = 0;
+    for(var i = 0; i<linkValueR.length; i++){
+      for(var j =0; j<linkValueR[i].length-1; j ++){
+        linkValue[n]=[];
+        linkValue[n][0] = linkValueR[i][j][0];
+        linkValue[n][1] = linkValueR[i][j][1];
+        linkValue[n][2] = linkValueR[i][j+1][0];
+        linkValue[n][3] = linkValueR[i][j+1][1];
+        n++;
+        if(j+2<linkValueR[i].length){
+          linkValue[n]=[];
+          linkValue[n][0] = linkValueR[i][j][0];
+          linkValue[n][1] = linkValueR[i][j][1];
+          linkValue[n][2] = linkValueR[i][j+2][0];
+          linkValue[n][3] = linkValueR[i][j+2][1];
+          n++;
+        }
+      }    
+    }
+    link.data(linkValue).enter().append("line")
+                .attr("class", "bindLine")
+                .attr("x1", function(d){return d[0];})
+                .attr("y1", function(d){return d[1];})
+                .attr("x2", function(d){return d[2];})
+                .attr("y2", function(d){return d[3];});
 
-	    for (var i = 0; i<vertices.length; i ++){
-	      if(i<compt/2){
-	        vertices1[i] = vertices[i];
-	        var c = i+1
-	        console.log("i1", i)
-	      }
-	      else{
-	        vertices2[i-c] = vertices[i];
-	        }
-	    }
-	    for(var i=0; i<4; i++){
-	      vertices1[vertices1.length] = [0, _.random(0, height)];
-	      vertices1[vertices1.length] = [_.random(0, width/4), 0];
-	      vertices1[vertices1.length] = [_.random(0, width/4), height];
-	      vertices2[vertices2.length] = [width, _.random(0, height)];
-	      vertices2[vertices2.length] = [_.random(3/4*width, width), 0];
-	      vertices2[vertices2.length] = [_.random(3/4*width, width), height];
-	    }
-	    var linkValuePart1 = d3.geom.delaunay(vertices1);
-	    var linkValuePart2 = d3.geom.delaunay(vertices2);
-	   
-	    var linkValueR = [];
-	    
-	    for(var i= 0; i<(linkValuePart1.length+linkValuePart2.length); i++){
-	      if(i<linkValuePart1.length){
-	         linkValueR[i] = linkValuePart1[i];
-	       }else{
-	          linkValueR[i] = linkValuePart2[i-linkValuePart1.length];
-	       }
-	    }
-	    
-	    linkValue = [];
-	    var n = 0;
-	    for(var i = 0; i<linkValueR.length; i++){
-	      for(var j =0; j<linkValueR[i].length-1; j ++){
-	        linkValue[n]=[];
-	        linkValue[n][0] = linkValueR[i][j][0];
-	        linkValue[n][1] = linkValueR[i][j][1];
-	        linkValue[n][2] = linkValueR[i][j+1][0];
-	        linkValue[n][3] = linkValueR[i][j+1][1];
-	        n++;
-	        if(j+2<linkValueR[i].length){
-	          linkValue[n]=[];
-	          linkValue[n][0] = linkValueR[i][j][0];
-	          linkValue[n][1] = linkValueR[i][j][1];
-	          linkValue[n][2] = linkValueR[i][j+2][0];
-	          linkValue[n][3] = linkValueR[i][j+2][1];
-	          n++;
-	        }
-	      }    
-	    }
-	    link.data(linkValue).enter().append("line")
-	                .attr("class", "bindLine")
-	                .attr("x1", function(d){return d[0];})
-	                .attr("y1", function(d){return d[1];})
-	                .attr("x2", function(d){return d[2];})
-	                .attr("y2", function(d){return d[3];});
+   
+  var attribute ="xlink:href";
+   
+   	nodes2.enter().append("pattern")
+      .attr("id", function(d, idCompt){idCompt++; return "img"+idCompt})
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 40)
+      .attr("height", 40)
+      .append("image")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("width", 40)
+      .attr("height", 40)
+      .attr(attribute, function(d, idCompt){return getPhoto(idCompt+1);});
 
-	   
-	  var attribute ="xlink:href";
-	   
-	   nodes2.enter().append("pattern")
-	          .attr("id", function(d, idCompt){idCompt++; return "img"+idCompt})
-	          .attr("x", 0)
-	          .attr("y", 0)
-	          .attr("width", 40)
-	          .attr("height", 40)
-	          .append("image")
-	          .attr("x", 0)
-	          .attr("y", 0)
-	          .attr("width", 40)
-	          .attr("height", 40)
-	          .attr(attribute, function(d, idCompt){return getPhoto(idCompt+1);});
+    idCompt = 0;
+    nodes.enter().append("circle")
+      .attr("class", "node")
+      .attr("id", function(d, idCompt){idCompt++; return idCompt;})
+      .attr("cy", function(d) {return d.y;})
+      .attr("cx", function(d) {return d.x;})
+      .attr("r", circleRadius)
+      .on("mouseover", expandNode)
+      .on("mouseout", contractNode);
 
-	    idCompt = 0;
-	    nodes.enter().append("circle")
-	      .attr("class", "node")
-	      .attr("id", function(d, idCompt){idCompt++; return idCompt;})
-	      .attr("cy", function(d) {return d.y;})
-	      .attr("cx", function(d) {return d.x;})
-	      .attr("r", circleRadius)
-	      .on("mouseover", expandNode)
-	      .on("mouseout", contractNode);
+     $("#1").d3MouseOver();
+    //getTipsOpen(20);
+    //animateTips(20);          
 
-	     $("#1").d3MouseOver();
-	    //getTipsOpen(20);
-	    //animateTips(20);          
-	
-	}
+}
 
 
 	
 
 	function animateTips(c){
-	    var id = _.random(1, c+1);
+	    var id = Math.floor(Math.random()*c+1);
 	    $("#"+id).d3MouseOver();
 	    anime = setTimeout(function(){
 	      	animateTips(c);
@@ -319,7 +346,7 @@ function grapLinkBanner(data){
 	        
 		    $("#"+id).css("fill", "url(#img"+id+")");
 		    
-	      	tip.html("<div id ='tool-d3'> <span><strong>"+ d.name+": </strong> </br>"+comment+"</span></div>")
+	      	tip.html("<div id ='tool-d3'> <span><span class='tip-title'><strong>"+ d.name+" "+d.firstname+": </strong> </span></br>"+comment+"</span></div>")
 	      	returnObj = tip.show($("#"+id));
 	      }    
         return returnObj; 
@@ -399,7 +426,7 @@ function grapLinkBanner(data){
 	          closeTips(d3.select(this), d3.select(this).attr("id"));
 	          d3.select(this).transition()
 	              .duration(100)
-	              .attr("r",10)
+	              .attr("r",5)
 
 	      };
 
@@ -434,17 +461,20 @@ function grapLinkBanner(data){
 	function resizeGraph(){
 		
 		tabId =[];
-		clearTimeout(anime);
-		$("#svgGrap").remove();
-		$("#svgPath").remove();
-		$(".d3-tip").remove();
-		$("#svg").remove();
-		$("#patterns").remove();
-		var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
-		var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
-		$("#patterns").insertBefore(".flexslider");
-		$("#svg").insertBefore("#patterns");
-		getMessageVitrine();
+		clearTimeout(timer);
+		timer = setTimeout(function(){
+			clearTimeout(anime);
+			$("#svgGrap").remove();
+			$("#svgPath").remove();
+			$(".d3-tip").remove();
+			$("#svg").remove();
+			$("#patterns").remove();
+			var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
+			var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
+			$("#patterns").insertBefore(".flexslider");
+			$("#svg").insertBefore("#patterns");
+			getMessageVitrine();
+		} , 200);
 	}
 	function getMessageVitrine(){
 		var fields = "name,comment,image" ;
