@@ -47,7 +47,9 @@ $this->pageTitle=$this::moduleTitle;
 	 		</section>
 		<!-- END BLOG SECTION -->
 		
-		
+			<?php 
+				$this->renderPartial('philo');
+			?>
 		
 		<!-- START SERVICES SECTION -->
 			<section id="services" class="section section-full-colored">
@@ -86,7 +88,7 @@ $this->pageTitle=$this::moduleTitle;
 			</section>
 			<!-- END CONTACT SECTION -->
 			<!-- START FOOTER SECTION -->
-			<section id="footer" class="section section-full-colored">
+			<section id="footer" class="section">
 				<div class="section-content">
 					<p >Pixel Humain 2014</p> <span >Fait main, AVEC AMOUR<br> par l'association Open Atlas</span></span>
 				</div>
