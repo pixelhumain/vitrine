@@ -4,6 +4,7 @@ $cs = Yii::app()->getClientScript();
 $cs->registerCssFile(Yii::app()->request->baseUrl. '/css/vis.css');
 $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/api.js' , CClientScript::POS_END);
 $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/vis.min.js' , CClientScript::POS_END);
+//$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/leaflet.awesome-markers.min.js' , CClientScript::POS_END);
 
 $cs->registerCssFile("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css");
 $cs->registerCssFile("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
