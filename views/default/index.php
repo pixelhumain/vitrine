@@ -128,6 +128,25 @@ jQuery(document).ready(function()
 	---- Graph
 	---------------------------------------------------------*/
 	resizeGraph();
+	var bottom1 = $("#section-video").position().top + $("#section-video").outerHeight();
+	var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
+	var bottom3 = $("#section-serv").position().top + $("#section-serv").outerHeight() +bottom2;
+	console.log("1", bottom1, "2", bottom2, "3", bottom3)
+    $(window).scroll( function(){
+    /* Check the location of each desired element */
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
+        console.log(bottom_of_window);
+        /* If the object is completely visible in the window, fade it it */
+        if( bottom_of_window > bottom1){   
+            $("#section-video").animate({'opacity':'1'},1000);     
+        }
+        if( bottom_of_window > bottom2){   
+            $("#section-philo").animate({'opacity':'1'},1000);     
+        }
+        if( bottom_of_window > bottom3){   
+            $("#section-serv").animate({'opacity':'1'},1000);     
+        }  
+    });
 });
 
 

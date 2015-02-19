@@ -9,7 +9,7 @@
 
 		<h1><i class="fa fa-smile-o fa-2x" style="color:#92be1f; padding:O O O O"></i><br>La philosophie</h1>
 	</div>
-	<div class="content-section">
+	<div class="section-content" id="section-philo">
 		<div id="gallery-slider">
 			<div class="flex-viewport" style="overflow: hidden; position: relative;">
 				<ul class="slides" style="width: 200%; transition-duration: 0s; transform: translate3d(-751px, 0px, 0px);">
