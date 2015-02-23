@@ -22,13 +22,13 @@
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO4.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO4.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO.jpg" draggable="false">
 							</a>
 						</div>
@@ -38,19 +38,19 @@
 					<li style="float: left; display: block;">
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO2.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO2.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO9.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO9.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_EVENEMENTS.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_EVENEMENTS.jpg" draggable="false">
 							</a>
 						</div>
@@ -58,19 +58,19 @@
 					<li style="float: left; display: block;">
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO3.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO3.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_RECRUTEMENT.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_RECRUTEMENT.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO5.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO5.jpg" draggable="false">
 							</a>
 						</div>
@@ -78,19 +78,19 @@
 					<li style="float: left; display: block;">
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO8.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO8.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO7.jpg" >
-								<span>Image Title</span>
+						
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO7.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO6.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO6.jpg" draggable="false">
 							</a>
 						</div>
@@ -99,19 +99,19 @@
 					<li style="float: left; display: block;">
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_BDB.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_BDB.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO10.jpg">
-								<span>Image Title</span>
+								
 								<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO10.jpg" draggable="false">
 							</a>
 						</div>
 						<div class="gallery-item">
 							<a class="fancybox" data-fancybox-group="group1" href="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO11.jpg">
-								<span>Image Title</span>
+								
 								<div class="img_gal">
 									<img alt="Image gallery" src="<?php echo $this->module->assetsUrl; ?>/images/gallery/AFF_TYPO11.jpg" draggable="false">
 								</div>
