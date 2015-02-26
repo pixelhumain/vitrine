@@ -256,7 +256,7 @@ function startLoadingAnimation(){
 	
 	if(nbScriptLoaded < nbScriptTotal) {
 		clearTimeout(timerLoader);
-		timerLoader = setTimeout('startLoadingAnimation()', 2000); 
+		timerLoader = setTimeout('startLoadingAnimation()', 5000); 
 	}
 	
 	nbScriptLoaded = 0;
@@ -265,7 +265,6 @@ function startLoadingAnimation(){
 	$.getScript(assetPath+"/js/sig/leaflet.draw-src.js", 				function( ) {  checkLoadLib(); });	
 	$.getScript(assetPath+"/js/sig/leaflet.draw.js", 					function( ) {  checkLoadLib(); });	
 	$.getScript(assetPath+"/js/sig/leaflet.markercluster-src.js", 		function( ) {  checkLoadLib(); });
-	
 	
 }
 function checkLoadLib(){ 	
@@ -282,8 +281,12 @@ function checkLoadLib(){
 	$("#progress-bar-animation").css({"width": (nbScriptLoaded*25) + "%" });	
 }
 
+var inited = false;
 function initAll(){
 		
+	if(inited) return;
+	inited = true;	
+	
 	$( "#btn-play" ).tooltip({ content: "lancer l'animation" });
 	$( "#btn-stop" ).tooltip({ content: "arrêter l'animation" });
 	
