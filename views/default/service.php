@@ -64,7 +64,7 @@
 	<p class="parnet servText">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet <br>dolore magna aliquam erat volutpat. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam<br> nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. </p>	
 </div>
 	<!-- SECTION CONTENT -->
-<div class="section-content">
+<div class="section-content" id ="section-serv">
 	<div class="container-fluid" id="container">
 		<div class="services-slider ">
 				
