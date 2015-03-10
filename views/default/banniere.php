@@ -13,10 +13,10 @@
 	z-index: 20;
 }
 #sectionsvg p{
-	font-size: 0.2em;
+	font-size: 0.3em;
 }
 #sectionsvg h1{
-	font-size: 25px;
+	font-size: 30px;
 	font-family: "Varela Round",arial,sans-serif;
 }
 .tip-title{
@@ -36,10 +36,19 @@
 				<div class="imgSvg" id="slide1">
 					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
-		            	<p>Le premier réseau social citoyen libre<br>
+		            	<p><strong>Le premier réseau social citoyen libre</strong><br>
 		Citoyens, Associations, Entreprises, Collectivités : <br>
 		Découvrez ce qui se passe en ce moment dans votre commune<br>
 		Participez aux discussions et actions citoyennes qui vous tiennent à cœur.</p>
+				</div>
+			</li>
+			<li>
+				<div class="imgSvg" id="slide1">
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
+		            	<p><strong>Aujourd'hui, le Pixel Humain, c'est aussi vous!</strong><br>
+		Comme le Pixel Humain, vous partagez le même sentiment de nécessité et d'urgence d'agir,<br>
+		de vous regrouper, de vous sentir utile pour la société: Participez au projet !</p>
 				</div>
 			</li>
 			<li>
@@ -51,15 +60,6 @@
 		Le Pixel humain : une plateforme d'échanges citoyenne, un catalyseur transformant les initiatives<br>
 		individuelles locales en initiatives locales collaboratives</p>
 		
-				</div>
-			</li>
-			<li>
-				<div class="imgSvg" id="slide1">
-					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
-		            	<p><strong>Aujourd'hui, le Pixel Humain, c'est aussi vous!</strong><br>
-		Comme le Pixel Humain, vous partagez le même sentiment de nécessité et d'urgence d'agir,<br>
-		de vous regrouper, de vous sentir utile pour la société: Participez au projet !</p>
 				</div>
 			</li>
 			</ul>

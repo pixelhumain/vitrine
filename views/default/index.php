@@ -35,11 +35,6 @@ $this->pageTitle=$this::moduleTitle;
 				$this -> renderPartial('projet');
 			?>
 
-
-		
-	
-
-
 		<!-- START BLOG SECTION -->
 			<section id="team" class="section section-content-colored">
 			<?php 
@@ -48,9 +43,7 @@ $this->pageTitle=$this::moduleTitle;
 	 		</section>
 		<!-- END BLOG SECTION -->
 		
-			<?php 
-				$this->renderPartial('philo');
-			?>
+			
 		
 		<!-- START SERVICES SECTION -->
 			<section id="services" class="section section-full-colored">
@@ -87,6 +80,9 @@ $this->pageTitle=$this::moduleTitle;
 				</div>
 				<!-- SECTION CONTENT -->			
 			</section>
+			<?php 
+				$this->renderPartial('philo');
+			?>
 			<!-- END CONTACT SECTION -->
 			<!-- START FOOTER SECTION -->
 			<section id="footer" class="section">
@@ -128,6 +124,7 @@ jQuery(document).ready(function()
 	---- Graph
 	---------------------------------------------------------*/
 	resizeGraph();
+	var top = $('#sectionSvg').position().top;
 	var bottom1 = $("#section-video").position().top + $("#section-video").outerHeight();
 	var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
 	var bottom3 = $("#section-serv").position().top + $("#section-serv").outerHeight() +bottom2;
@@ -138,10 +135,14 @@ jQuery(document).ready(function()
     $(window).scroll( function(){
     /* Check the location of each desired element */
         var bottom_of_window = $(window).scrollTop() + $(window).height();
+        var top_of_window = $(window).scrollTop();
         console.log(bottom_of_window);
         /* If the object is completely visible in the window, fade it it */
         if(bottom_of_window> bottom1){
         	$(".nav_label").css("color", "white");  
+        }
+        if(top_of_window=top){
+        	$(".nav_label").css("color", "black");
         }
         if( bottom_of_window > bottom1*2){ 
         	$(".nav_label").css("color", "white");  
