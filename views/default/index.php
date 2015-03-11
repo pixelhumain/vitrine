@@ -124,7 +124,7 @@ jQuery(document).ready(function()
 	---- Graph
 	---------------------------------------------------------*/
 	resizeGraph();
-	var top = $('#sectionSvg').position().top;
+	var top = $('#sectionsvg').position().top;
 	var bottom1 = $("#section-video").position().top + $("#section-video").outerHeight();
 	var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
 	var bottom3 = $("#section-serv").position().top + $("#section-serv").outerHeight() +bottom2;
