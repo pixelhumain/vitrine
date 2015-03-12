@@ -79,11 +79,12 @@
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<img src="" style="margin-left:'auto'; margin-right:'auto';"/>
 					<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
-		            	<p><strong>Aujourd'hui, le Pixel Humain, c'est aussi vous!</strong><br>
-		Comme le Pixel Humain, vous partagez le même sentiment de nécessité et d'urgence d'agir,<br>
-		de vous regrouper, de vous sentir utile pour la société: Participez au projet !</p>
+		            	<p>Vous partagez nos valeurs ?<br>
+		Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
+		évolutif ?<br>
+		Alors,<strong> rejoignez-nous et devenez, vous aussi, Pixel Humain !</strong> </p>
 				</div>
 			</li>
 			<li>
@@ -102,51 +103,6 @@
 
 	</div>
 
-	<div class="modal fade" id="smallModal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-xs" id = "modalComment">
-	    <div class="modal-content">
-	      <div class ="modal-header">
-	      	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	      </div>
-	      	<div class="modal-body">
-	      		
-				<span class="input-icon">
-					<label for="senCommentemail"><i class="fa fa-user"></i> Identité </label>
-					<input id="sendCommentemail" class="form-control" type="mail" placeholder="Email">
-					<input id="nameComment" class="form-control" placeholder="Nom">
-					<input id="firstnameComment" class="form-control" placeholder="Prenom">
-					<label for="cpComment"> <i class="fa fa-home"></i>Code Postal </label>
-					<input id="cpComment" class="form-control" type="text" placeholder="Code Postal">
-					<div class="form-group">
-						<label for="senCommentmsg"> <i class="fa fa-pencil-square-o"></i>Commentaire </label>
-						<textarea id="sendCommentmsg" class="form-control" placeholder="Commentaire (144 caracteres max)" style="height: 120px" maxlength="144"></textarea>
-					</div>
-				</span>
-				
-				
-	      		<!--Commentaire  : <textarea name="sendCommentmsg" id="sendCommentmsg"></textarea> <br/>
-				email(s) : <textarea type="text" name="sendCommentemail" id="sendCommentemail"><?php echo $this->module->id?>@<?php echo $this->module->id?>.com</textarea><br/>
-				code postal : <textarea type="number" name="cpComment" id="cpComment"></textarea><br/> -->
-				<a class="btn" href="javascript:sendCommentVitrine()">Send it</a><br/>
-				<div id="sendCommentResult" class="result fss"></div>
-				<script>
-					function sendCommentVitrine(){
-						params = { 
-				    	   "email" : $("#sendCommentemail").val() , 
-				    	   "msg" : $("#sendCommentmsg").val(),
-				    	   "cp" : $("#cpComment").val(),
-				    	   "name" : $("#nameComment").val(),
-				    	   "firstname" : $("#firstnameComment").val()
-				    	   };
-						testitpost("sendCommentResult",baseUrl+'/<?php echo $this->module->id?>/api/sendmessagevitrine',params);
-						$(".modal").css("display", "none");
-						resizeGraph();
-					}
-				</script>
-	      	</div>
-	    </div>
-	  </div>
-	</div>
 </section>
 
 <script type="text/javascript">
@@ -154,7 +110,7 @@
 var vertices = [];
 var tabIdPop =[];
 var tabIdPop2 =[];
-
+var force;
 var linkValue;
 var dataFile;
 var tickNum;
@@ -259,12 +215,10 @@ function createSvgData(data){
 			dataFile=map
 			t =  createSvgData(map);
 			var circleRadius = 5;
-			    
-		    var link = svg.selectAll("line");
+			force = d3.layout.force()
+		  		.linkDistance(200)
+		  		.charge(-2500)    	
 
-		    
-		    console.log(t);
-		    
 		    var nodes = svg.selectAll("circle")
 		      .data(t);
 		    var nodes2 = svg2.selectAll("images")
@@ -272,6 +226,8 @@ function createSvgData(data){
 		    //nodes.call(tipCirclePack);
 		    var idCompt = 0;
 		    
+
+			
 		    var vertices1 = [];
 		    var vertices2 = [];
 
@@ -327,13 +283,16 @@ function createSvgData(data){
 		        }
 		      }    
 		    }
-		    link.data(linkValue).enter().append("line")
+		    var link = svg.selectAll(".link")
+		    			.data(linkValue);
+
+		    link.data(linkValue).enter().insert("line", ".node")
                 .attr("class", "bindLine")
                 .attr("x1", function(d){return d[0];})
                 .attr("y1", function(d){return d[1];})
                 .attr("x2", function(d){return d[2];})
                 .attr("y2", function(d){return d[3];});
-
+            links = d3.layout.tree().links(nodes);
 		   
 		  	var attribute ="xlink:href";
 		   
@@ -354,21 +313,33 @@ function createSvgData(data){
 		    photoPath = "";
 		    content = "";
 		    nodes.enter().append("circle")
-		      .attr("class", function(d) {return d.type})
-		      .attr("id", function(d, idCompt){
-		      									idCompt++;
-		      									if(d.type=="tag")
-		      										tabType2.push(idCompt);
-		      									else
-		      										tabType1.push(idCompt);
-		      									return idCompt;})
-		      .attr("cy", function(d) {return d.y;})
-		      .attr("cx", function(d) {return d.x;})
-		      .on("mouseover", expandNode)
-		      .on("mouseout", contractNode)
-		      .attr("r", circleRadius)
-		   
-		   
+				.attr("class", function(d) {return d.type})
+				.attr("id", function(d, idCompt){
+												idCompt++;
+												if(d.type=="tag")
+													tabType2.push(idCompt);
+												else
+													tabType1.push(idCompt);
+												return idCompt;})
+				.attr("cy", function(d) {return d.y;})
+				.attr("cx", function(d) {return d.x;})
+				.on("mouseover", expandNode)
+				.on("mouseout", contractNode)
+				.attr("r", circleRadius)
+		   	
+		      	force.nodes(nodes)
+					.links(links)
+			 	force.start();						
+				function onTimeTick(){
+					force.nodes(nodes)
+						.links(links)
+					// Run the layout a fixed number of times.
+					// The ideal number of times scales with graph complexity.
+					force.start();
+					for (var i = 25 * 25; i > 0; --i) force.tick();
+					force.stop();
+				}
+				onTimeTick;
 		   	console.log(tabType2, tabType1);
 			$('.comment').popover({
 				'trigger':'hover',
@@ -634,6 +605,7 @@ function createSvgData(data){
 				$("#svgPath").remove();
 				$(".d3-tip").remove();
 				$("#svg").remove();
+
 				$("#patterns").remove();
 				var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
 				var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");

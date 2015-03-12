@@ -8,7 +8,7 @@
             "comment" : "Ceci est un message de test"
         },
         "type": "comment",
-    	"image" : {
+        "image" : {
             "url" : ""
         }
     },
@@ -22,7 +22,7 @@
             "comment" : "Ceci est un message de test eezzezzeezzz ---------------"
         },
         "type": "comment",
-    	"image" : {
+        "image" : {
             "url" : ""
         }
     },
@@ -387,8 +387,8 @@
         "comment" : {
             "comment" : "Ceci est un message de test"
         },
-        "type": "comment",
-    	"image" : {
+       "type": "comment",
+        "image" : {
             "url" : ""
         }
     },
