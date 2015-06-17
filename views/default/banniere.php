@@ -60,7 +60,14 @@
 	color: black;
 }
 
+.textZone{
+	height: 150px
+}
 
+.imgZone{
+	height: 450px;
+	margin-bottom: 15px;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -73,34 +80,43 @@
 			<ul class="slides">
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
-		            	<p><strong>Le premier réseau sociétal libre et innovant.</strong><br>
-		Citoyens, associations, collectivités, entreprises,</br> 
-		ce réseau de proximité est fait pour vous !</br>
-		Pour un territoire connecté, intéractif et dynamique : communectez-vous !
-
+					<div class="imgZone">
+						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					</div>
+					<div class="textZone">
+						<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
+			            	<p><strong>Le premier réseau sociétal libre et innovant.</strong><br>
+			Citoyens, associations, collectivités, entreprises,</br> 
+			ce réseau de proximité est fait pour vous !</br>
+			Pour un territoire connecté, intéractif et dynamique : communectez-vous !
+					</div>
 				</div>
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
-		            	<p>Vous partagez nos valeurs ?<br>
-		Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
-		évolutif ?<br>
-		Alors,<strong> rejoignez-nous et devenez, vous aussi, Pixel Humain !</strong> </p>
+					<div class="imgZone">
+						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					</div>
+					<div class="textZone">
+						<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
+			            	<p>Vous partagez nos valeurs ?<br>
+			Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
+			évolutif ?<br>
+			Alors,<strong> rejoignez-nous et devenez, vous aussi, Pixel Humain !</strong> </p>
+					</div>
 				</div>
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider/slide5.png" style="margin-left:'auto'; margin-right:'auto';"/>
-					
-					<h1 class="slideTitle_pix title_fontHome">Un réseau en mouvement</h1>
-		            	<p>Les actions pour le bien commun de plusieurs communautés<br> 
-		            	tranformées en intelligence collective<br>
-			<strong>Découvrez qui se cache derrière le changement en marche</strong></p>
-
+					<div class="imgZone">
+						<img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider/slide5.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					</div>
+					<div class="textZone">
+						<h1 class="slideTitle_pix title_fontHome">Un réseau en mouvement</h1>
+			            	<p>Les actions pour le bien commun de plusieurs communautés<br> 
+			            	tranformées en intelligence collective<br>
+				<strong>Découvrez qui se cache derrière le changement en marche</strong></p>
+					</div>
 		
 				</div>
 			</li>
