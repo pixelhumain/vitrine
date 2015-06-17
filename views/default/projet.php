@@ -36,7 +36,6 @@
 }
 
 .imgDescription{
-	display: none;
 	text-align: left;
 	padding-left: 10px;
 }
@@ -98,7 +97,7 @@
 								<div class="icoDescription">
 									<img class=" imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_CITOYENS.jpg" data-desc="citizenDesc" />
 								</div>
-								<div class="imgDescription" id="citizenDesc">
+								<div class="imgDescription hide" id="citizenDesc">
 									<h3>Citoyens</h3>
 									Exister<br>
 									S'informer<br>
@@ -113,7 +112,7 @@
 								<div class="icoDescription">
 									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_ENTREPRISE.jpg" data-desc="organizationDesc"/>
 								</div>
-								<div class="imgDescription" id="organizationDesc">
+								<div class="imgDescription hide" id="organizationDesc">
 									<h3>Entreprises</h3>
 									Se présenter<br>
 									Proposer ses services<br>
@@ -126,7 +125,7 @@
 								<div class="icoDescription">
 									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_COLLECTIVITE.jpg " data-desc="collectiviteDesc" />
 								</div>
-								<div class="imgDescription" id="collectiviteDesc">
+								<div class="imgDescription hide" id="collectiviteDesc">
 									<h3>Collectivités</h3>
 									Mettre en oeuvre le contrat de ville<br>
 									Favoriser la participation citoyenne<br>
@@ -142,7 +141,7 @@
 								<div class="icoDescription">
 									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_ASSO.jpg" data-desc="associationnDesc" />
 								</div>
-								<div class="imgDescription" id="associationnDesc">
+								<div class="imgDescription hide" id="associationnDesc">
 									<h3>Associations</h3>
 									Se présenter<br>
 									Valoriser ses actions<br>
@@ -168,13 +167,12 @@
 jQuery(document).ready(function()
 {
 
-	$(".imgDescription").css("display", "none");
 	$(".icoDescription .imgIco").on("mouseover", function(){
-		$("#"+$(this).data("desc")).css("display", "block");
+		$("#"+$(this).data("desc")).removeClass('hide').addClass("animated bounceIn");
 	})
 
 	$(".icoDescription .imgIco").on("mouseout", function(){
-		$(".imgDescription").css("display", "none");
+		$("#"+$(this).data("desc")).removeClass('animated bounceIn').addClass("hide");
 	})
 })
 function openVideo(){

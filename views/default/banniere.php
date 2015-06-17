@@ -5,6 +5,10 @@
 	width: 450px;
 }
 
+#sectionsvg{
+	background-color: #ccc;
+}
+
 .slideTitle_pix{
 	color: #2a3945;
 }

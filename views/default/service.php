@@ -111,34 +111,37 @@
 				</div>
 			</div>
 		</div>
+
+
+		<!-- SECTION BUTTON -->
+		<div id="divAction">
+			<div class="form-group">
+				<h1>Je me communecte  <a href="javascript:closeform()"><img src="<?php echo $this->module->assetsUrl; ?>/images/close.png"/></a></h1></br>
+				
+				<input id="form-field-1" class="form-control" type="text" placeholder="login de connexion"></br>
+				<input id="form-field-2" class="form-control" type="password" placeholder="Password"></br>
+				<a href="">Mot de passe oublié?</a>
+				<div class="checkbox">
+				    <label>
+				      <input type="checkbox"> Rester connecté</input>
+				    </label>
+				</div>
+				<ul class="social-list">
+					<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
+					<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
+					<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
+				</ul>
+				 <button type="submit" class="btn btn-success">C'est parti !</button></br>
+				 <span>Pas encore pixel actif? C'est facile !</span></br>
+				 <a href="#">Inscrivez-vous maintenant</a>
+			</div>
+		</div>
+		<div class="space20"></div>
 	</div>		
 </div>
 
 
-<!-- SECTION BUTTON -->
-<div id="divAction">
-	<div class="form-group">
-		<h1>Je me communecte  <a href="javascript:closeform()"><img src="<?php echo $this->module->assetsUrl; ?>/images/close.png"/></a></h1></br>
-		
-		<input id="form-field-1" class="form-control" type="text" placeholder="login de connexion"></br>
-		<input id="form-field-2" class="form-control" type="password" placeholder="Password"></br>
-		<a href="">Mot de passe oublié?</a>
-		<div class="checkbox">
-		    <label>
-		      <input type="checkbox"> Rester connecté</input>
-		    </label>
-		</div>
-		<ul class="social-list">
-			<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
-			<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
-			<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
-		</ul>
-		 <button type="submit" class="btn btn-success">C'est parti !</button></br>
-		 <span>Pas encore pixel actif? C'est facile !</span></br>
-		 <a href="#">Inscrivez-vous maintenant</a>
-	</div>
-</div>
-<div class="space20"></div>
+
 
 <script>
 
