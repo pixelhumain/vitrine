@@ -19,6 +19,10 @@
 	font-size: 30px;
 	font-family: "Varela Round",arial,sans-serif;
 }
+
+#sectionsvg .flexslider{
+	width: 50%;
+}
 .tip-title img{
 	width: 20%;
 	height: 20%;
@@ -56,6 +60,7 @@
 	color: black;
 }
 
+
 </style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -79,7 +84,7 @@
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="" style="margin-left:'auto'; margin-right:'auto';"/>
+					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
 		            	<p>Vous partagez nos valeurs ?<br>
 		Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
@@ -91,7 +96,7 @@
 				<div class="imgSvg" id="slide1">
 					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					
-					<h1 class="slideTitle_pix title_fontHome">L'équipe Pixel Humain</h1>
+					<h1 class="slideTitle_pix title_fontHome">Un réseau en mouvement</h1>
 		            	<p><strong>Qui est derrière le Pixel Humain? Tout le monde! Vous, eux, nous.</strong><br>
 		Le Pixel humain : une plateforme d'échanges citoyenne, un catalyseur transformant les initiatives<br>
 		individuelles locales en initiatives locales collaboratives</p>
@@ -593,27 +598,26 @@ function createSvgData(data){
 
 
 	function resizeGraph(){
-			
-			tabId =[];
-			tabType1=[];
-			tabType2=[];
-			clearTimeout(timer);
-			timer = setTimeout(function(){
-				clearTimeout(anime);
-				clearTimeout(anime2);
-				$("#svgGrap").remove();
-				$("#svgPath").remove();
-				$(".d3-tip").remove();
-				$("#svg").remove();
+		tabId =[];
+		tabType1=[];
+		tabType2=[];
+		clearTimeout(timer);
+		timer = setTimeout(function(){
+			clearTimeout(anime);
+			clearTimeout(anime2);
+			$("#svgGrap").remove();
+			$("#svgPath").remove();
+			$(".d3-tip").remove();
+			$("#svg").remove();
 
-				$("#patterns").remove();
-				var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
-				var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
-				$("#patterns").insertBefore(".flexslider");
-				$("#svg").insertBefore("#patterns");
-				grapLinkBanner(dataPath);
-				//getMessageVitrine();
-			} , 200);
-		}
+			$("#patterns").remove();
+			var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
+			var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
+			$("#patterns").insertBefore(".flexslider");
+			$("#svg").insertBefore("#patterns");
+			grapLinkBanner(dataPath);
+			//getMessageVitrine();
+		} , 200);
+	}
 
 </script>

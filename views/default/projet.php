@@ -43,28 +43,30 @@
 		<h1 class="title_fontHome">Le Projet</h1>
 	</div>
 	<!-- SECTION CONTENT -->
-	<div class="section-content section-no-top-padding" id ="section-video">
-		<div class="container">
-			<div id="textVid">
-				<p><strong>Pixel Humain est le premier réseau social citoyen libre de droit, <br>
-d'accès, d'opinion, d'utilisation, d'évolution ...</strong><br>
-Pixel humain est une plateforme en construction et recherche de financements.
-				</p>
-			</div>
-			
-			<!--<div class="videoSection">
-				<object id="video_pixel" width="940" height="540" data="http://vimeo.com/moogaloop.swf?clip_id=74212373" type="application/x-shockwave-flash">
-					<param value="http://vimeo.com/moogaloop.swf?clip_id=74212373"></param>
-					<param name="allowFullScreen" value="true"></param>
-					<param value="always"></param>
-				</object>
-			</div>-->
-			<div class="imageSection">
-				<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video.jpg" onclick="openVideo()"/>
-			</div>
-		</div>
+	<div class="flexslider">
+		<ul class="slides">
+			<li>
+				<div class="section-content section-no-top-padding" id ="section-video">
+					<div id="textVid">
+						<p><strong>Pixel Humain est le premier réseau social citoyen libre de droit, <br>
+		d'accès, d'opinion, d'utilisation, d'évolution ...</strong><br>
+		Pixel humain est une plateforme en construction et recherche de financements.
+						</p>
+					</div>
+					<div class="imageSection">
+						<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video.jpg" onclick="openVideo()"/>
+					</div>
+				</div>
+			</li>
+			<li>
+			</li>
+			<li>
+			</li>
+		</ul>
 	</div>
 </section>
+
+
 <script>
 
 function openVideo(){
