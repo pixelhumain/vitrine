@@ -31,7 +31,7 @@
 	font-size: 0.8em;
 }
 
-#textVid{
+.textProjectSlider{
 	padding: 0 0 30px;
 }
 
@@ -47,7 +47,7 @@
 		<ul class="slides">
 			<li>
 				<div class="section-content section-no-top-padding" id ="section-video">
-					<div id="textVid">
+					<div class="textProjectSlider">
 						<p><strong>Pixel Humain est le premier réseau social citoyen libre de droit, <br>
 		d'accès, d'opinion, d'utilisation, d'évolution ...</strong><br>
 		Pixel humain est une plateforme en construction et recherche de financements.
@@ -59,6 +59,10 @@
 				</div>
 			</li>
 			<li>
+				<div class="section-content section-no-top-padding" id ="section-video">
+					<div class="textProjectSlider">
+					</div>
+				</div>
 			</li>
 			<li>
 			</li>

@@ -94,12 +94,13 @@
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
-					<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					<img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider/slide5.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					
 					<h1 class="slideTitle_pix title_fontHome">Un réseau en mouvement</h1>
-		            	<p><strong>Qui est derrière le Pixel Humain? Tout le monde! Vous, eux, nous.</strong><br>
-		Le Pixel humain : une plateforme d'échanges citoyenne, un catalyseur transformant les initiatives<br>
-		individuelles locales en initiatives locales collaboratives</p>
+		            	<p>Les actions pour le bien commun de plusieurs communautés<br> 
+		            	tranformées en intelligence collective<br>
+			<strong>Découvrez qui se cache derrière le changement en marche</strong></p>
+
 		
 				</div>
 			</li>
