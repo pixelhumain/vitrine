@@ -96,8 +96,17 @@ $this->pageTitle=$this::moduleTitle;
 
 
 <script type="text/javascript">
+var color;
 jQuery(document).ready(function()
 {
+	$(".nav_label").on('mouseover', function(){
+		color = $(this).css("color");
+		$(this).css("color", "#e4334b");
+	})
+
+	$(".nav_label").on('mouseout', function(){
+		$(this).css("color", color);
+	})
 	var sliderSvg = $('.flexslider').flexslider();
 	jQuery.fn.d3MouseOver = function () {
 	    this.each(function (i, e) {
@@ -125,7 +134,7 @@ jQuery(document).ready(function()
 	---------------------------------------------------------*/
 	resizeGraph();
 	var top = $('#sectionsvg').position().top;
-	var bottom1 = $("#section-video").position().top + $("#section-video").outerHeight();
+	var bottom1 = $(".section-video").position().top + $(".section-video").outerHeight();
 	var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
 	var bottom3 = $("#section-serv").position().top + $("#section-serv").outerHeight() +bottom2;
 	var bottom4 = bottom1*3;
@@ -142,12 +151,12 @@ jQuery(document).ready(function()
         	$(".nav_label").css("color", "white");  
         }
         if(top_of_window=top){
-        	$(".nav_label").css("color", "black");
+        	$(".nav_label").css("color", "#2a3945");
         }
         if( bottom_of_window > bottom1*2){ 
         	$(".nav_label").css("color", "white");  
         	$("#label_desc").css("color", "yellow");
-            $("#section-video").animate({'opacity':'1'},1000);     
+            $(".section-video").animate({'opacity':'1'},1000);     
         }
         if(bottom_of_window>bottom4){
         	$(".nav_label").css("color", "white");  
