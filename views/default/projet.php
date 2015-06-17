@@ -41,7 +41,8 @@
 	padding-left: 10px;
 }
 .imgDescription h3{
-	text-align: center;
+	text-align: left;
+	font-weight: bold;
 }
 
 .img-thumbnail {

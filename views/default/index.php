@@ -81,7 +81,7 @@ $this->pageTitle=$this::moduleTitle;
 				<!-- SECTION CONTENT -->			
 			</section>
 			<?php 
-				$this->renderPartial('philo');
+				//$this->renderPartial('philo');
 			?>
 			<!-- END CONTACT SECTION -->
 			<!-- START FOOTER SECTION -->
@@ -135,7 +135,7 @@ jQuery(document).ready(function()
 	resizeGraph();
 	var top = $('#sectionsvg').position().top;
 	var bottom1 = $(".section-video").position().top + $(".section-video").outerHeight();
-	var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
+	//var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
 	var bottom3 = $("#section-serv").position().top + $("#section-serv").outerHeight() +bottom2;
 	var bottom4 = bottom1*3;
 	var bottom5 = bottom1 +bottom3;
@@ -162,12 +162,12 @@ jQuery(document).ready(function()
         	$(".nav_label").css("color", "white");  
         	$("#label_team").css("color", "yellow");
         }
-        if( bottom_of_window > bottom2){
+        /*if( bottom_of_window > bottom2){
         	$(".nav_label").css("color", "white");  
         	$("#label_phil").css("color", "yellow");
         	 
             $("#section-philo").animate({'opacity':'1'},1000);     
-        }
+        }*/
         if( bottom_of_window > bottom3){
         	$(".nav_label").css("color", "white");
         	$("#label_serv").css("color", "yellow");  
