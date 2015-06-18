@@ -19,6 +19,9 @@
 	}
 
 
+	.no-float{
+		float: none;
+	}
 
 	#adhesion{
 		float: right;
@@ -33,6 +36,11 @@
 		text-align: center;
 	}
 
+	#services .form-group{
+	  margin-bottom: 15px;
+	  margin-left: 25%;
+	  width: 50%;
+	}
 
 	h1{
 	    font-family: "Homestead",arial,sans-serif;
@@ -52,16 +60,19 @@
 	}
 
 	#divAction{
-		display: none;
 		z-index: 10;
-		width: 30%;
-		margin-left: 35%;
+		width: 40%;
+		margin-left: 30%;
+		margin-top: 60px;
+		min-height:450px;
 		text-align: center;
 	}
 
 	#don{
 		display : none;
 	}
+
+
 
 </style>
 
@@ -105,43 +116,60 @@
 					</div>
 				</div>
 			</div>
-			<div class="row">
+			<div class="row hide">
 	             <div id="don">  
 					<h2>Je donne</h2>
 					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
 					<button onclick="javascript:openform('don')" class="btn btnPart btn-success">Je fais un don à l'association</button>
 				</div>
 			</div>
-		</div>
-
-
-		<!-- SECTION BUTTON -->
-		<div id="divAction">
-			<div class="form-group">
-				<h1>Je me communecte  <a href="javascript:closeform()"><img src="<?php echo $this->module->assetsUrl; ?>/images/close.png"/></a></h1></br>
-				
-				<input id="form-field-1" class="form-control" type="text" placeholder="login de connexion"></br>
-				<input id="form-field-2" class="form-control" type="password" placeholder="Password"></br>
-				<a href="">Mot de passe oublié?</a>
-				<div class="checkbox">
-				    <label>
-				      <input type="checkbox"> Rester connecté</input>
-				    </label>
-				</div>
-				<ul class="social-list">
-					<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
-					<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
-					<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
-				</ul>
-				 <button type="submit" class="btn btn-success">C'est parti !</button></br>
-				 <span>Pas encore pixel actif? C'est facile !</span></br>
-				 <a href="#">Inscrivez-vous maintenant</a>
-			</div>
-		</div>
+		</div>	
 		<div class="space20"></div>
 	</div>		
 </div>
 
+
+<!-- SECTION BUTTON -->
+<div id="divAction" class="hide section-content parnet row">
+	<div class="form-group col-md-12">
+		<h2>Je me communecte  <a href="javascript:closeform()" class="cross"><span class="cross__icon"></span></a></h2>
+		
+			<input id="form-field-1" class="form-control" type="text" placeholder="Identifiant de connection"/></br>
+	
+		
+			<input id="form-field-2" class="form-control" type="password" placeholder="Mot de passe"/></br>
+		
+			<div class="row">
+				<div class="text-left float-left col-md-6">
+					<a href="">Mot de passe oublié?</a>
+				</div>
+				<div class="text-right col-md-6">
+					<div class="checkbox">
+					    <label>
+					      <input type="checkbox" class="no-float"> Rester connecté</input>
+					    </label>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="text-left float-left col-md-6">
+					<ul class="social-list">
+						<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
+						<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
+						<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
+					</ul>
+				</div>
+				<div class="text-right float-right col-md-6">
+				 	<button type="submit" class="btn btn-success">C'est parti !</button>
+				</div>
+			</div>
+		<div class="col-md-12 registerServ">
+			 <span>Pas encore pixel actif ? C'est facile !</span></br>
+			 <a href="#">Inscrivez-vous maintenant</a>
+		</div>
+	</div>
+</div>
 
 
 
@@ -158,15 +186,21 @@
 			$(this).css("background-color", "yellow")
 			$(this).css("border-color", "yellow")
 		})
+
 	})
 	function openform(id){
-		$("#divAction").css("height", ""+$(".services-slider").height());
-		$(".services-slider").css("display", "none");
-		$("#divAction").css("display", "block");
+		$("#divAction").css("height", ""+$(".services-slider").height());	
+		$("#section-serv").removeClass("animated fadeIn").addClass("hide");
+		//$("#headerContent").removeClass("animated fadeIn").addClass("hide");
+		$("#divAction").removeClass("hide").addClass("animated fadeIn");
+		
+		
 	}
 
 	function closeform(){
-		$(".services-slider").css("display", "block");
-		$("#divAction").css("display", "none");
+		$("#divAction").removeClass("animated fadeIn").addClass("hide");
+		$("#section-serv").removeClass("hide").addClass("animated fadeIn");
+		//$("#headerContent").removeClass("hide").addClass("animated fadeIn");
+		
 	}
 </script>

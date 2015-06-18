@@ -1,92 +1,3 @@
-<style>
-
-#modalComment{
-	max-height: 600px;
-	width: 450px;
-}
-
-#sectionsvg{
-	background-color: #ccc;
-}
-
-.slideTitle_pix{
-	color: #2a3945;
-}
-
-.d3-tip{
-	z-index: 20;
-}
-#sectionsvg p{
-	font-size: 1.15em;
-}
-#sectionsvg h1{
-	font-size: 3em;
-	font-family: "Varela Round",arial,sans-serif;
-}
-
-#sectionsvg .flexslider{
-	width: 50%;
-}
-.tip-title img{
-	width: 20%;
-	height: 20%;
-}
-.tip-title{
-	color:steelblue;
-	font-size: 12px;
-}
-.tip-titletag{
-	color: black;
-} 
-
-.pop-div, .popover-content {
-    max-width: 270px;
-    max-height: 100px;
-    background-color: transparent;
-    /*overflow-y:scroll;*/
-}
-.popover > .popover-content .tagPop{
- 	background: steelblue;
-}
-
-.popover{
-	z-index: 5;
-	font-size: 12px;
-}
-.tooltip{
-	z-index: 5;
-	font-size: 16px;
-	font-weight: bold;
-}
-
-.tooltip-inner{
-	z-index: 1;
-	background: transparent;
-	color: black;
-}
-
-.textZone{
-	height: 150px
-}
-
-.imgZone{
-	margin-bottom: 15px;
-}
-
-#banFlex{
-	margin: 0px auto;
-}
-#sectionsvg .pinkBtn{
-	margin-top: 10px;
-	background-color: yellow;
-	color:black;
-	font-size: 1.15em;
-}
-#sectionsvg .pinkBtn:hover{
-	background-color: #e4334b;
-	color:white;
-}
-</style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
 
@@ -113,7 +24,7 @@
 			<li>
 				<div class="imgSvg" id="slide1">
 					<div class="imgZone">
-						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide3.png" style="margin-left:'auto'; margin-right:'auto';"/>
+						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide2.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
@@ -127,7 +38,7 @@
 			<li>
 				<div class="imgSvg" id="slide1">
 					<div class="imgZone">
-						<img src="<?php echo Yii::app()->theme->baseUrl; ?>/images/slider/slide5.png" style="margin-left:'auto'; margin-right:'auto';"/>
+						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome">Un réseau en mouvement</h1>

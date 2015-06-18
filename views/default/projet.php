@@ -37,12 +37,13 @@
 
 .imgDescription{
 	text-align: left;
-	padding-left: 10px;
 	font-size: 0.8em;
 }
-.imgDescription h3{
+.icoDescription h3{
 	text-align: left;
 	font-weight: bold;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align: left;
 }
 
 .img-thumbnail {
@@ -51,6 +52,10 @@
 
 #projectFlex{
 	padding: 25px;
+}
+
+#description .title_fontHome{
+
 }
 </style>
 <section id="description" class="center section with-arrow">
@@ -83,7 +88,7 @@
 					</div>
 				
 					<div class="imageSection">
-						<img class="img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/equipeSlider2.png" />
+						<img class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/equipeSlider2.png" />
 					</div>
 				</div>
 			</li>
@@ -91,7 +96,7 @@
 			<li>
 				<div class="section-content section-no-top-padding section-video">
 					<div class="textProjectSlider">
-						<p><strong>Un réseau pour qui?</strong><br>
+						<p><strong>Un réseau pour qui ?</strong><br>
 						Le Pixel Humain réunit et fédère les principaux acteurs de la vie locale<br>
 						pour valoriser le territoire et le bien commun.
 						</p>
@@ -100,7 +105,7 @@
 						<div class="row">
 							<div class="col-md-3">
 								<div class="icoDescription">
-									<img class=" imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_CITOYENS.jpg" data-desc="citizenDesc" />
+									<img class=" imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_CITOYENS.jpg" data-desc="citizenDesc" />
 									<h3 class="title_fontHome">Citoyens</h3>
 								</div>
 								<div class="imgDescription hide" id="citizenDesc">
@@ -115,7 +120,7 @@
 							</div>
 							<div class="col-md-3">
 								<div class="icoDescription">
-									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_ENTREPRISE.jpg" data-desc="organizationDesc"/>
+									<img class="imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_ENTREPRISE.jpg" data-desc="organizationDesc"/>
 									<h3 class="title_fontHome">Entreprises</h3>
 								</div>
 								<div class="imgDescription hide" id="organizationDesc">
@@ -128,7 +133,7 @@
 							</div>
 							<div class="col-md-3">
 								<div class="icoDescription">
-									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_COLLECTIVITE.jpg " data-desc="collectiviteDesc" />
+									<img class="imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_COLLECTIVITE.jpg " data-desc="collectiviteDesc" />
 									<h3 class="title_fontHome">Collectivités</h3>
 								</div>
 								<div class="imgDescription hide" id="collectiviteDesc">
@@ -144,7 +149,7 @@
 							</div>
 							<div class="col-md-3">
 								<div class="icoDescription">
-									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_ASSO.jpg" data-desc="associationnDesc" />
+									<img class="imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_ASSO.jpg" data-desc="associationnDesc" />
 									<h3 class="title_fontHome">Associations</h3>
 								</div>
 								<div class="imgDescription hide" id="associationnDesc">
