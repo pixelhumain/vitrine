@@ -17,10 +17,10 @@
 	z-index: 20;
 }
 #sectionsvg p{
-	font-size: 0.3em;
+	font-size: 0.4em;
 }
 #sectionsvg h1{
-	font-size: 30px;
+	font-size: 45px;
 	font-family: "Varela Round",arial,sans-serif;
 }
 
@@ -80,6 +80,7 @@
 	margin-top: 10px;
 	background-color: yellow;
 	color:black;
+	font-size: 20px;
 }
 #sectionsvg .pinkBtn:hover{
 	background-color: #e4334b;
