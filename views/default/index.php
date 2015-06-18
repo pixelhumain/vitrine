@@ -99,14 +99,14 @@ $this->pageTitle=$this::moduleTitle;
 var color;
 jQuery(document).ready(function()
 {
-	$(".nav_label").on('mouseover', function(){
+	/*$(".nav_label").on('mouseover', function(){
 		color = $(this).css("color");
 		$(this).css("color", "#e4334b");
 	})
 
 	$(".nav_label").on('mouseout', function(){
 		$(this).css("color", color);
-	})
+	})*/
 	var sliderSvg = $('.flexslider').flexslider();
 	jQuery.fn.d3MouseOver = function () {
 	    this.each(function (i, e) {
