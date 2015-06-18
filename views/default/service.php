@@ -66,11 +66,13 @@
 </style>
 
 <div class="section-header">
-	<h1 class="parnet title_fontHome">	<img class="icon_section img_cont" src="<?php echo $this->module->assetsUrl; ?>/images/hand.png"  ><br>PARTICIPER</h1>
-	<p class="parnet servText">Le Pixel Humain est une plate-forme en construction.<br>
-	 Pour nous aider à connecter virtuel et réel, le Pixel et l’Humain, nous avons besoin de vous.<br>
-	  Vous partagez nos valeurs ! Vous souhaitez contribuer à un projet d’intérêt général, évolutif et participatif !<br>
-	   Alors, rejoignez-nous !</p>	
+	<div id="headerContent">
+		<h1 class="parnet title_fontHome">	<img class="icon_section img_cont" src="<?php echo $this->module->assetsUrl; ?>/images/hand.png"  ><br>PARTICIPER</h1>
+		<p class="parnet servText">Le Pixel Humain est une plate-forme en construction.<br>
+		 Pour nous aider à connecter virtuel et réel, le Pixel et l’Humain, nous avons besoin de vous.<br>
+		  Vous partagez nos valeurs ! Vous souhaitez contribuer à un projet d’intérêt général, évolutif et participatif !<br>
+		   Alors, rejoignez-nous !</p>
+	</div>	
 </div>
 	<!-- SECTION CONTENT -->
 <div class="section-content" id ="section-serv">
