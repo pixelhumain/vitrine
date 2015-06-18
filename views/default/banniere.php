@@ -54,6 +54,7 @@
 	font-size: 12px;
 }
 .tooltip{
+	z-index: 5;
 	font-size: 16px;
 	font-weight: bold;
 }
@@ -69,7 +70,6 @@
 }
 
 .imgZone{
-	height: 450px;
 	margin-bottom: 15px;
 }
 
