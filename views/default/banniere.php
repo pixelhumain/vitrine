@@ -105,7 +105,7 @@
 			            	<p><strong>Le premier réseau sociétal libre et innovant.</strong><br>
 			Citoyens, associations, collectivités, entreprises,</br> 
 			ce réseau de proximité est fait pour vous !</br>
-			Pour un territoire connecté, intéractif et dynamique : <a class="btn btn-succes center pinkBtn"><strong>Communectez-vous!</strong></a>
+			Pour un territoire connecté, intéractif et dynamique : <a class="btn btn-succes center pinkBtn">Communectez-vous!</a>
 					</div>
 				</div>
 			</li>
