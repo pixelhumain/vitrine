@@ -38,6 +38,7 @@
 .imgDescription{
 	text-align: left;
 	padding-left: 10px;
+	font-size: 0.8em;
 }
 .imgDescription h3{
 	text-align: left;
@@ -47,6 +48,10 @@
 .img-thumbnail {
 	border :0px;
 }
+
+#projectFlex{
+	padding: 25px;
+}
 </style>
 <section id="description" class="center section with-arrow">
 	<!-- SECTION TITLE -->
@@ -55,7 +60,7 @@
 		<h1 class="title_fontHome">Le Projet</h1>
 	</div>
 	<!-- SECTION CONTENT -->
-	<div class="flexslider">
+	<div class="flexslider" id="projectFlex">
 		<ul class="slides">
 			<li>
 				<div class="section-content section-no-top-padding section-video">
@@ -96,9 +101,9 @@
 							<div class="col-md-3">
 								<div class="icoDescription">
 									<img class=" imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_CITOYENS.jpg" data-desc="citizenDesc" />
+									<h3 class="title_fontHome">Citoyens</h3>
 								</div>
 								<div class="imgDescription hide" id="citizenDesc">
-									<h3>Citoyens</h3>
 									Exister<br>
 									S'informer<br>
 									S'impliquer<br>
@@ -111,9 +116,9 @@
 							<div class="col-md-3">
 								<div class="icoDescription">
 									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_ENTREPRISE.jpg" data-desc="organizationDesc"/>
+									<h3 class="title_fontHome">Entreprises</h3>
 								</div>
 								<div class="imgDescription hide" id="organizationDesc">
-									<h3>Entreprises</h3>
 									Se présenter<br>
 									Proposer ses services<br>
 									Mettre en avant ses produits<br>
@@ -124,9 +129,9 @@
 							<div class="col-md-3">
 								<div class="icoDescription">
 									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_COLLECTIVITE.jpg " data-desc="collectiviteDesc" />
+									<h3 class="title_fontHome">Collectivités</h3>
 								</div>
 								<div class="imgDescription hide" id="collectiviteDesc">
-									<h3>Collectivités</h3>
 									Mettre en oeuvre le contrat de ville<br>
 									Favoriser la participation citoyenne<br>
 									Créer du lien social<br>
@@ -140,9 +145,9 @@
 							<div class="col-md-3">
 								<div class="icoDescription">
 									<img class="imgIco img-responsive img-thumbnail" src="<?php echo Yii::app()->theme->baseUrl; ?>/images/01_PROJET_03_ASSO.jpg" data-desc="associationnDesc" />
+									<h3 class="title_fontHome">Associations</h3>
 								</div>
 								<div class="imgDescription hide" id="associationnDesc">
-									<h3>Associations</h3>
 									Se présenter<br>
 									Valoriser ses actions<br>
 									Proposer ses services<br>
@@ -167,12 +172,13 @@
 jQuery(document).ready(function()
 {
 
+	$(".imgDescription").removeClass("hide")
 	$(".icoDescription .imgIco").on("mouseover", function(){
 		$("#"+$(this).data("desc")).removeClass('hide').addClass("animated bounceIn");
 	})
 
 	$(".icoDescription .imgIco").on("mouseout", function(){
-		$("#"+$(this).data("desc")).removeClass('animated bounceIn').addClass("hide");
+		$("#"+$(this).data("desc")).removeClass('animated bounceIn');
 	})
 })
 function openVideo(){

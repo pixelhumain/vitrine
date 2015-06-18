@@ -72,6 +72,10 @@
 	height: 450px;
 	margin-bottom: 15px;
 }
+
+#banFlex{
+	margin: 0px auto;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -80,7 +84,7 @@
 	<div class="svgAndImg">
 		<div id="svg"></div>
 		<div id="patterns"></div>
-		<div class="flexslider">
+		<div class="flexslider" id="banFlex">
 			<ul class="slides">
 			<li>
 				<div class="imgSvg" id="slide1">
