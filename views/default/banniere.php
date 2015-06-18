@@ -76,6 +76,15 @@
 #banFlex{
 	margin: 0px auto;
 }
+#sectionsvg .pinkBtn{
+	margin-top: 0px;
+	background-color: yellow;
+	color:black;
+}
+#sectionsvg .pinkBtn:hover{
+	background-color: #e4334b;
+	color:white;
+}
 </style>
 
 <script src="http://code.jquery.com/jquery.js"></script>
@@ -96,7 +105,7 @@
 			            	<p><strong>Le premier réseau sociétal libre et innovant.</strong><br>
 			Citoyens, associations, collectivités, entreprises,</br> 
 			ce réseau de proximité est fait pour vous !</br>
-			Pour un territoire connecté, intéractif et dynamique : communectez-vous !
+			Pour un territoire connecté, intéractif et dynamique : <a class="btn btn-succes center pinkBtn"><strong>Communectez-vous!</strong></a>
 					</div>
 				</div>
 			</li>
@@ -207,6 +216,10 @@ function initialise(){
 	 svg.attr("height", height)
 	    .attr("width", width);
 
+	svg.append("rect")
+	    .attr("width", "100%")
+	    .attr("height", "100%")
+	    .attr("fill", "#d5dde2");
 	svg2 = d3.select("#patterns").append("svg").attr("id", "svgPath").append("defs");
 }
 
