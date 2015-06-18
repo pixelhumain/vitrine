@@ -77,7 +77,7 @@
 	margin: 0px auto;
 }
 #sectionsvg .pinkBtn{
-	margin-top: 0px;
+	margin-top: 10px;
 	background-color: yellow;
 	color:black;
 }
@@ -105,7 +105,7 @@
 			            	<p><strong>Le premier réseau sociétal libre et innovant.</strong><br>
 			Citoyens, associations, collectivités, entreprises,</br> 
 			ce réseau de proximité est fait pour vous !</br>
-			Pour un territoire connecté, intéractif et dynamique : <a class="btn btn-succes center pinkBtn">Communectez-vous!</a>
+			Pour un territoire connecté, intéractif et dynamique<br> <a class="btn btn-succes center pinkBtn">Communectez-vous !</a>
 					</div>
 				</div>
 			</li>
