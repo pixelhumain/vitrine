@@ -107,7 +107,7 @@ jQuery(document).ready(function()
 	$(".nav_label").on('mouseout', function(){
 		$(this).css("color", color);
 	})*/
-	var sliderSvg = $('.flexslider').flexslider();
+	var sliderSvg = $('#banFlex').flexslider();
 	jQuery.fn.d3MouseOver = function () {
 	    this.each(function (i, e) {
 	      ////console.log("over");
