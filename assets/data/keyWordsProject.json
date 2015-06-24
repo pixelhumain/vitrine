@@ -40,14 +40,7 @@
 			{"OpenSource" : "description"},
 			{"Global" : "description"},
 			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"},
-			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"},
-			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"}
+			{"OpenSource" : "description"}
 		],
 		"description" : "Un texte plus court"
 	},

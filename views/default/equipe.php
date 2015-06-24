@@ -19,6 +19,7 @@
  #carto{
  	width: 100%;
 	height: 730px !important;
+	overflow: hidden;
 	margin: 0px auto;
 	color: #FFF;
  }

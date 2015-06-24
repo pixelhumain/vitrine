@@ -17,10 +17,9 @@
 }
 .imageSection {
 	-webkit-box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
-	-moz-box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
-	box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
+	 -moz-box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
+	 box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
 	border-radius: 20px;
-	height: 500px;
 	margin: auto;
 	border: 20px solid white;
 	position: relative;
@@ -37,7 +36,7 @@
 }
 
 #description p{
-	font-size: 0.8em;
+	font-size: 20px;
 }
 
 .textProjectSlider{
@@ -186,6 +185,22 @@
 	margin-top: 50px;
 }
 
+@media screen and (max-width: 1300px) {
+	.linkProjet{
+		width: 70%;
+	}
+
+	.tagsProjectDiv{
+		max-width: 80%;
+	}
+
+	.menuTagsDiv{
+		max-width: 80%;
+	}
+	.btn-lg{
+		font-size: 14px;
+	}
+}
 
 </style>
 <section id="description" class="center section with-arrow">
@@ -198,8 +213,8 @@
 				 <li><a href="#">VIDEO 1</a></li>
 				 <li><a href="#">COMMENT</a></li>
 				 <li><a href="#">POUR QUI</a></li>
+				  <li><a href="#">MOTS CLES</a></li>
 				 <li><a href="#">VIDEO 2</a></li>
-				 <li><a href="#">MOTS CLES</a></li>
 			</ul>
 		</div>
 	</div>
