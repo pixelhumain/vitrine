@@ -1,0 +1,76 @@
+{
+	"Tags1" : 
+	{
+		"keywords": [
+			{"Démocratie participative" : "Dispositifs et procédures qui permettent d'augmenter l'implication des citoyens dans la vie politique et d'accroître leur rôle dans les prises de décision."},
+			{"Association" : "description"}
+		],
+		"description" : "Un texte super court"
+	},
+
+	"Tags2" : 
+	{
+		"keywords": [
+			{"Territoire Connecté" : "description"},
+			{"Réseau sociétal" : "description"},
+			{"Citizen Tool Kit" : "description"},
+			{"Territoire Connecté" : "description"},
+			{"Réseau sociétal" : "description"},
+			{"Citizen Tool Kit" : "description"}
+		],
+		"description" : "Un texte plus court"
+	},
+
+	"Tags3":
+	{
+		"keywords": [
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"},
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"},
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"},
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"},
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"},
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"},
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"},
+			{"OpenData" : "description"},
+			{"OpenSource" : "description"},
+			{"Global" : "description"}
+		],
+		"description" : "Un texte plus court"
+	},
+
+	"Tags4" :
+	{
+		"keywords": [
+			{"Cartographie de réseau" : "description"},
+			{"Cartographie de réseau" : "description"},
+			{"Cartographie de réseau" : "description"},
+			{"Cartographie de réseau" : "description"},
+			{"Cartographie de réseau" : "description"}
+		],
+		"description" : "Un texte plus court"
+	},
+
+	"Tags5" :
+	{
+		"keywords": [
+			{"Vivre ensemble" : "description"},
+			{"Economie collaborative" : "description"},
+			{"Biens communs" : "Les communs sont des ressources partagées entre une communauté d’utilisateurs qui déterminent eux-mêmes le cadre et les normes régulant la gestion et l’usage de leur ressource.<br> « Il n’y a pas de commun sans « commoners ». (…) Il n’y a pas de commun sans agir en commun. » New to the Commons ? David Bollier"}
+		],
+		"description" : "Un texte plus court"
+	}
+}
