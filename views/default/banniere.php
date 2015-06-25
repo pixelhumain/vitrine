@@ -561,12 +561,15 @@ function createSvgData(data){
 			$("#svg").remove();
 
 			$("#patterns").remove();
-			var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
-			var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
-			$("#patterns").insertBefore(".flexslider");
-			$("#svg").insertBefore("#patterns");
-			grapLinkBanner(dataPath);
-			//getMessageVitrine();
+
+			if($(window).width()> 500){
+				var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
+				var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
+				$("#patterns").insertBefore(".flexslider");
+				$("#svg").insertBefore("#patterns");
+				grapLinkBanner(dataPath);
+				//getMessageVitrine();
+			}
 		} , 200);
 	}
 

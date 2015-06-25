@@ -1,207 +1,8 @@
 <!-- START TEAM SECTION -->
 <style>
-#video_pixel{
-
-	background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    display: none;
-    line-height: 1.42857;
-    max-width: 100%;
-    padding: 4px;
-    transition: all 0.2s ease-in-out 0s; 
-}
-
 #description{
-	background-image:url("<?php echo $this->module->assetsUrl; ?>/images/bg.jpg");
+  background-image:url("<?php echo $this->module->assetsUrl; ?>/images/bg.jpg");
 }
-.imageSection {
-	-webkit-box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
-	 -moz-box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
-	 box-shadow: -1px 3px 13px 3px rgba(0,0,0,0.22);
-	border-radius: 20px;
-	margin: auto;
-	border: 20px solid white;
-	position: relative;
-	width: 50%;
-	background-color: white;
-	color:black;
-}
-.videoSection{
-	 position: absolute;	
-}
-
-#img_pixel{
-	display: inline-block;
-}
-
-#description p{
-	font-size: 20px;
-}
-
-.textProjectSlider{
-	padding: 0 0 30px;
-	color:white;
-}
-
-#description .flexslider .slides div{
-	color: white;
-}
-#description .flexslider .slides div .imgDescription{
-	text-align: left;
-	font-size: 0.8em;
-	color: black;
-}
-.icoDescription h3{
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-	text-align: left;
-}
-.icoDescription img{
-	display: block;
-}
-.img-thumbnail {
-	border :0px;
-}
-
-#projectFlex{
-	padding: 25px;
-	margin-bottom: 0px;
-}
-
-#description .title_fontHome{
-
-}
-
-.linkProjet, .menuTagsDiv{
-	position: relative;
-	margin-left: auto;
-  	margin-right: auto;
-	padding-bottom: 20px;
-	width: 50%;
-	text-align: center;
-}
-.linkProjet ul, .menuTagsDiv ul{
-	text-align: center;
-	list-style-type:none;
-}
-
-.linkProjet li, .menuTagsDiv li{
-	 padding-left:50px;
-	 float:left; /*pour IE*/
-}
-
-.linkProjet a, .menuTagsDiv li{
-	color:#f6e200;
-}
-.linkProjet a:active,.linkProjet a:target,.linkProjet a:hover, .linkProjet a:focus, .linkProject-nav .flex-active {
-	text-decoration: none;
-	color:#e3443b;
-}
-
-.linkProject-nav{
-	margin-left: auto;
-  	margin-right: auto;
-  	width: 80%;
-}
-
-#icoCitoyen h3{
-	color : #e3443b;
-}
-
-#icoAssociation h3{
-	color: #92be1f;
-}
-
-#icoCollectivite h3{
-	color:#2a3945;
-}
-
-#icoEntreprise h3{
-	color : #0db4e9
-}
-
-#titleView h3{
-	font-size: 24px;
-	line-height: 1em;
-}
-
-.icoDescription:hover, .titleMenu:hover, .menuTag:hover{
-	cursor: pointer;
-}
-.menu h3{
-	color:black;
-	text-align: left;
-}
-
-.imgDescription h3{
-	text-align: left;
-	font-weight: bold;
-}
-
-.imgDescription{
-	vertical-align: bottom;
-}
-
-.tagsProjectDiv{
-	max-width: 50%;
-	margin-left: auto;
-	margin-right: auto;
-}
-.keyWordsArea{
-	margin-left: auto;
-	margin-right: auto;
-	max-width: 90%;
-	text-align: center;
-}
-
-.keyWordsArea button{
-	margin-left: 5px;
-	margin-top: 10px;
-	background-color: #0db4e9;
-}
-
-
-.menuTagsDiv{
-	position: relative;
-	margin-left: auto;
-  	margin-right: auto;
-	padding-bottom: 20px;
-	width: 90%;
-	text-align: center;
-}
-.menuTags a{
-	margin-left: auto;
-	margin-right: auto;
-	width: 90%;
-	color: #f6e200;
-}
-
-.menuTags a:hover{
-	color: #0db4e9;
-}
-
-.textTagsDiv{
-	text-align: left;
-	margin-top: 50px;
-}
-
-@media screen and (max-width: 1300px) {
-	.linkProjet{
-		width: 70%;
-	}
-
-	.tagsProjectDiv{
-		max-width: 80%;
-	}
-
-	.menuTagsDiv{
-		max-width: 80%;
-	}
-	.btn-lg{
-		font-size: 14px;
-	}
-}
-
 </style>
 <section id="description" class="center section with-arrow">
 	<!-- SECTION TITLE -->
@@ -259,13 +60,13 @@
 					<div class="imageSection">
 						<div class="titleView">
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-6 col-sm-6">
 									<div class="icoDescription" id="icoCitoyen" data-desc="citizenDesc">
 										<img class=" imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_CITOYENS.jpg" data-desc="citizenDesc" />
 										<h3 class="title_fontHome">Pour les citoyens</h3>
 									</div>
 								</div>
-								<div class="col-md-6">
+								<div class="col-md-6 col-sm-6">
 									<div class="icoDescription" id="icoCollectivite" data-desc="collectiviteDesc">
 										<img class="imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_COLLECTIVITE.jpg " data-desc="collectiviteDesc" />
 										<h3 class="title_fontHome">Pour les collectivités</h3>
@@ -274,14 +75,14 @@
 								</div>
 							</div>
 							<div class="row">
-								<div class="col-md-6">
+								<div class="col-md-6 col-sm-6">
 									<div class="icoDescription" id="icoEntreprise" data-desc="organizationDesc">
 										<img class="imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_ENTREPRISE.jpg" data-desc="organizationDesc"/>
 										<h3 class="title_fontHome">Pour les entreprises</h3>
 									</div>
 								</div>
 								
-								<div class="col-md-6">
+								<div class="col-md-6 col-sm-6">
 									<div class="icoDescription" id="icoAssociation" data-desc="associationnDesc">
 										<img class="imgIco img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/01_PROJET_03_ASSO.jpg" data-desc="associationnDesc" />
 										<h3 class="title_fontHome">Pour les associations</h3>
@@ -421,9 +222,9 @@ jQuery(document).ready(function()
 	})
 
 	$("#projectFlex").flexslider({
-		 animation: "slide",
+		 //animation: "slide",
 		 manualControls: ".linkProject-nav li",
-		 useCSS: false /* Chrome fix*/
+		 //useCSS: false /* Chrome fix*/
 	});
 
 	$(".titleMenu").on('click', function(){

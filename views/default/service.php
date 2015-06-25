@@ -8,7 +8,7 @@
 		font-family: "Homestead",arial,sans-serif;
 	}
 	#adhesion{
-		max-width: 50%;
+		max-width: 80%;
 		text-align: center;
 		vertical-align: middle;
 		min-height: 20%;
@@ -17,7 +17,7 @@
 		
 	}
 	#participe{
-		max-width: 50%;
+		max-width: 80%;
 		text-align: center;
 		vertical-align: middle;
 		min-height: 20%;
@@ -87,7 +87,7 @@
 				<div class="col-sm-5">
 					<div class="pull-left" id="participe" >   
 	                	<h2>Je participe</h2>
-						<p>Vous êtes artiste, un particulier, une association, une entreprise, une collectivité, <br><strong>venez mettre votre grain de sel dans</strong> <br>l’élaboration du Pixel Humain, devenez Pixel actif !!!</p>
+						<p>Vous êtes artiste, un particulier, une association,<br> une entreprise, une collectivité, <br><strong>venez mettre votre grain de sel dans</strong> <br>l’élaboration du Pixel Humain, devenez Pixel actif !!!</p>
 						<button type="button" onclick="javascript:openform('participe')" class="btn btnPart btn-success">Je participe au projet</button>
 					</div>
 				</div>
