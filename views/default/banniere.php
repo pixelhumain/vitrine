@@ -8,6 +8,20 @@
 		<div class="flexslider" id="banFlex">
 			<ul class="slides">
 			<li>
+				<div class="imgSvg" id="slide0">
+					<div class="imgZone">
+						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide0.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					</div>
+					<div class="textZone">
+						<h1 class="slideTitle_pix title_fontHome">Le projet <strong>Communecter</strong></h1>
+			            	<p>
+			            		<strong>Communecter c'est simple: un email, un code postal et c'est parti !</strong>
+			            		<br> Je suis communecté: j'ai accès à ma ville à tout mon réseau !
+			            	</p>
+					</div>
+				</div>
+			</li>
+			<li>
 				<div class="imgSvg" id="slide1">
 					<div class="imgZone">
 						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
