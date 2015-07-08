@@ -41,7 +41,7 @@
 						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide2.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					</div>
 					<div class="textZone">
-						<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
+						<h1 class="slideTitle_pix title_fontHome"><strong>Participez</strong> au projet</h1>
 			            	<p>Vous partagez nos valeurs ?<br>
 			Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
 			évolutif ?<br>
@@ -55,7 +55,7 @@
 						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					</div>
 					<div class="textZone">
-						<h1 class="slideTitle_pix title_fontHome">Un réseau en mouvement</h1>
+						<h1 class="slideTitle_pix title_fontHome"><strong>Un réseau</strong> en mouvement</h1>
 			            	<p>Les actions pour le bien commun de plusieurs communautés<br> 
 			            	tranformées en intelligence collective<br>
 				<strong>Découvrez qui se cache derrière le changement en marche</strong></p>

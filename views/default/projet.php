@@ -3,6 +3,10 @@
 #description{
   background-image:url("<?php echo $this->module->assetsUrl; ?>/images/bg.jpg");
 }
+
+.menuView ul{
+	padding-left: 0px;
+}
 </style>
 <section id="description" class="center section with-arrow">
 	<!-- SECTION TITLE -->
