@@ -6,7 +6,7 @@ $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/api.js' , CClientScrip
 $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/vis.min.js' , CClientScript::POS_END);
 //$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/leaflet.awesome-markers.min.js' , CClientScript::POS_END);
 
-$cs->registerCssFile("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css");
+$cs->registerCssFile("//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css");
 $cs->registerCssFile("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
 $cs->registerCssFile($this->module->assetsUrl. '/css/leaflet.draw.css');
 $cs->registerCssFile($this->module->assetsUrl. '/css/leaflet.draw.ie.css');
@@ -23,7 +23,6 @@ $this->pageTitle=$this::moduleTitle;
 	
 ?>
 
-	<!--<script src="http://code.jquery.com/jquery.js"></script>-->
 	<!-- START MAIN CONTAINER -->
 	<div id="main-container">		
 

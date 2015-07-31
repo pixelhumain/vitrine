@@ -1,5 +1,5 @@
 
-<script src="http://code.jquery.com/jquery.js"></script>
+<script src="//code.jquery.com/jquery.js"></script>
 
 <section id="sectionsvg" class="section">
 	<div class="svgAndImg">
