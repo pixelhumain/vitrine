@@ -462,7 +462,8 @@ function createSvgData(data){
 			            url = path+obj.image.url;
 			          }
 			          if(!url || url == path+""){
-			            url = path+"img3.png"
+			            url = "";
+			            //path+"img3.png"
 			          }
 			        }
 			        n++
