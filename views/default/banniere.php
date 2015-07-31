@@ -8,6 +8,20 @@
 		<div class="flexslider" id="banFlex">
 			<ul class="slides">
 			<li>
+				<div class="imgSvg" id="slide0">
+					<div class="imgZone">
+						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide0.png" style="margin-left:'auto'; margin-right:'auto';"/>
+					</div>
+					<div class="textZone">
+						<h1 class="slideTitle_pix title_fontHome">Le projet <strong>Communecter</strong></h1>
+			            	<p>
+			            		<strong>Communecter c'est simple: un email, un code postal et c'est parti !</strong>
+			            		<br> Je suis communecté: j'ai accès à ma ville à tout mon réseau !
+			            	</p>
+					</div>
+				</div>
+			</li>
+			<li>
 				<div class="imgSvg" id="slide1">
 					<div class="imgZone">
 						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide1.png" style="margin-left:'auto'; margin-right:'auto';"/>
@@ -27,7 +41,7 @@
 						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide2.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					</div>
 					<div class="textZone">
-						<h1 class="slideTitle_pix title_fontHome">Participez au projet</h1>
+						<h1 class="slideTitle_pix title_fontHome"><strong>Participez</strong> au projet</h1>
 			            	<p>Vous partagez nos valeurs ?<br>
 			Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
 			évolutif ?<br>
@@ -41,7 +55,7 @@
 						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
 					</div>
 					<div class="textZone">
-						<h1 class="slideTitle_pix title_fontHome">Un réseau en mouvement</h1>
+						<h1 class="slideTitle_pix title_fontHome"><strong>Un réseau</strong> en mouvement</h1>
 			            	<p>Les actions pour le bien commun de plusieurs communautés<br> 
 			            	tranformées en intelligence collective<br>
 				<strong>Découvrez qui se cache derrière le changement en marche</strong></p>
@@ -123,7 +137,7 @@ function initialise(){
 	 width = $("#sectionsvg").width();
 
 	 height = $("#sectionsvg").height();
-	 console.log("height", height);
+	 //console.log("height", height);
 
 	 svg.attr("height", height)
 	    .attr("width", width);
@@ -164,7 +178,7 @@ function createSvgData(data){
 		initialise();
 		d3.json(dataPath, function(error, newdata){
 			if(error){
-				console.log(error);
+				//console.log(error);
 			}
 			map = newdata
 			dataFile=map
@@ -190,7 +204,7 @@ function createSvgData(data){
 		      if(i<tabType1.length){
 		        vertices1[i] = vertices[i];
 		        var c = i+1
-		        console.log("i1", i)
+		        //console.log("i1", i)
 		      }
 		      else{
 		        vertices2[i-c] = vertices[i];
@@ -295,7 +309,7 @@ function createSvgData(data){
 					force.stop();
 				}
 				onTimeTick;
-		   	console.log(tabType2, tabType1);
+		   	//console.log(tabType2, tabType1);
 			$('.comment').popover({
 				'trigger':'hover',
 				'container': '#svg',
@@ -303,7 +317,7 @@ function createSvgData(data){
 				'white-space': 'nowrap',
 				'html':'true',
 				content  : function(){
-					console.log(this.id, t[this.id-1]);
+					//console.log(this.id, t[this.id-1]);
 
 					content = "<span class='tip-title'><img src='"+getPhoto(this.id-1)+"'></img><strong>"+t[this.id-1].name+": </strong></span><span>"+t[this.id-1].comment.comment+"</span>"
 					return content;
@@ -333,7 +347,7 @@ function createSvgData(data){
 			    }
 			    $("#"+id).d3MouseOver();
 			    anime = setTimeout(function(){
-			    	console.log("anime");
+			    	//console.log("anime");
 			      	animateTips1(c);
 			    }, 4000); 
 			}
@@ -348,7 +362,7 @@ function createSvgData(data){
 			    $("#"+id).d3MouseOver();
 			    $(".tagPop").parents("popover").css("background-color", "transparent");
 			    anime2 = setTimeout(function(){
-			    	console.log("anime");
+			    	//console.log("anime");
 			      	animateTips2(c);
 			    }, 4000); 
 			}
@@ -368,7 +382,7 @@ function createSvgData(data){
 		               d = obj;
 		               comment = obj.comment.comment;
 		               type = obj.type;
-		                //console.log(obj.comment, obj["comment"]);
+		                ////console.log(obj.comment, obj["comment"]);
 		              }
 		              n++
 		          });
@@ -386,7 +400,7 @@ function createSvgData(data){
 			        if(numTip>4){
 			        	numTip = 0;
 			        };
-			        console.log("tips", numTip, "tabId", tabId);
+			        //console.log("tips", numTip, "tabId", tabId);
 			        
 				    $("#"+id).css("fill", "url(#img"+id+")");
 				    tip.attr("class", "d3-tip "+type);
@@ -403,7 +417,7 @@ function createSvgData(data){
 
 			function closeTips(obj, id){
 		        //verification des tips ouvert
-		        console.log([$.inArray(id, tabId)])
+		        //console.log([$.inArray(id, tabId)])
 		        if($.inArray(id, tabId) != -1){
 			        tip = chooseTips(tabTick[$.inArray(id, tabId)]).hide();
 			        $("#"+id).style("fill", "#ccc");
@@ -438,13 +452,13 @@ function createSvgData(data){
 			  var url;
 			  var path = "images/vitrine/photo/"
 			   $.each(dataFile, function(key,obj){
-			      //console.log("n", n, "id", id);
+			      ////console.log("n", n, "id", id);
 			       if(n == id){
-			        //console.log("------------------------", obj);
+			        ////console.log("------------------------", obj);
 			          d = obj;
-			         //console.log(d);
+			         ////console.log(d);
 			          if(obj.image){
-			           console.log(obj.image.url)
+			           //console.log(obj.image.url)
 			            url = path+obj.image.url;
 			          }
 			          if(!url || url == path+""){
@@ -453,7 +467,7 @@ function createSvgData(data){
 			        }
 			        n++
 			    });
-			  console.log(url);
+			  //console.log(url);
 			   return url;
 			}
 
@@ -463,12 +477,12 @@ function createSvgData(data){
 
 			 // provides node animation for mouseover
 			function expandNode() {
-			    //console.log("expandNode");
+			    ////console.log("expandNode");
 			    if(t[d3.select(this).attr("id")-1].type == "tag"){
 			    	// openTips(d3.select(this), d3.select(this).attr("id"));
 			    }
 			   
-			    console.log(d3.select(this).attr("class"));
+			    //console.log(d3.select(this).attr("class"));
 			    d3.select(this).transition()
 			        .style("fill", "black")
 
@@ -498,7 +512,7 @@ function createSvgData(data){
 			//launch mouseover event for the d3 graph
 			jQuery.fn.d3MouseOver = function () {
 			    this.each(function (i, e) {
-			      ////console.log("over");
+			      //////console.log("over");
 			      var evt = document.createEvent("MouseEvents");
 			      evt.initMouseEvent("mouseover", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 
@@ -509,7 +523,7 @@ function createSvgData(data){
 			//launch mouseout event for the d3 graph
 			jQuery.fn.d3MouseOut = function () {
 			    this.each(function (i, e) {
-			      //console.log("out");
+			      ////console.log("out");
 			      var evt = document.createEvent("MouseEvents");
 			      evt.initMouseEvent("mouseout", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
 
@@ -535,10 +549,10 @@ function createSvgData(data){
 		    .done(function (data) 
 		    {
 		        if (data) {               
-		        	console.log("getmessagevitby1",datajson)
+		        	//console.log("getmessagevitby1",datajson)
 		        	datajson = data;
 		        	grapLinkBanner(datajson);
-		        	console.log("getmessagevitby2",datajson)
+		        	//console.log("getmessagevitby2",datajson)
 		        } else {
 		            console.error("bug get "+id);
 		        }
@@ -561,12 +575,15 @@ function createSvgData(data){
 			$("#svg").remove();
 
 			$("#patterns").remove();
-			var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
-			var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
-			$("#patterns").insertBefore(".flexslider");
-			$("#svg").insertBefore("#patterns");
-			grapLinkBanner(dataPath);
-			//getMessageVitrine();
+
+			if($(window).width()> 500){
+				var graphSvg =d3.select(".svgAndImg").append("div").attr("id", "svg");
+				var graphPatterns = d3.select(".svgAndImg").append("div").attr("id", "patterns");
+				$("#patterns").insertBefore(".flexslider");
+				$("#svg").insertBefore("#patterns");
+				grapLinkBanner(dataPath);
+				//getMessageVitrine();
+			}
 		} , 200);
 	}
 

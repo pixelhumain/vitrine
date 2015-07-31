@@ -1,46 +1,30 @@
-<style>
-	.services-slider{
-		width: 50%;
-		margin: auto;
-	}
-	#communecte, #adhesion, #don, #participe{
-		color: #2a3945;
-	    /*margin-left: 43%;
-	    margin-right: 43%;
-	    width: 75%;*/
-	    font-family: "Homestead",arial,sans-serif;
-	}
-
-	#communecte, #don{
-		text-align: center;
+<style type="text/css">
+	#communecte{
+		max-width: 60%;
 		margin-left: auto;
-	    margin-right: auto;
-	    width: 45%;
+		margin-right: auto;
+		text-align: center;
+		color:#2a3945;
+		font-family: "Homestead",arial,sans-serif;
 	}
-
-
-	.no-float{
-		float: none;
-	}
-
 	#adhesion{
-		float: right;
-		text-align: center;	
-	}
-
-	.servText{
-		margin-top: 0px;
+		max-width: 80%;
+		text-align: center;
+		vertical-align: middle;
+		min-height: 20%;
+		color:#2a3945;
+		font-family: "Homestead",arial,sans-serif;
+		
 	}
 	#participe{
-		float: left; 
+		max-width: 80%;
 		text-align: center;
+		vertical-align: middle;
+		min-height: 20%;
+		color:#2a3945;
+		font-family: "Homestead",arial,sans-serif;
 	}
 
-	#services .form-group{
-	  margin-bottom: 15px;
-	  margin-left: 25%;
-	  width: 50%;
-	}
 
 	h1{
 	    font-family: "Homestead",arial,sans-serif;
@@ -54,124 +38,113 @@
 	    font-family: "Varela Round",arial,sans-serif;
 	    font-size: 1em;
 	}
-
-	#container{
-		z-index: 1;
-	}
-
 	#divAction{
-		z-index: 10;
-		width: 40%;
-		margin-left: 30%;
-		margin-top: 60px;
-		min-height:450px;
-		text-align: center;
+		width: 25%;
+		margin-right: auto;
+		margin-left: auto;
+		vertical-align: middle;
 	}
 
-	#don{
-		display : none;
+	#services{
+		min-height: 500px;
 	}
 
-
-
+	.titleForm{
+		padding-top: 60px;
+		padding-bottom: 30px;
+		color: yellow;
+	}
 </style>
 
-<div class="section-header">
-	<div id="headerContent">
+<div id="serviceIndex">
+	<div class="section-header">
 		<h1 class="parnet title_fontHome">	<img class="icon_section img_cont" src="<?php echo $this->module->assetsUrl; ?>/images/hand.png"  ><br>PARTICIPER</h1>
 		<p class="parnet servText">Le Pixel Humain est une plate-forme en construction.<br>
-		 Pour nous aider à connecter virtuel et réel, le Pixel et l’Humain, nous avons besoin de vous.<br>
+		 	<strong>Pour nous aider à connecter virtuel et réel, le Pixel et l’Humain, nous avons besoin de vous.</strong><br>
 		  Vous partagez nos valeurs ! Vous souhaitez contribuer à un projet d’intérêt général, évolutif et participatif !<br>
-		   Alors, rejoignez-nous !</p>
-	</div>	
-</div>
-	<!-- SECTION CONTENT -->
-<div class="section-content" id ="section-serv">
-	<div class="container-fluid" id="container">
+		   Alors, rejoignez-nous !
+		</p>
+	</div>
+	<div class="section-content" id ="section-serv">
 		<div class="services-slider ">
-				
-				<!-- START SERVICE -->
-            <div class="row" >
-            	<div id="communecte">   
-					<h2>Je me communecte</h2>
-					<p>Pour devenir un futur utilisateur de la plate forme et être tenu au courant du développement du projet. </p>
-					<button onclick="javascript:openform('communecte')" class="btn btnPart btn-success">Je me communecte à la plateforme</button>
-				</div>
-			</div>  
-				<!-- END SERVICE -->
-			<div class="row">
-				<div class="col-md-5">
-		            <div align="right" id="adhesion">   
+			<div class="row" id="communecte">   
+				<h2>Je me communecte</h2>
+				<p><strong>Pour devenir un futur utilisateur de la plate forme</strong></br> et être tenu au courant du développement du projet. </strong></p>
+				<button onclick="javascript:;" class="btn btnPart btnCommunecte btn-success">Je me communecte à la plateforme</button>
+			</div>
+			<div class="row middleServ">
+				<div class="col-sm-5">
+					<div class="pull-right" id="adhesion">   
 						<h2>J'adhère</h2>
-						<p>Pour devenir membre d’OPEN-ATLAS, l’association porteuse du projet Pixel Humain.<br></p>
-						<button onclick="javascript:openform('adhesion')" class="btn btnPart btn-success">J'adhere à l'association</button>
+						<p><strong>Pour devenir membre d’OPEN-ATLAS,</strong><br> l’association porteuse du projet Pixel Humain.</p>
+						<button onclick="javascript:openform('adhesion')" class="btn btnPart btn-success">J'adhère à l'association</button>
 					</div>
 				</div>
-				<div class="col-md-2"></div>
-				<div class="col-md-5">
-		           <div id="participe" >   
-                    	<h2>Je participe</h2>
-						<p>Vous êtes artiste, un particulier, une association, une entreprise, une collectivité, venez mettre votre grain de Xel dans l’élaboration du Pixel Humain, devenez Pixel actif !!!</p>
+
+				<div class="col-sm-2">
+				</div>
+
+				<div class="col-sm-5">
+					<div class="pull-left" id="participe" >   
+	                	<h2>Je participe</h2>
+						<p>Vous êtes artiste, un particulier, une association,<br> une entreprise, une collectivité, <br><strong>venez mettre votre grain de sel dans</strong> <br>l’élaboration du Pixel Humain, devenez Pixel actif !!!</p>
 						<button type="button" onclick="javascript:openform('participe')" class="btn btnPart btn-success">Je participe au projet</button>
 					</div>
 				</div>
 			</div>
-			<div class="row hide">
-	             <div id="don">  
-					<h2>Je donne</h2>
-					<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat...</p>
-					<button onclick="javascript:openform('don')" class="btn btnPart btn-success">Je fais un don à l'association</button>
-				</div>
-			</div>
-		</div>	
-		<div class="space20"></div>
-	</div>		
-</div>
-
-
-<!-- SECTION BUTTON -->
-<div id="divAction" class="hide section-content parnet row">
-	<div class="form-group col-md-12">
-		<h2>Je me communecte  <a href="javascript:closeform()" class="cross"><span class="cross__icon"></span></a></h2>
-		
-			<input id="form-field-1" class="form-control" type="text" placeholder="Identifiant de connection"/></br>
-	
-		
-			<input id="form-field-2" class="form-control" type="password" placeholder="Mot de passe"/></br>
-		
-			<div class="row">
-				<div class="text-left float-left col-md-6">
-					<a href="">Mot de passe oublié?</a>
-				</div>
-				<div class="text-right col-md-6">
-					<div class="checkbox">
-					    <label>
-					      <input type="checkbox" class="no-float"> Rester connecté</input>
-					    </label>
-					</div>
-				</div>
-			</div>
-
-			<div class="row">
-				<div class="text-left float-left col-md-6">
-					<ul class="social-list">
-						<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
-						<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
-						<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
-					</ul>
-				</div>
-				<div class="text-right float-right col-md-6">
-				 	<button type="submit" class="btn btn-success">C'est parti !</button>
-				</div>
-			</div>
-		<div class="col-md-12 registerServ">
-			 <span>Pas encore pixel actif ? C'est facile !</span></br>
-			 <a href="#">Inscrivez-vous maintenant</a>
 		</div>
 	</div>
 </div>
 
+<div id ="serviceCommunecte" class="hide">
+	<div class="section-header">
+		<h2 class='parnet titleForm'>Je me communecte  <a href="javascript:closeform()" class="cross"><img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a></h2>
+	</div>
+	<div class="section-content" id ="section-servForm">
+		<!-- SECTION BUTTON -->
+		<div id="divAction" class="section-content">
+			<div class="form-group col-md-12">
+			
+				<input id="form-field-1" class="form-control" type="text" placeholder="Identifiant"/></br>
+				
+				
+				<input id="form-field-2" class="form-control" type="password" placeholder="Mot de passe"/></br>
+				
+				<div class="row">
+					<div class="text-left pull-left no-padding col-md-6">
+						<a href="">Mot de passe oublié?</a>
+					</div>
+					<div class="text-right col-md-6">
+						<div class="checkbox">
+						    <label>
+						      <input type="checkbox" class="no-float"> Rester connecté</input>
+						    </label>
+						</div>
+					</div>
+				</div>
 
+				<div class="row">
+					<div class="text-left float-left no-padding col-md-6">
+						<ul class="social-list">
+							<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
+							<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
+							<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
+						</ul>
+					</div>
+					<div class="text-right pull-right no-padding col-md-6">
+					 	<button type="submit" class="btn btn-success">C'est parti !</button>
+					</div>
+				</div>
+				<div class = "row">
+					<div class="col-md-12 registerServ">
+						 <span>Pas encore pixel actif ? C'est facile !</span></br>
+						 <a href="#">Inscrivez-vous maintenant</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 <script>
 
@@ -187,19 +160,22 @@
 			$(this).css("border-color", "yellow")
 		})
 
+		$(".btnCommunecte").off().on("click", function(){
+			window.location.href = baseUrl+"/communecter/person/login";
+		})
 	})
-	function openform(id){
-		$("#divAction").css("height", ""+$(".services-slider").height());	
-		$("#section-serv").removeClass("animated fadeIn").addClass("hide");
+
+	function openform(id){	
+		$("#serviceIndex").removeClass("animated fadeIn").addClass("hide");
 		//$("#headerContent").removeClass("animated fadeIn").addClass("hide");
-		$("#divAction").removeClass("hide").addClass("animated fadeIn");
+		$("#serviceCommunecte").removeClass("hide").addClass("animated fadeIn");
 		
 		
 	}
 
 	function closeform(){
-		$("#divAction").removeClass("animated fadeIn").addClass("hide");
-		$("#section-serv").removeClass("hide").addClass("animated fadeIn");
+		$("#serviceCommunecte").removeClass("animated fadeIn").addClass("hide");
+		$("#serviceIndex").removeClass("hide").addClass("animated fadeIn");
 		//$("#headerContent").removeClass("hide").addClass("animated fadeIn");
 		
 	}
