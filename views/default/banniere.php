@@ -1,5 +1,5 @@
 
-<script src="//code.jquery.com/jquery.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl. '/js/jquery.js' ?>"></script>
 
 <section id="sectionsvg" class="section">
 	<div class="svgAndImg">

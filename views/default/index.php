@@ -38,7 +38,7 @@ $this->pageTitle=$this::moduleTitle;
 		<!-- START BLOG SECTION -->
 			<section id="team" class="section section-content-colored">
 			<?php 
-				$this->renderPartial('equipe');
+				//$this->renderPartial('equipe');
 			?>
 	 		</section>
 		<!-- END BLOG SECTION -->
@@ -99,6 +99,9 @@ $this->pageTitle=$this::moduleTitle;
 var color;
 jQuery(document).ready(function()
 {
+	//Load the map on Ajax
+	getAjax("#team",baseUrl+"/"+moduleId+"/default/team",null,"html");
+
 	/*$(".nav_label").on('mouseover', function(){
 		color = $(this).css("color");
 		$(this).css("color", "#e4334b");
