@@ -7,7 +7,9 @@
 		border: 4px;
 	}
 </style>
-<script src="http://code.jquery.com/jquery.js"></script>
+
+<script src="<?php echo Yii::app()->theme->baseUrl. '/js/jquery.js' ?>"></script>
+
 
 <section id="sectionsvg" class="section">
 	<div class="svgAndImg">
@@ -471,7 +473,8 @@ function createSvgData(data){
 			            url = path+obj.image.url;
 			          }
 			          if(!url || url == path+""){
-			            url = path+"img3.png"
+			            url = "";
+			            //path+"img3.png"
 			          }
 			        }
 			        n++

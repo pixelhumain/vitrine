@@ -6,8 +6,9 @@ $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/api.js' , CClientScrip
 $cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/vis.min.js' , CClientScript::POS_END);
 //$cs->registerScriptFile(Yii::app()->request->baseUrl.'/js/leaflet.awesome-markers.min.js' , CClientScript::POS_END);
 
-$cs->registerCssFile("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css");
+//$cs->registerCssFile("//cdn.leafletjs.com/leaflet-0.7.3/leaflet.css");
 $cs->registerCssFile("//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css");
+$cs->registerCssFile($this->module->assetsUrl. '/css/leaflet.css');
 $cs->registerCssFile($this->module->assetsUrl. '/css/leaflet.draw.css');
 $cs->registerCssFile($this->module->assetsUrl. '/css/leaflet.draw.ie.css');
 $cs->registerCssFile($this->module->assetsUrl. '/css/MarkerCluster.css');
@@ -23,7 +24,6 @@ $this->pageTitle=$this::moduleTitle;
 	
 ?>
 
-	<!--<script src="http://code.jquery.com/jquery.js"></script>-->
 	<!-- START MAIN CONTAINER -->
 	<div id="main-container">		
 
@@ -38,7 +38,7 @@ $this->pageTitle=$this::moduleTitle;
 		<!-- START BLOG SECTION -->
 			<section id="team" class="section section-content-colored">
 			<?php 
-				$this->renderPartial('equipe');
+				//$this->renderPartial('equipe');
 			?>
 	 		</section>
 		<!-- END BLOG SECTION -->
@@ -99,6 +99,9 @@ $this->pageTitle=$this::moduleTitle;
 var color;
 jQuery(document).ready(function()
 {
+	//Load the map on Ajax
+	getAjax("#team",baseUrl+"/"+moduleId+"/default/team",null,"html");
+
 	/*$(".nav_label").on('mouseover', function(){
 		color = $(this).css("color");
 		$(this).css("color", "#e4334b");
