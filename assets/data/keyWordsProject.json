@@ -28,18 +28,6 @@
 			{"OpenSource" : "description"},
 			{"Global" : "description"},
 			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"},
-			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"},
-			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"},
-			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"},
-			{"OpenData" : "description"},
 			{"OpenSource" : "description"}
 		],
 		"description" : "Un texte plus court"
@@ -48,10 +36,6 @@
 	"Tags4" :
 	{
 		"keywords": [
-			{"Cartographie de réseau" : "description"},
-			{"Cartographie de réseau" : "description"},
-			{"Cartographie de réseau" : "description"},
-			{"Cartographie de réseau" : "description"},
 			{"Cartographie de réseau" : "description"}
 		],
 		"description" : "Un texte plus court"

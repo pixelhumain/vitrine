@@ -59,7 +59,7 @@
 <div id="serviceIndex">
 	<div class="section-header">
 		<h1 class="parnet title_fontHome">	<img class="icon_section img_cont" src="<?php echo $this->module->assetsUrl; ?>/images/hand.png"  ><br>PARTICIPER</h1>
-		<p class="parnet servText">Le Pixel Humain est une plate-forme en construction.<br>
+		<p class="parnet servText">Le Pixel Humain est une plateforme en construction.<br>
 		 	<strong>Pour nous aider à connecter virtuel et réel, le Pixel et l’Humain, nous avons besoin de vous.</strong><br>
 		  Vous partagez nos valeurs ! Vous souhaitez contribuer à un projet d’intérêt général, évolutif et participatif !<br>
 		   Alors, rejoignez-nous !
@@ -69,7 +69,7 @@
 		<div class="services-slider ">
 			<div class="row" id="communecte">   
 				<h2>Je me communecte</h2>
-				<p><strong>Pour devenir un futur utilisateur de la plate forme</strong></br> et être tenu au courant du développement du projet. </strong></p>
+				<p><strong>Pour devenir un futur utilisateur de la plateforme</strong></br> et être tenu au courant du développement du projet. </strong></p>
 				<button onclick="javascript:;" class="btn btnPart btnCommunecte btn-success">Je me communecte à la plateforme</button>
 			</div>
 			<div class="row middleServ">
@@ -87,7 +87,7 @@
 				<div class="col-sm-5">
 					<div class="pull-left" id="participe" >   
 	                	<h2>Je participe</h2>
-						<p>Vous êtes artiste, un particulier, une association,<br> une entreprise, une collectivité, <br><strong>venez mettre votre grain de sel dans</strong> <br>l’élaboration du Pixel Humain, devenez Pixel actif !!!</p>
+						<p>Vous êtes artiste, un particulier, une association,<br> une entreprise, une collectivité, <br><strong>venez mettre votre grain de sel</strong> dans <br>l’élaboration du Pixel Humain, devenez Pixel actif !!!</p>
 						<button type="button" onclick="javascript:openform('participe')" class="btn btnPart btn-success">Je participe au projet</button>
 					</div>
 				</div>

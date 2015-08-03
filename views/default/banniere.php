@@ -1,4 +1,12 @@
+<style type="text/css">
+	#sectionsvg .flex-direction-nav a{
+		color : #2a3945;
+	}
 
+	#sectionsvg .btn-succes{
+		border: 4px;
+	}
+</style>
 <script src="http://code.jquery.com/jquery.js"></script>
 
 <section id="sectionsvg" class="section">
@@ -10,14 +18,15 @@
 			<li>
 				<div class="imgSvg" id="slide0">
 					<div class="imgZone">
-						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide0.png" style="margin-left:'auto'; margin-right:'auto';"/>
+						<a href="#" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide0.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome">Le projet <strong>Communecter</strong></h1>
-			            	<p>
+			            	<h3>
 			            		<strong>Communecter c'est simple: un email, un code postal et c'est parti !</strong>
-			            		<br> Je suis communecté: j'ai accès à ma ville à tout mon réseau !
-			            	</p>
+			            		<br> Je suis communecté: j'ai accès à ma ville à tout mon réseau !<br>
+			            		<a class="btn btn-succes center pinkBtn">En savoir plus</a>
+			            	</h3>
 					</div>
 				</div>
 			</li>
@@ -28,10 +37,10 @@
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
-			            	<p><strong>Le premier réseau sociétal libre et innovant.</strong><br>
+			            	<h3><strong>Le premier réseau sociétal libre et innovant.</strong><br>
 			Citoyens, associations, collectivités, entreprises,</br> 
 			ce réseau de proximité est fait pour vous !</br>
-			Pour un territoire connecté, intéractif et dynamique<br> <a class="btn btn-succes center pinkBtn">Communectez-vous !</a>
+			Pour un territoire connecté, intéractif et dynamique<br> <a class="btn btn-succes center pinkBtn">Communectez-vous !</a></h3>
 					</div>
 				</div>
 			</li>
@@ -42,23 +51,23 @@
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome"><strong>Participez</strong> au projet</h1>
-			            	<p>Vous partagez nos valeurs ?<br>
+			            	<h3>Vous partagez nos valeurs ?<br>
 			Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
 			évolutif ?<br>
-			Alors,<strong> rejoignez-nous et devenez, vous aussi, Pixel Humain !</strong> </p>
+			Alors,<strong> rejoignez-nous et devenez, vous aussi, Pixel Humain !</strong> </h3>
 					</div>
 				</div>
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
 					<div class="imgZone">
-						<img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/>
+						<a href="#team" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome"><strong>Un réseau</strong> en mouvement</h1>
-			            	<p>Les actions pour le bien commun de plusieurs communautés<br> 
+			            	<h3>Les actions pour le bien commun de plusieurs communautés<br> 
 			            	tranformées en intelligence collective<br>
-				<strong>Découvrez qui se cache derrière le changement en marche</strong></p>
+				<strong>Découvrez qui se cache derrière le changement en marche</strong><br><a href="#team" class="btn btn-succes center pinkBtn">Découvrir le réseau</a></h3>
 					</div>
 		
 				</div>
@@ -145,7 +154,7 @@ function initialise(){
 	svg.append("rect")
 	    .attr("width", "100%")
 	    .attr("height", "100%")
-	    .attr("fill", "#d5dde2");
+	    .attr("fill", "#dfe5e7");
 	svg2 = d3.select("#patterns").append("svg").attr("id", "svgPath").append("defs");
 }
 

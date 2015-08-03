@@ -12,7 +12,7 @@
 	<!-- SECTION TITLE -->
 	<div class="section-header sub-hero">
 		<img class='icon_section' src="<?php echo $this->module->assetsUrl; ?>/images/icon.png">
-		<h1 class="title_fontHome">Le Projet</h1>
+		<h1 class="title_fontHome">Projets</h1>
 		<div class="linkProjet title_fontHome">
 			<ul class="linkProject-nav">
 				 <li><a href="#">VIDEO 1</a></li>
@@ -29,8 +29,8 @@
 			<li>
 				<div class="section-content section-no-top-padding section-video">
 					<div class="textProjectSlider">
-						<p>Se “communecter” c’est se connecter à sa commune : un email,<br> un code postal et c’est parti…
-						</p>
+						<h3>Se “communecter” c’est se connecter à sa commune : un email,<br> un code postal et c’est parti…
+						</h3>
 					</div>
 					<div class="imageSection" id="imageSectionVideo">
 						<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video.jpg" onclick="openVideo()"/>
@@ -41,10 +41,10 @@
 			<li>
 				<div class="section-content section-no-top-padding section-video">
 					<div class="textProjectSlider">
-						<p><strong>Une boite à idée citoyenne & évolutive</strong><br>
+						<h3><strong>Une boite à idée citoyenne & évolutive</strong><br>
 		Un <strong>espace de décision</strong> ouvert, participatif et démocratique<br>
 		<strong>Une boîte à outils:</strong> covoiturage, petites annonces, agenda, évènements locaux, etc.<br>
-		<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</p>
+		<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</h3>
 					</div>
 				
 					<div class="imageSection">
@@ -56,10 +56,10 @@
 			<li>
 				<div class="section-content section-no-top-padding section-video">
 					<div class="textProjectSlider">
-						<p><strong>Un réseau pour qui ?</strong><br>
+						<h3><strong>Un réseau pour qui ?</strong><br>
 						Le Pixel Humain réunit et fédère les principaux acteurs de la vie locale<br>
 						pour valoriser le territoire et le bien commun.
-						</p>
+						</h3>
 					</div>
 					<div class="imageSection">
 						<div class="titleView">
@@ -168,13 +168,13 @@
 			<li>
 				<div class="section-content section-no-top-padding section-video">
 					<div class="textProjectSlider">
-						<p><strong>Une boite à idée citoyenne & évolutive</strong><br>
+						<h3><strong>Une boite à idée citoyenne & évolutive</strong><br>
 						Un <strong>espace de décision</strong> ouvert, participatif et démocratique<br>
 						<strong>Une boîte à outils:</strong> covoiturage, petites annonces, agenda, évènements locaux, etc.<br>
-						<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</p>
+						<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</h3>
 					</div>
 					<div class="tagsProjectDiv">
-						<div class="row menuTagsDiv title_fontHome">
+						<!--<div class="row menuTagsDiv title_fontHome">
 							<ul class='menuTags'>
 								<li>
 									<a class='btnTags' data-id='all'>
@@ -182,12 +182,16 @@
 									</a>
 								</li>
 							</ul>
-						</div>
+						</div>-->
 						<div class="keyWordsArea">
 						</div>
 						<div class="textTagsDiv">
 						</div>
 					</div>
+				</div>
+			</li>
+			<li>
+				<div class="section-content section-no-top-padding section-video">
 				</div>
 			</li>
 		</ul>
@@ -273,13 +277,13 @@ function createSlideKey(dataPath){
 		console.log(error);
 		$.each(data, function(k, v){
 			console.log(k, v);
-			$(".menuTags").append(
+			/*$(".menuTags").append(
 				"<li>"+
 					"<a class='btnTags' data-id='"+k+"'>"+
 						"<h3 class='title_fontHome'>"+k+"</h3>"+
 					"</a>"+
 				"</li>"
-			)
+			)*/
 			$.each(v, function(key, val){
 				if(key=="keywords"){
 					for(var i=0; i<val.length; i++){
