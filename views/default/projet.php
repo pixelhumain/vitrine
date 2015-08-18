@@ -193,7 +193,7 @@
 							<ul class='menuTags'>
 								<li>
 									<a class='btnTags' data-id='all'>
-										<h3 class='title_fontHome'>All</h3>
+										<img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a>
 									</a>
 								</li>
 							</ul>
