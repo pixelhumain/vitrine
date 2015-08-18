@@ -70,7 +70,7 @@
 			<div class="row" id="communecte">   
 				<h2>Je me communecte</h2>
 				<p><strong>Pour devenir un futur utilisateur de la plateforme</strong></br> et être tenu au courant du développement du projet. </strong></p>
-				<button onclick="javascript:;" class="btn btnPart btnCommunecte btn-success">Je me communecte à la plateforme</button>
+				<button id="btnCommunecte" onclick="javascript:;" class="btn btnPart btn-success">Je me communecte à la plateforme</button>
 			</div>
 			<div class="row middleServ">
 				<div class="col-sm-5">
@@ -160,7 +160,7 @@
 			$(this).css("border-color", "yellow")
 		})
 
-		$(".btnCommunecte").off().on("click", function(){
+		$("#btnCommunecte").off().on("click", function(){
 			window.location.href = baseUrl+"/communecter/person/login";
 		})
 	})

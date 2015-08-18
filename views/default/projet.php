@@ -7,6 +7,14 @@
 .menuView ul{
 	padding-left: 0px;
 }
+
+.imageSectionVideo{
+	width: 70%;
+}
+
+.flexslider .slides .menuTagsDiv{
+	display: none;
+}
 </style>
 <section id="description" class="center section with-arrow">
 	<!-- SECTION TITLE -->
@@ -15,11 +23,11 @@
 		<h1 class="title_fontHome">Projets</h1>
 		<div class="linkProjet title_fontHome">
 			<ul class="linkProject-nav">
-				 <li><a href="#">VIDEO 1</a></li>
+				 <li><a href="#">COMMUNECTER</a></li>
+				 <li><a href="#">PHILOSOPHIE</a></li>
 				 <li><a href="#">COMMENT</a></li>
 				 <li><a href="#">POUR QUI</a></li>
-				  <li><a href="#">MOTS CLES</a></li>
-				 <li><a href="#">VIDEO 2</a></li>
+				 <li><a href="#">MOTS CLES</a></li>
 			</ul>
 		</div>
 	</div>
@@ -29,10 +37,17 @@
 			<li>
 				<div class="section-content section-no-top-padding section-video">
 					<div class="textProjectSlider">
-						<h3>Se “communecter” c’est se connecter à sa commune : un email,<br> un code postal et c’est parti…
-						</h3>
 					</div>
-					<div class="imageSection" id="imageSectionVideo">
+					<div class="imageSection imageSectionVideo">
+						<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video.jpg" onclick="openVideo2()"/>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="section-content section-no-top-padding section-video">
+					<div class="textProjectSlider">
+					</div>
+					<div class="imageSection imageSectionVideo">
 						<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video.jpg" onclick="openVideo()"/>
 					</div>
 				</div>
@@ -56,7 +71,7 @@
 			<li>
 				<div class="section-content section-no-top-padding section-video">
 					<div class="textProjectSlider">
-						<h3><strong>Un réseau pour qui ?</strong><br>
+						<h3>
 						Le Pixel Humain réunit et fédère les principaux acteurs de la vie locale<br>
 						pour valoriser le territoire et le bien commun.
 						</h3>
@@ -174,7 +189,7 @@
 						<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</h3>
 					</div>
 					<div class="tagsProjectDiv">
-						<!--<div class="row menuTagsDiv title_fontHome">
+						<div class="row menuTagsDiv title_fontHome ">
 							<ul class='menuTags'>
 								<li>
 									<a class='btnTags' data-id='all'>
@@ -182,7 +197,7 @@
 									</a>
 								</li>
 							</ul>
-						</div>-->
+						</div>
 						<div class="keyWordsArea">
 						</div>
 						<div class="textTagsDiv">
@@ -190,10 +205,7 @@
 					</div>
 				</div>
 			</li>
-			<li>
-				<div class="section-content section-no-top-padding section-video">
-				</div>
-			</li>
+			
 		</ul>
 	</div>
 </section>
@@ -242,11 +254,21 @@ jQuery(document).ready(function()
 	})
 })
 function openVideo(){
-	var width = $("#imageSectionVideo").width();
-	var height = $("#imageSectionVideo").height();
+	var width = $(".imageSectionVideo").width();
+	var height = $(".imageSectionVideo").height();
 	console.log(width, height);
-	$("#imageSectionVideo").empty();
-	$("#imageSectionVideo").html('<iframe  class="img-responsive img-thumbnail" src="http://player.vimeo.com/video/74212373?api=1&title=0&amp;byline=0&amp;portrait=0&amp;color=57c0d4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video" aria-hidden="true" tabindex="-1"></iframe>')
+	$(".imageSectionVideo").empty();
+	$(".imageSectionVideo").html('<iframe  class="img-responsive img-thumbnail" src="http://player.vimeo.com/video/74212373?api=1&title=0&amp;byline=0&amp;portrait=0&amp;color=57c0d4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video" aria-hidden="true" tabindex="-1"></iframe>')
+	$("iframe").css("width", width);
+	$("iframe").css("height", height);
+}
+
+function openVideo2(){
+	var width = $(".imageSectionVideo").width();
+	var height = $(".imageSectionVideo").height();
+	console.log(width, height);
+	$(".imageSectionVideo").empty();
+	$(".imageSectionVideo").html('<iframe  class="img-responsive img-thumbnail" src="http://player.vimeo.com/video/133636468?api=1&title=0&amp;byline=0&amp;portrait=0&amp;color=57c0d4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video" aria-hidden="true" tabindex="-1"></iframe>')
 	$("iframe").css("width", width);
 	$("iframe").css("height", height);
 }
@@ -313,8 +335,10 @@ function bindEventProject(){
 			$(".btnSliderProject").removeClass("animated fadeIn").addClass("hide");
 			$("."+$(this).data("id")).removeClass("hide").addClass("animated fadeIn");
 			showText($(this).data("id"), dataProject);
+
 		}else{
 			$(".btnSliderProject").removeClass("hide").addClass("animated fadeIn");
+			$(".menuTagsDiv").css("display", "none");
 		}	
 	})
 
@@ -343,6 +367,7 @@ function showText(id, dataPath){
 }
 
 function showTagText(id, parent, dataPath){
+	$(".menuTagsDiv").css("display", "block");
 	d3.json(dataPath, function(error, data){
 		//console.log(error);
 		$.each(data, function(k, v){

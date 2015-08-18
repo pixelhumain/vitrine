@@ -3,51 +3,24 @@
 	{
 		"keywords": [
 			{"Démocratie participative" : "Dispositifs et procédures qui permettent d'augmenter l'implication des citoyens dans la vie politique et d'accroître leur rôle dans les prises de décision."},
-			{"Association" : "description"}
+			{"Territoire Connecté" : "Terre de tradition adaptée aux échanges par les flux immatériel numériques et/ou matériels (aéroports, ports, gares, réseaux routiers) apportant à toute personne habitant ce territoire, même isolé, une capacité à établir des liens internationaux."},
+			{"OpenData" : "Domaine de la liberté de l’information au service du bien commun comprenant des publications ou dossiers d’intérêt général en libre accès et réutilisables par tous."},
+			{"OpenSource" : "Domaine des sources logicielles en accès libre permettant, d’une part, la libre utilisation du logiciel concerné et ses dérivés, d’autre part, les échanges amenant à l’optimisation ou le développement commun du produit utilisé avec ses concepteurs toujours mentionnés."},
+			{"Code Logiciel" : "Appelé aussi Code Source, c’est une suite d’instructions sous forme de texte exploité/transformé en langage de programmation permettant l’utilisation du logiciel."},
+			{"Cartographie de réseau" : "Logiciel de mise en liens graphiques d’une complexité de données d’origines diverses permettant d’appréhender un ensemble par la visualisation, de faire apparaître des données cachées, mais aussi de procéder à des analyses fines, ou de compléter des statistiques."},
+			{"Proxicité" : "Capacité à créer du lien<br> Développer des services de proximité par liens d’affinités, de compétences, de complémentarités, d’intérêts ou de valeurs communs."},
+			{"Acteurs locaux" : "Institutions, organisations, entreprises, associations, citoyens dont le rôle social, économique ou politique leur confère une responsabilité pour intervenir dans la gestion du territoire."},
+			{"Vivre ensemble" : "Espace virtuel/matériel de rencontre incluant un comportement éthique appelant le respect mutuel, la tolérance, l’inclusion, l’ouverture, permettant l’expression d’un lien social riche et harmonieux projetant ceux qui y adhèrent vers une construction positive."},
+			{"Economie collaborative" : "Activité citoyenne permettant de produire de la valeur, des produits éco-conçus, des richesses immatérielles et réalisées dans le cadre de nouvelles méthodes transversales et en réseaux avec une mutualisation des biens, espaces et outils."},
+			{"Transition" : "Période s’inscrivant dans un temps de changement accompagnée la méthode pour passer d’un système/d’un concept à un autre et permettant sa mise en œuvre opérationnelle."},
+			{"Biens communs" : "Les communs sont des ressources partagées entre une communauté d’utilisateurs qui déterminent eux-mêmes le cadre et les normes régulant la gestion et l’usage de leur ressource.<br>« Il n’y a pas de commun sans « commoners ». (…) Il n’y a pas de commun sans agir en commun. »<strong> New to the Commons ? David Bollier</strong>"},
+			{"Citoyens" : "Personne jouissant des droits civils et politiques du lieu où il vit et décidé à s’impliquer dans la vie de sa cité."},
+			{"Association" : "Convention par laquelle deux ou plusieurs personnes mettent en commun, d'une façon permanente, leurs connaissances, talents, activités dans un but utile à un objectif louable ou à la société, et non commercial."},
+			{"Réseau sociétal" : "Maillage de toutes les informations concernant la vie publique, cela concerne tous les participants de la vie civile du citoyen jusqu’à l’organisation de l’Etat."},
+			{"Citizen Tool Kit" : "Ensemble des outils mis à la disposition des citoyens pour aider à construire/utiliser les réseaux."},
+			{"Code Social" : "Ensemble des règles à observer pour permettre une vie sociale respectant les droits civiques."},
+			{"Glocal" : "Vision globale de l’action locale / Action simultanée sur un territoire global et local"}
 		],
 		"description" : "Un texte super court"
-	},
-
-	"Tags2" : 
-	{
-		"keywords": [
-			{"Territoire Connecté" : "description"},
-			{"Réseau sociétal" : "description"},
-			{"Citizen Tool Kit" : "description"},
-			{"Territoire Connecté" : "description"},
-			{"Réseau sociétal" : "description"},
-			{"Citizen Tool Kit" : "description"}
-		],
-		"description" : "Un texte plus court"
-	},
-
-	"Tags3":
-	{
-		"keywords": [
-			{"OpenData" : "description"},
-			{"OpenSource" : "description"},
-			{"Global" : "description"},
-			{"OpenData" : "description"},
-			{"OpenSource" : "description"}
-		],
-		"description" : "Un texte plus court"
-	},
-
-	"Tags4" :
-	{
-		"keywords": [
-			{"Cartographie de réseau" : "description"}
-		],
-		"description" : "Un texte plus court"
-	},
-
-	"Tags5" :
-	{
-		"keywords": [
-			{"Vivre ensemble" : "description"},
-			{"Economie collaborative" : "description"},
-			{"Biens communs" : "Les communs sont des ressources partagées entre une communauté d’utilisateurs qui déterminent eux-mêmes le cadre et les normes régulant la gestion et l’usage de leur ressource.<br> « Il n’y a pas de commun sans « commoners ». (…) Il n’y a pas de commun sans agir en commun. » New to the Commons ? David Bollier"}
-		],
-		"description" : "Un texte plus court"
 	}
 }

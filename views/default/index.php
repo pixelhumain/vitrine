@@ -135,7 +135,7 @@ jQuery(document).ready(function()
 	/*-------------------------------------------------------
 	---- Graph
 	---------------------------------------------------------*/
-	resizeGraph();
+	//resizeGraph();
 	var top = $('#sectionsvg').position().top;
 	var bottom1 = $(".section-video").position().top + $(".section-video").outerHeight();
 	//var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
@@ -187,7 +187,7 @@ jQuery(document).ready(function()
 });
 
 
-$( window ).resize(function() { resizeMap(); resizeGraph(); });
+$( window ).resize(function() { resizeMap(); /*resizeGraph();*/ });
 	
 	
 
