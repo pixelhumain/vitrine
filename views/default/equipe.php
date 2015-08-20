@@ -155,6 +155,13 @@ i.fa { padding:8px; }
  	position:relative;
  	display:none;
 }
+
+.teamText{
+	text-align: center;
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
+}
 </style>
 
 
@@ -162,8 +169,9 @@ i.fa { padding:8px; }
 			<!-- SECTION CONTENT -->
 			<div class="section-header new"><!--  id="lbl_msg_animation" -->
 				<h1 class="title_fontHome"><img class="icon_section" src="<?php echo $this->module->assetsUrl; ?>/images/heart.png" ><br>Le Réseau</h1>
-				<h3>Le projet Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres<br> d'intérêt, le même sentiment de nécessité et urgence d'agir et de se regrouper,<br>
-			 de se sentir utile pour la société. <span>Aujourd'hui, le Pixel Humain, c'est aussi vous !...</span></h3>
+				<div class="teamText">
+					<h3>Le Pixel Humain a vu le jour grâce à la rencontre de quatre personnes qui partagent les mêmes centres d'intérêt, le même sentiment de nécessité et d'urgence à agir, de se regrouper et plus important encore, de se sentir utile pour la société. <span>Aujourd'hui, le Pixel Humain, c'est aussi vous !... Le pixel humain se conjuge au pluriel… il est aujourd'hui… pour demain.</span></h3>
+				</div>
 			 <a href="#btn-play-anim">
 			 <button type="button" class="btn btn-start-animation" id="btn-play-anim"><i class="fa fa-play"></i> Lancer l'animation</button>
 			</a>

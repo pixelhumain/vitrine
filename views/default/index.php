@@ -135,53 +135,8 @@ jQuery(document).ready(function()
 	/*-------------------------------------------------------
 	---- Graph
 	---------------------------------------------------------*/
-	//resizeGraph();
-	var top = $('#sectionsvg').position().top;
-	var bottom1 = $(".section-video").position().top + $(".section-video").outerHeight();
-	//var bottom2 = $("#section-philo").position().top + $("#section-philo").outerHeight() +3*bottom1;
-	//var bottom3 = $("#section-serv").position().top + $("#section-serv").outerHeight() +bottom2;
-	var bottom4 = bottom1*3;
-	//var bottom5 = bottom1 +bottom3;
-
     $(window).scroll( function(){
-    /* Check the location of each desired element */
-       // var bottom_of_window = $(window).scrollTop() + $(window).height();
-       // var top_of_window = $(window).scrollTop();
-        //console.log(bottom_of_window);
-        /* If the object is completely visible in the window, fade it it */
-        //if(bottom_of_window> bottom1){
-        //	$(".nav_label").css("color", "white");  
-        //}
-        //if(top_of_window=top){
-        //	$(".nav_label").css("color", "#2a3945");
-        //}else{
-        //	$(".nav_label").css("color", "white"); 
-        //}
-        /*
-        if( bottom_of_window > bottom1*2){ 
-        	$(".nav_label").css("color", "white");  
-        	$("#label_desc").css("color", "yellow");
-            $(".section-video").animate({'opacity':'1'},1000);     
-        }
-        if(bottom_of_window>bottom4){
-        	$(".nav_label").css("color", "white");  
-        	$("#label_team").css("color", "yellow");
-        }
-        if( bottom_of_window > bottom2){
-        	$(".nav_label").css("color", "white");  
-        	$("#label_phil").css("color", "yellow");
-        	 
-            $("#section-philo").animate({'opacity':'1'},1000);     
-        }
-        if( bottom_of_window > bottom3){
-        	$(".nav_label").css("color", "white");
-        	$("#label_serv").css("color", "yellow");  
-            $("#section-serv").animate({'opacity':'1'},1000);     
-        }
-        if(bottom_of_window> bottom5){
-        	$(".nav_label").css("color", "white");  
-        	$("#label_cont").css("color", "yellow");
-        }*/
+    	
         
     });
 });

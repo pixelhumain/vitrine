@@ -15,6 +15,27 @@
 .flexslider .slides .menuTagsDiv{
 	display: none;
 }
+.bubleImage{
+	width: 60%;
+}
+
+#whoUse li{
+	list-style-type: disc;
+	font-size: 12px;
+}
+#whoUse h3{
+	font-size: 14px;
+	margin-top: 0px;
+}
+#whoUse h2{
+	text-align: left;
+	font-size: 18px;
+	margin-top: 0px;
+	color: black;
+}
+#whoUse h2:hover{
+	color: #e4334b;
+}
 </style>
 <section id="description" class="center section with-arrow">
 	<!-- SECTION TITLE -->
@@ -54,7 +75,7 @@
 			</li>
 
 			<li>
-				<div class="section-content section-no-top-padding section-video">
+				<div class="section-content section-no-top-padding section-image">
 					<div class="textProjectSlider">
 						<h3><strong>Une boite à idée citoyenne & évolutive</strong><br>
 		Un <strong>espace de décision</strong> ouvert, participatif et démocratique<br>
@@ -62,21 +83,21 @@
 		<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</h3>
 					</div>
 				
-					<div class="imageSection">
+					<div class="imageSection bubleImage">
 						<img class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/equipeSlider2.png" />
 					</div>
 				</div>
 			</li>
 
 			<li>
-				<div class="section-content section-no-top-padding section-video">
+				<div class="section-content section-no-top-padding section-image">
 					<div class="textProjectSlider">
 						<h3>
 						Le Pixel Humain réunit et fédère les principaux acteurs de la vie locale<br>
 						pour valoriser le territoire et le bien commun.
 						</h3>
 					</div>
-					<div class="imageSection">
+					<div class="imageSection" id="whoUse">
 						<div class="titleView">
 							<div class="row">
 								<div class="col-md-6 col-sm-6">
@@ -112,19 +133,22 @@
 						</div>
 						<div class="menuView hide">
 							<div class="row row-same-height">
-								<div class="col-md-5 menu">
+								<div class="col-md-6 menu">
 									<img class="imgIco img-responsive img-thumbnail menuIco" src="" />
+								</div>
+							</div>
+							<div class="row row-same-height">
+								<div class="col-md-6 menu">
 									<ul>
 										<li>
-											<a class="titleMenu" data-desc="citizenDesc"><h3 class="title_fontHome">Pour les citoyens</h3></a>
-											<a class="titleMenu" data-desc="collectiviteDesc"><h3 class="title_fontHome">Pour les collectivités</h3></a>
-											<a class="titleMenu" data-desc="organizationDesc"><h3 class="title_fontHome">Pour les entreprises</h3></a>
-											<a class="titleMenu" data-desc="associationnDesc"><h3 class="title_fontHome">Pour les associations</h3></a>
+											<a class="titleMenu" data-desc="citizenDesc"><h2>Pour les citoyens</h2></a>
+											<a class="titleMenu" data-desc="collectiviteDesc"><h2>Pour les collectivités</h2></a>
+											<a class="titleMenu" data-desc="organizationDesc"><h2>Pour les entreprises</h2></a>
+											<a class="titleMenu" data-desc="associationnDesc"><h2>Pour les associations</h2></a>
 										</li>
 									</ul>
 								</div>
-								<div class="col-md-2">
-								</div>
+
 								<div class="col-md-5">
 									<div class="imgDescription hide citizenDesc">
 										<h3>Vous êtes citoyen, <br>le Pixel Humain vous permet : </h3>
@@ -181,7 +205,7 @@
 				</div>
 			</li>
 			<li>
-				<div class="section-content section-no-top-padding section-video">
+				<div class="section-content section-no-top-padding section-image">
 					<div class="textProjectSlider">
 						<h3><strong>Une boite à idée citoyenne & évolutive</strong><br>
 						Un <strong>espace de décision</strong> ouvert, participatif et démocratique<br>
@@ -189,16 +213,18 @@
 						<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</h3>
 					</div>
 					<div class="tagsProjectDiv">
-						<div class="row menuTagsDiv title_fontHome ">
-							<ul class='menuTags'>
-								<li>
-									<a class='btnTags' data-id='all'>
-										<img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a>
-									</a>
-								</li>
-							</ul>
-						</div>
 						<div class="keyWordsArea">
+							<div class="row menuTagsDiv title_fontHome ">
+								<ul class='menuTags pull-right'>
+									<li>
+										<a class='btnTags' data-id='all'>
+											<img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a>
+										</a>
+									</li>
+								</ul>
+							</div>
+							<div class="buttonArea">
+							</div>
 						</div>
 						<div class="textTagsDiv">
 						</div>
@@ -242,15 +268,16 @@ jQuery(document).ready(function()
 	})
 
 	$("#projectFlex").flexslider({
-		 //animation: "slide",
-		 manualControls: ".linkProject-nav li",
-		 //useCSS: false /* Chrome fix*/
+		 animation: "slide",
+		 manualControls: ".linkProject-nav li a",
+		 useCSS: false /* Chrome fix*/
 	});
 
 	$(".titleMenu").on('click', function(){
-		$(".titleMenu h3").css("color", "black");
-		$(this).find("h3").css("color", mapColor[$(this).data("desc")]);
+		$(".titleMenu h2").css("color", "black");
+		$(this).find("h2").css("color","#e4334b");
 		switchMenu($(this).data("desc"));
+
 	})
 })
 function openVideo(){
@@ -279,7 +306,7 @@ function openMenu(id){
 	$(".titleView").addClass("hide").removeClass("animated bounceIn");
 	$(".menuView").removeClass("hide").addClass("animated bounceIn");
 	$(".titleMenu h3").css("color", "black");
-	$("ul").find("[data-desc='" + id + "']").find("h3").css("color", mapColor[id]);
+	$("ul").find("[data-desc='" + id + "']").find("h2").css("color", "#e4334b");
 	setTimeout(function(){
 		$('.'+id).removeClass("hide").addClass("animated bounceIn");
 	}, 200);
@@ -310,7 +337,7 @@ function createSlideKey(dataPath){
 				if(key=="keywords"){
 					for(var i=0; i<val.length; i++){
 						$.each(val[i], function(label, description){
-							$(".keyWordsArea").append(
+							$(".keyWordsArea .buttonArea").append(
 								"<button class='btn btn-lg "+k+" btnSliderProject' data-id='"+label+"' data-parent='"+k+"'>"+
 									label+
 								"</button>"
@@ -330,6 +357,7 @@ function createSlideKey(dataPath){
 function bindEventProject(){
 	$(".btnTags").on("click", function(){
 		$(".textTagsDiv").empty();
+		$(".buttonArea").css("text-align", "left");
 		if($(this).data("id") != "all"){
 
 			$(".btnSliderProject").removeClass("animated fadeIn").addClass("hide");
@@ -368,6 +396,7 @@ function showText(id, dataPath){
 
 function showTagText(id, parent, dataPath){
 	$(".menuTagsDiv").css("display", "block");
+	$(".buttonArea").css("text-align", "center");
 	d3.json(dataPath, function(error, data){
 		//console.log(error);
 		$.each(data, function(k, v){

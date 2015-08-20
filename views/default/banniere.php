@@ -8,6 +8,11 @@
 		border: medium none;
 		padding: 8px 16px 8px;
 	}
+
+	#sectionsvg .flex-direction-nav .flex-prev { left: 250px; }
+	#sectionsvg .flex-direction-nav .flex-next { right: 250px; text-align: right; }
+	#sectionsvg .flexslider:hover .flex-prev { opacity: 0.7; left: 240px; }
+	#sectionsvg .flexslider:hover .flex-next { opacity: 0.7; right: 240px; }
 </style>
 
 <script src="<?php echo Yii::app()->theme->baseUrl. '/js/jquery.js' ?>"></script>
