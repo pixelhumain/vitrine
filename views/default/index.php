@@ -188,8 +188,15 @@ jQuery(document).ready(function()
 
 
 $( window ).resize(function() { resizeMap(); /*resizeGraph();*/ });
-	
-	
 
+/* ----- Scroll section ------ */	
+$("a").on("click", function(){
+	if( $(this).data("href").indexOf("#")> -1){
+		var href = $(this).data("href");
+		var aTag = $(href);
+		console.log(aTag.offset().top);
+    	$('html,body').animate({scrollTop: aTag.offset().top-50},'slow');
+	}
+})
 								
 </script>

@@ -39,7 +39,7 @@
 					<div class="textProjectSlider">
 					</div>
 					<div class="imageSection imageSectionVideo">
-						<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video.jpg" onclick="openVideo2()"/>
+						<img id="img_pixel" class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/video2.jpg" onclick="openVideo2()"/>
 					</div>
 				</div>
 			</li>

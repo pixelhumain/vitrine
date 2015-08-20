@@ -22,14 +22,14 @@
 			<li>
 				<div class="imgSvg" id="slide0">
 					<div class="imgZone">
-						<a href="#description" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide0.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
+						<a data-href="#description" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide0.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome">Le projet <strong>Communecter</strong></h1>
 			            	<h3>
 			            		<strong>Communecter c'est simple: un email, un code postal et c'est parti !</strong>
 			            		<br> Je suis communecté: j'ai accès à ma ville à tout mon réseau !<br>
-			            		<a href="#description" class="btn btn-succes center pinkBtn">En savoir plus</a>
+			            		<a data-href="#description" class="btn btn-succes center pinkBtn">En savoir plus</a>
 			            	</h3>
 					</div>
 				</div>
@@ -44,7 +44,7 @@
 			            	<h3><strong>Pixel Humain est un collectif qui regroupe des acteurs réunionnais et métropolitains partageant les valeurs de partage, d'open innovation pour le bien commun.</strong><br>
 									Vous êtes un citoyen, une association, une collectivité, une entreprise ?<br>
 										Vous rêvez d'un territoire connecté, interactif et dynamique ?<br>
-												Le réseau Communecter est fait pour vous<br>
+												Le réseau Communecter est fait pour vous !<br>
 							<a class="btn btn-succes center pinkBtn">Communectez-vous !</a></h3>
 					</div>
 				</div>
@@ -52,27 +52,27 @@
 			<li>
 				<div class="imgSvg" id="slide1">
 					<div class="imgZone">
-						<a href="#services" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide2.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
+						<a data-href="#services" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide2.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome"><strong>Participez</strong> au projet</h1>
 			            	<h3>Vous partagez nos valeurs ?<br>
 			Vous souhaitez contribuer à un projet d’intérêt général, participatif et<br>
 			évolutif ?<br>
-			Alors,<strong> rejoignez-nous et devenez, vous aussi, Pixel Humain !</strong><br> <a href="#services" class="btn btn-succes center pinkBtn">Participez !</a></h3>
+			Alors,<strong> rejoignez-nous et devenez, vous aussi, Pixel Humain !</strong><br> <a data-href="#services" class="btn btn-succes center pinkBtn">Participez !</a></h3>
 					</div>
 				</div>
 			</li>
 			<li>
 				<div class="imgSvg" id="slide1">
 					<div class="imgZone">
-						<a href="#team" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
+						<a data-href="#team" ><img src="<?php echo $this->module->assetsUrl; ?>/images/slider/slide4.png" style="margin-left:'auto'; margin-right:'auto';"/></a>
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome"><strong>Un réseau</strong> en mouvement</h1>
 			            <h3>Les actions pour le bien commun issues des communautés créent de l'intelligence collective<br>
 							<strong>Découvrez qui se cache derrière le changement en marche</strong><br>
-						<a href="#team" class="btn btn-succes center pinkBtn">Découvrir le réseau</a></h3>
+						<a data-href="#team" class="btn btn-succes center pinkBtn">Découvrir le réseau</a></h3>
 					</div>
 		
 				</div>
