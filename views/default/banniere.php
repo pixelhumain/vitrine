@@ -13,6 +13,7 @@
 	#sectionsvg .flex-direction-nav .flex-next { right: 250px; text-align: right; }
 	#sectionsvg .flexslider:hover .flex-prev { opacity: 0.7; left: 240px; }
 	#sectionsvg .flexslider:hover .flex-next { opacity: 0.7; right: 240px; }
+	#sectionsvg .flex-control-paging li a.flex-active{background-color:#dfe5e7 }
 </style>
 
 <script src="<?php echo Yii::app()->theme->baseUrl. '/js/jquery.js' ?>"></script>

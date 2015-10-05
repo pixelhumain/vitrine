@@ -84,7 +84,7 @@
 					</div>
 				
 					<div class="imageSection bubleImage">
-						<img class="img-responsive img-thumbnail" src="<?php echo $this->module->assetsUrl; ?>/images/equipeSlider2.png" />
+						<img class="" src="<?php echo $this->module->assetsUrl; ?>/images/equipeSlider2.png" />
 					</div>
 				</div>
 			</li>
@@ -136,6 +136,9 @@
 								<div class="col-md-6 menu">
 									<img class="imgIco img-responsive img-thumbnail menuIco" src="" />
 								</div>
+								<div class='col-md-6 pull-left backArrow'>
+									<a class='backMenu'><i class="fa fa-arrow-left fa-2x"></i><a>
+								</div>
 							</div>
 							<div class="row row-same-height">
 								<div class="col-md-6 menu">
@@ -149,7 +152,8 @@
 									</ul>
 								</div>
 
-								<div class="col-md-5">
+								<div class="col-md-5 pull-right">
+									
 									<div class="imgDescription hide citizenDesc">
 										<h3>Vous êtes citoyen, <br>le Pixel Humain vous permet : </h3>
 										<ul>
@@ -272,6 +276,14 @@ jQuery(document).ready(function()
 		 manualControls: ".linkProject-nav li a",
 		 useCSS: false /* Chrome fix*/
 	});
+
+	$(".backMenu").on('click', function(){
+		$('.imgDescription').removeClass("animated bounceIn").addClass("hide");
+		$(".titleMenu h2").css("color", "black");
+		$('.menuView').removeClass("animated bounceIn").addClass("hide");
+		$('.titleView').removeClass("hide").addClass("animated bounceIn");
+
+	})
 
 	$(".titleMenu").on('click', function(){
 		$(".titleMenu h2").css("color", "black");

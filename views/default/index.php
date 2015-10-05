@@ -87,7 +87,7 @@ $this->pageTitle=$this::moduleTitle;
 			<!-- START FOOTER SECTION -->
 			<section id="footer" class="section">
 				<div class="section-content">
-					<p >Pixel Humain 2014</p> <span >Fait main, AVEC AMOUR<br> par l'association Open Atlas</span></span>
+					<p >Pixel Humain 2015 </p> <span >Fait main, AVEC AMOUR<br> par l'association Open Atlas</span></span>
 				</div>
 			</section>
 			<!-- END FOOTER SECTION -->

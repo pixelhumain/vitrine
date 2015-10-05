@@ -107,9 +107,24 @@
 	</div>
 </div>
 
+<div id='serviceParticipe' class='hide'>
+	<div class="section-header">
+		<h2 class='parnet titleForm'>Je participe  <a href="javascript:closeform()"><img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a></h2>
+	</div>
+	<div class="section-content">
+	</div>
+</div>
+
+<div id='serviceAdhere' class="hide">
+	<div class="section-header">
+		<h2 class='parnet titleForm'>J'adhère <a href="javascript:closeform()"><img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a></h2>
+	</div>
+	<div class="section-content">
+	</div>
+</div>
 <div id ="serviceCommunecte" class="hide">
 	<div class="section-header">
-		<h2 class='parnet titleForm'>Je me communecte  <a href="javascript:closeform()" class="cross"><img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a></h2>
+		<h2 class='parnet titleForm'>Je me communecte  <a href="javascript:closeform()"><img src="<?php echo $this->module->assetsUrl; ?>/images/03_CLOSE.png"/></a></h2>
 	</div>
 	<div class="section-content" id ="section-servForm">
 		<!-- SECTION BUTTON -->
@@ -172,20 +187,26 @@
 		})
 
 		$("#btnCommunecte").off().on("click", function(){
-			window.location.href = baseUrl+"/communecter/person/login";
+			window.location.href = "https://www.communecter.org";
 		})
 	})
 
 	function openform(id){	
 		$("#serviceIndex").removeClass("animated fadeIn").addClass("hide");
 		//$("#headerContent").removeClass("animated fadeIn").addClass("hide");
-		$("#serviceCommunecte").removeClass("hide").addClass("animated fadeIn");
-		
-		
+		if(id== 'participe'){
+			$("#serviceParticipe").removeClass("hide").addClass("animated fadeIn");
+		}else if(id='adhesion'){
+			$("#serviceAdhere").removeClass("hide").addClass("animated fadeIn");
+		}else{
+			$("#serviceCommunecte").removeClass("hide").addClass("animated fadeIn");
+		}
 	}
 
 	function closeform(){
 		$("#serviceCommunecte").removeClass("animated fadeIn").addClass("hide");
+		$("#serviceParticipe").removeClass("animated fadeIn").addClass("hide");
+		$("#serviceAdhere").removeClass("animated fadeIn").addClass("hide");
 		$("#serviceIndex").removeClass("hide").addClass("animated fadeIn");
 		//$("#headerContent").removeClass("hide").addClass("animated fadeIn");
 		
