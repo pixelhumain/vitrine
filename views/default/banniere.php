@@ -118,6 +118,7 @@ var map;
 var verticeL;
 var tabType1 =[];
 var tabType2 = [];
+var assetsPath = "<?php echo $this->module->assetsUrl; ?>";
 var dataPath = "<?php echo $this->module->assetsUrl; ?>/data/messagevitrine.json";
 
 jQuery(document).ready(function()
@@ -301,8 +302,8 @@ function createSvgData(data){
 		      .attr("x", 0)
 		      .attr("y", 0)
 		      .attr("width", 40)
-		      .attr("height", 40)
-		      .attr(attribute, function(d, idCompt){return getPhoto(idCompt+1);});
+		      .attr("height", 40);
+		      //.attr(attribute, function(d, idCompt){return getPhoto(idCompt+1);});
 
 		    idCompt = 0;
 		    photoPath = "";
@@ -345,7 +346,7 @@ function createSvgData(data){
 				content  : function(){
 					//console.log(this.id, t[this.id-1]);
 
-					content = "<span class='tip-title'><img src='"+getPhoto(this.id-1)+"'></img><strong>"+t[this.id-1].name+": </strong></span><span>"+t[this.id-1].comment.comment+"</span>"
+					content = "<span class='tip-title'><img src='"+getPhoto(this.id-1)+"' class='img-circle'></img><strong>   "+t[this.id-1].name+": </strong></span><span>"+t[this.id-1].comment.comment+"</span>"
 					return content;
 				}
 			});
@@ -476,25 +477,23 @@ function createSvgData(data){
 			function getPhoto(id) {
 			  var n = 1;
 			  var url;
-			  var path = "images/vitrine/photo/"
+			  var path = assetsPath+"/images/banniere/"
 			   $.each(dataFile, function(key,obj){
-			      ////console.log("n", n, "id", id);
+			      //console.log("n", n, "id", id);
 			       if(n == id){
-			        ////console.log("------------------------", obj);
-			          d = obj;
-			         ////console.log(d);
-			          if(obj.image){
-			           //console.log(obj.image.url)
-			            url = path+obj.image.url;
-			          }
-			          if(!url || url == path+""){
-			            url = "";
-			            //path+"img3.png"
-			          }
+			       		//console.log("------------------------", obj);
+			         //	d = obj;
+			         	//console.log(d);
+			          	if("undefined" != typeof(obj.image) && "undefined" != typeof(obj.image.url) && obj.image.url != ""){
+			           		console.log(obj.image.url)
+			            	url = path+obj.image.url;
+			          	}else{
+			            	url = path+"default.png"
+			          	}
 			        }
 			        n++
 			    });
-			  //console.log(url);
+			   console.log(url);
 			   return url;
 			}
 
