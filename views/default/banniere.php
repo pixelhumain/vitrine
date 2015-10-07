@@ -118,9 +118,8 @@ var map;
 var verticeL;
 var tabType1 =[];
 var tabType2 = [];
-var assetsPath = "<?php echo $this->module->assetsUrl; ?>";
+var assetsPath = "<?php echo $this->module->assetsUrl;?>";
 var dataPath = "<?php echo $this->module->assetsUrl; ?>/data/messagevitrine.json";
-
 jQuery(document).ready(function()
 {
 	resizeGraph();

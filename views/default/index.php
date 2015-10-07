@@ -38,7 +38,7 @@ $this->pageTitle=$this::moduleTitle;
 		<!-- START BLOG SECTION -->
 			<section id="team" class="section section-content-colored">
 			<?php 
-				//$this->renderPartial('equipe');
+				$this->renderPartial('equipe');
 			?>
 	 		</section>
 		<!-- END BLOG SECTION -->

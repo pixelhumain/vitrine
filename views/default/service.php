@@ -62,6 +62,9 @@
 		background-color:#e4334b;
 		border-color: #e4334b; 
 	}
+	.middleServ{
+		width: 100%;
+	}
 </style>
 
 <div id="serviceIndex">
