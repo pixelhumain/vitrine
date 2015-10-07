@@ -70,9 +70,9 @@ $this->pageTitle=$this::moduleTitle;
 								<p><br><br>+ 262 692 38 32 58<br><a href="#">contact@pixelhumain.com</a></p>
 								<!-- SOCIAL BUTTTONS -->
 							<ul class="social-list">
-									<li><a href="#" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
-									<li><a href="#" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
-									<li><a href="#" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
+									<li><a href="https://www.facebook.com/groups/pixelhumain/" class="btn btn-facebook"><span class="icon icon-facebook"></span></a></li>
+									<li><a href="https://twitter.com/pixelhumain" class="btn btn-twitter"><span class="icon icon-twitter"></span></a></li>
+									<li><a href="https://plus.google.com/communities/111483652487023091469" class="btn btn-google"><span class="icon icon-google-plus"></span> </a></li>
 								</ul>
 							</div>
 						</div>

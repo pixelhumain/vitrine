@@ -33,7 +33,7 @@
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome">Le projet <strong>Communecter</strong></h1>
 			            	<h3>
-			            		<strong>Communecter c'est simple: un email, un code postal et c'est parti !</strong>
+			            		<strong>Communecter c'est simple : un email, un code postal et c'est parti !</strong>
 			            		<br> Je suis communecté: j'ai accès à ma ville à tout mon réseau !<br>
 			            		<a data-href="#description" class="btn btn-succes center pinkBtn">En savoir plus</a>
 			            	</h3>

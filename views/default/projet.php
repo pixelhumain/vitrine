@@ -79,7 +79,7 @@
 					<div class="textProjectSlider">
 						<h3><strong>Une boite à idée citoyenne & évolutive</strong><br>
 		Un <strong>espace de décision</strong> ouvert, participatif et démocratique<br>
-		<strong>Une boîte à outils:</strong> covoiturage, petites annonces, agenda, évènements locaux, etc.<br>
+		<strong>Une boîte à outils :</strong> covoiturage, petites annonces, agenda, évènements locaux, etc.<br>
 		<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</h3>
 					</div>
 				
@@ -211,10 +211,6 @@
 			<li>
 				<div class="section-content section-no-top-padding section-image">
 					<div class="textProjectSlider">
-						<h3><strong>Une boite à idée citoyenne & évolutive</strong><br>
-						Un <strong>espace de décision</strong> ouvert, participatif et démocratique<br>
-						<strong>Une boîte à outils:</strong> covoiturage, petites annonces, agenda, évènements locaux, etc.<br>
-						<strong>Un annuaire intéractif libre,</strong> répertoire dynamique des compétences locales par et pour le citoyen</h3>
 					</div>
 					<div class="tagsProjectDiv">
 						<div class="keyWordsArea">
@@ -386,10 +382,12 @@ function bindEventProject(){
 	$(".btnSliderProject").off().on("click", function(){
 
 		$(".textTagsDiv").empty();
+		$(".btnSliderProject").css("background-color", "#0db4e9")
+		$(this).css("background-color", "white");
 		var btnId = $(this).data("id");
 		var parent = $(this).data("parent");
-		$(".btnSliderProject").removeClass("animated fadeIn").addClass("hide");
-		$(this).removeClass("hide").addClass("animated fadeIn");
+		//$(".btnSliderProject").removeClass("animated fadeIn").addClass("hide");
+		//$(this).removeClass("hide").addClass("animated fadeIn");
 		showTagText(btnId, parent, dataProject);
 	})
 }
@@ -407,8 +405,8 @@ function showText(id, dataPath){
 }
 
 function showTagText(id, parent, dataPath){
-	$(".menuTagsDiv").css("display", "block");
-	$(".buttonArea").css("text-align", "center");
+	//$(".menuTagsDiv").css("display", "block");
+	//$(".buttonArea").css("text-align", "center");
 	d3.json(dataPath, function(error, data){
 		//console.log(error);
 		$.each(data, function(k, v){
