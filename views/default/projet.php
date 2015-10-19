@@ -133,15 +133,15 @@
 						</div>
 						<div class="menuView hide">
 							<div class="row row-same-height">
-								<div class="col-md-6 menu">
-									<img class="imgIco img-responsive img-thumbnail menuIco" src="" />
+								<div class="col-md-6 col-sm-6 menu">
+									<img class="imgIco img-responsive menuIco" src="" />
 								</div>
 								<div class='col-md-6 pull-left backArrow'>
 									<a class='backMenu'><i class="fa fa-arrow-left fa-2x"></i><a>
 								</div>
 							</div>
 							<div class="row row-same-height">
-								<div class="col-md-6 menu">
+								<div class="col-md-6 col-sm-6 menu">
 									<ul>
 										<li>
 											<a class="titleMenu" data-desc="citizenDesc"><h2>Pour les citoyens</h2></a>
@@ -297,7 +297,7 @@ function openVideo(){
 	$("iframe").css("width", width);
 	$("iframe").css("height", height);
 }
-
+ 
 function openVideo2(){
 	var width = $(".imageSectionVideo").width();
 	var height = $(".imageSectionVideo").height();

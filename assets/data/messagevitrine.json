@@ -2,54 +2,54 @@
 
     {
         "id" : "54e44e6e04a4f9f003000029",
-        "name" : "Robert",
-        "firstname" : "Johnson",
+        "name" : "NARAYANIN",
+        "firstname" : "Ludovic",
         "comment" : {
-            "comment" : "Ceci est un message de test"
+            "comment" : "\"Un super projet citoyen. Une super équipe. Soyons tous Communectés avec le Pixel Humain.\""
         },
         "type": "comment",
         "image" : {
-            "url" : ""
+            "url" : "people1.png"
         }
     },
 
    
     {
         "id" : "54e4567704a4f9f00300002a",
-        "name" : "Robert",
-        "firstname" : "Johnson",
+        "name" : "Coste",
+        "firstname" : "Mathieu",
         "comment" : {
-            "comment" : "Ceci est un message de test eezzezzeezzz ---------------"
+            "comment" : "Ici et là tout en étant relié, avec communecter nous pourrons participer joyeusement et concrètement à améliorer notre qualité de Vie :)"
         },
         "type": "comment",
         "image" : {
-            "url" : ""
+            "url" : "people2.png"
         }
     },
 
 
     {
         "id" : "54e70a7c04a4f9c80a000029",
-        "name" : "user",
-        "firstname" : "1",
+        "name" : "Salantin",
+        "firstname" : "Jean",
         "comment" : {
-            "comment" : "azerty"
+            "comment" : "Enfin le voilà, le connunecteur numérique d’une intelligence collective glocale  qui par des débats locaux trouvera des solutions à des problèmes globaux."
         },
         "type": "comment", "image" : {
-            "url" : ""
+            "url" : "people3.png"
         }
     },
 
    
     {
         "id" : "54e70a9504a4f9800c00002a",
-        "name" : "user",
-        "firstname" : "2",
+        "name" : "Katelbach",
+        "firstname" : "Tibor",
         "comment" : {
-            "comment" : "qwerty"
+            "comment" : "L’innovation sociétal au service des biens communs, La Terre Native sur une Terre Nette."
         },
         "type": "comment", "image" : {
-            "url" : ""
+            "url" : "people4.png"
         }
     },
 
@@ -69,13 +69,13 @@
 
     {
         "id" : "54e70ac404a4f9800c00002c",
-        "name" : "user",
-        "firstname" : "lambda",
+        "name" : "Damiens",
+        "firstname" : "Clément  - le ch\"ti",
         "comment" : {
-            "comment" : "zzzzz"
+            "comment" : "\"La connaissance de ce qui nous entoure jetée comme des graines par les citoyens se lit comme un chant d’espoir et se dessine comme une rencontre pour une vie meilleure\""
         },
         "type": "comment", "image" : {
-            "url" : ""
+            "url" : "people5.png"
         }
     },
 

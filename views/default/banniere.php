@@ -14,6 +14,15 @@
 	#sectionsvg .flexslider:hover .flex-prev { opacity: 0.7; left: 240px; }
 	#sectionsvg .flexslider:hover .flex-next { opacity: 0.7; right: 240px; }
 	#sectionsvg .flex-control-paging li a.flex-active{background-color:#dfe5e7 }
+	#sectionsvg img{
+		max-width: 100%;
+	}
+	#sectionsvg .popover{
+		opacity: 0.8;
+		filter : alpha(opacity=0.8);
+		border-radius: 8px;			
+    	pointer-events: none;	
+	}
 </style>
 
 <script src="<?php echo Yii::app()->theme->baseUrl. '/js/jquery.js' ?>"></script>
@@ -345,7 +354,17 @@ function createSvgData(data){
 				content  : function(){
 					//console.log(this.id, t[this.id-1]);
 
-					content = "<span class='tip-title'><img src='"+getPhoto(this.id-1)+"' class='img-circle'></img><strong>   "+t[this.id-1].name+": </strong></span><span>"+t[this.id-1].comment.comment+"</span>"
+					content = "<div class='col-md-4'>"+
+								//"<span class='tip-title'>"+
+									"<img src='"+getPhoto(this.id)+"' class='img-circle'></img>"+
+								//"</span>"+
+							   "</div>"+
+							   "<div class='col-md-8'>"+
+							   	"<span class='tip-title'>"+
+							   		"<strong>   "+t[this.id-1].name+" "+t[this.id-1].firstname+": </strong>"+
+							   	"</span>"+
+							   	"<span><br><em>"+t[this.id-1].comment.comment+"</em></span>"+
+							   "</div>";
 					return content;
 				}
 			});
