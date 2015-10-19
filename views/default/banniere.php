@@ -354,12 +354,12 @@ function createSvgData(data){
 				content  : function(){
 					//console.log(this.id, t[this.id-1]);
 
-					content = "<div class='col-md-4'>"+
+					content = "<div class='col-sm-4'>"+
 								//"<span class='tip-title'>"+
 									"<img src='"+getPhoto(this.id)+"' class='img-circle'></img>"+
 								//"</span>"+
 							   "</div>"+
-							   "<div class='col-md-8'>"+
+							   "<div class='col-sm-8'>"+
 							   	"<span class='tip-title'>"+
 							   		"<strong>   "+t[this.id-1].name+" "+t[this.id-1].firstname+": </strong>"+
 							   	"</span>"+
