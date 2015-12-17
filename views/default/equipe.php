@@ -395,7 +395,7 @@ function initAll(){
 		if(markersLayer != "")
 			clearMap(mapClusters);
 			
-		markersLayer = new L.MarkerClusterGroup({"maxClusterRadius" : 40});
+		markersLayer = new L.markerClusterGroup({"maxClusterRadius" : 40});
 		mapClusters.addLayer(markersLayer);
 
 		geoJsonCollection = { type: 'FeatureCollection', features: new Array() };
