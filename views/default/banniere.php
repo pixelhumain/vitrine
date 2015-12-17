@@ -56,7 +56,8 @@
 					</div>
 					<div class="textZone">
 						<h1 class="slideTitle_pix title_fontHome">Découvrez <strong>Pixel Humain</strong></h1>
-			            	<h3><strong>Pixel Humain est un collectif qui regroupe des acteurs réunionnais et métropolitains partageant les valeurs de partage, d'open innovation pour le bien commun.</strong><br>
+			            	<h3><strong>Pixel Humain est un collectif qui regroupe des acteurs réunionnais <br>
+			            	et métropolitains partageant les valeurs de partage, d'open innovation pour le bien commun.</strong><br>
 									Vous êtes un citoyen, une association, une collectivité, une entreprise ?<br>
 										Vous rêvez d'un territoire connecté, interactif et dynamique ?<br>
 												Le réseau Communecter est fait pour vous !<br>
@@ -503,7 +504,6 @@ function createSvgData(data){
 			         //	d = obj;
 			         	//console.log(d);
 			          	if("undefined" != typeof(obj.image) && "undefined" != typeof(obj.image.url) && obj.image.url != ""){
-			           		console.log(obj.image.url)
 			            	url = path+obj.image.url;
 			          	}else{
 			            	url = path+"default.png"
@@ -511,7 +511,6 @@ function createSvgData(data){
 			        }
 			        n++
 			    });
-			   console.log(url);
 			   return url;
 			}
 
