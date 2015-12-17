@@ -417,7 +417,7 @@ function initAll(){
 		$('#ico_reload').css({"display":"inline-block"});
 		
 		$.ajax({
-			url:'/ph/<?php echo $this::$moduleKey?>/api/' + origine,
+			url: baseUrl + '<?php echo "/".$this::$moduleKey?>/api/' + origine,
 			data:params,
 			type:"POST",
 			dataType:"json",
