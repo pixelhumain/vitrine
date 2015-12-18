@@ -256,13 +256,13 @@ function startLoadingAnimation(){
 		clearTimeout(timerLoader);
 		timerLoader = setTimeout('startLoadingAnimation()', 5000); 
 	}
-	
+	initAll();
 	nbScriptLoaded = 0;
 	//$.getScript("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js", 	function( data, textStatus, jqxhr ) { });
-	$.getScript(assetPath+"/js/sig/leaflet.js", 						function( ) {  checkLoadLib(); });
-	$.getScript(assetPath+"/js/sig/leaflet.draw-src.js", 				function( ) {  checkLoadLib(); });	
-	$.getScript(assetPath+"/js/sig/leaflet.draw.js", 					function( ) {  checkLoadLib(); });	
-	$.getScript(assetPath+"/js/sig/leaflet.markercluster-src.js", 		function( ) {  checkLoadLib(); });
+	// $.getScript(assetPath+"/js/sig/leaflet.js", 						function( ) {  checkLoadLib(); });
+	// $.getScript(assetPath+"/js/sig/leaflet.draw-src.js", 				function( ) {  checkLoadLib(); });	
+	// $.getScript(assetPath+"/js/sig/leaflet.draw.js", 					function( ) {  checkLoadLib(); });	
+	// $.getScript(assetPath+"/js/sig/leaflet.markercluster-src.js", 		function( ) {  checkLoadLib(); });
 	
 }
 function checkLoadLib(){ 	
@@ -383,7 +383,6 @@ function initAll(){
 	
 		return map;
 	}								
-															
 	
 	//##
 	//affiche les citoyens qui possèdent des attributs geo.latitude, geo.longitude, depuis la BD
@@ -395,7 +394,7 @@ function initAll(){
 		if(markersLayer != "")
 			clearMap(mapClusters);
 			
-		markersLayer = new L.markerClusterGroup({"maxClusterRadius" : 40});
+		markersLayer = new L.MarkerClusterGroup({"maxClusterRadius" : 40});
 		mapClusters.addLayer(markersLayer);
 
 		geoJsonCollection = { type: 'FeatureCollection', features: new Array() };
