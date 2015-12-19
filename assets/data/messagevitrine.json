@@ -9,7 +9,7 @@
         },
         "type": "comment",
         "image" : {
-            "url" : "people1.png"
+            "url" : "people1.PNG"
         }
     },
 
@@ -23,7 +23,7 @@
         },
         "type": "comment",
         "image" : {
-            "url" : "people2.png"
+            "url" : "people2.PNG"
         }
     },
 
@@ -36,7 +36,7 @@
             "comment" : "Enfin le voilà, le connunecteur numérique d’une intelligence collective glocale  qui par des débats locaux trouvera des solutions à des problèmes globaux."
         },
         "type": "comment", "image" : {
-            "url" : "people3.png"
+            "url" : "people3.PNG"
         }
     },
 
@@ -49,23 +49,9 @@
             "comment" : "L’innovation sociétal au service des biens communs, La Terre Native sur une Terre Nette."
         },
         "type": "comment", "image" : {
-            "url" : "people4.png"
+            "url" : "people4.PNG"
         }
     },
-
-   
-    {
-        "id" : "54e70ab704a4f9800c00002b",
-        "name" : "user",
-        "firstname" : "3",
-        "comment" : {
-            "comment" : "poiuy"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
 
     {
         "id" : "54e70ac404a4f9800c00002c",
@@ -75,418 +61,21 @@
             "comment" : "\"La connaissance de ce qui nous entoure jetée comme des graines par les citoyens se lit comme un chant d’espoir et se dessine comme une rencontre pour une vie meilleure\""
         },
         "type": "comment", "image" : {
-            "url" : "people5.png"
+            "url" : "people5.PNG"
         }
     },
 
-    
     {
-        "id" : "54e70ac804a4f9800c00002d",
-        "name" : "user",
-        "firstname" : "lambda",
+        "id" : "54e70ac404a4f9803c00002c",
+        "name" : "Barbot",
+        "firstname" : "Sylvain",
         "comment" : {
-            "comment" : "zzzzz"
-        },
-        "type": "comment",
-    	"image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70acc04a4f9800c00002e",
-        "name" : "user",
-        "firstname" : "lambda",
-        "comment" : {
-            "comment" : "zzzzz"
+            "comment" : "\"Pixel Humain, pour connecter le virtuel et le réél. Un catalyseur d'initiatives locales ! \""
         },
         "type": "comment", "image" : {
-            "url" : ""
+            "url" : "people6.PNG"
         }
     },
-
-    
-    {
-        "id" : "54e70acf04a4f9800c00002f",
-        "name" : "user",
-        "firstname" : "lambda",
-        "comment" : {
-            "comment" : "zzzzz"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70adc04a4f9800c000030",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "aaaaa"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70ae004a4f9800c000031",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "aaaaa"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70ae404a4f9800c000032",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "aaaaa"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70af104a4f9800c000033",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "eeeee"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70af904a4f9800c000034",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "ttttt"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b0404a4f9800c000035",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "delta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b1004a4f9800c000036",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "delta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b1404a4f9800c000037",
-        "name" : "user",
-        "firstname" : "gamma",
-        "comment" : {
-            "comment" : "delta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    {
-        "id" : "54e70b1f04a4f9800c000038",
-        "name" : "user",
-        "firstname" : "delta",
-        "comment" : {
-            "comment" : "zeta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-
-    {
-        "id" : "54e70b2304a4f9800c000039",
-        "name" : "user",
-        "firstname" : "delta",
-        "comment" : {
-            "comment" : "zeta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70b2a04a4f9800c00003a",
-        "name" : "user",
-        "firstname" : "delta",
-        "comment" : {
-            "comment" : "zeta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70b2f04a4f9800c00003b",
-        "name" : "user",
-        "firstname" : "delta",
-        "comment" : {
-            "comment" : "zeta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b3504a4f9800c00003c",
-        "name" : "user",
-        "firstname" : "delta",
-        "comment" : {
-            "comment" : "zeta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b4204a4f9800c00003d",
-        "name" : "user",
-        "firstname" : "omega",
-        "comment" : {
-            "comment" : "omega théta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b4704a4f9800c00003e",
-        "name" : "user",
-        "firstname" : "omega",
-        "comment" : {
-            "comment" : "omega théta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70b4b04a4f9800c00003f",
-        "name" : "user",
-        "firstname" : "omega",
-        "comment" : {
-            "comment" : "omega théta"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70b8004a4f9800c000040",
-        "name" : "user",
-        "firstname" : "alpha",
-        "comment" : {
-            "comment" : "alpha"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70b8404a4f9800c000041",
-        "name" : "user",
-        "firstname" : "alpha",
-        "comment" : {
-            "comment" : "alpha"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b8804a4f9800c000042",
-        "name" : "user",
-        "firstname" : "alpha",
-        "comment" : {
-            "comment" : "alpha"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70b9304a4f9800c000043",
-        "name" : "user",
-        "firstname" : "alpha",
-        "comment" : {
-            "comment" : "alpha"
-        },
-        "type": "comment", 
-        "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e44e6e04a4f9f003000044",
-        "name" : "Robert",
-        "firstname" : "Johnson",
-        "comment" : {
-            "comment" : "Ceci est un message de test"
-        },
-       "type": "comment",
-        "image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e4567704a4f9f003000045",
-        "name" : "Robert",
-        "firstname" : "Johnson",
-        "comment" : {
-            "comment" : "Ceci est un message de test\neezzezzeezzz"
-        },
-        "type": "comment",
-    	"image" : {
-            "url" : ""
-        }
-    },
-
-   
-    {
-        "id" : "54e70a7c04a4f9c80a000046",
-        "name" : "user",
-        "firstname" : "1",
-        "comment" : {
-            "comment" : "azerty"
-        },
-        "type": "comment",
-        "image" : {
-            "url" : ""
-        }
-    },
-
-  
-    {
-        "id" : "54e70a9504a4f9800c000047",
-        "name" : "user",
-        "firstname" : "2",
-        "comment" : {
-            "comment" : "qwerty"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-
-    {
-        "id" : "54e70ab704a4f9800c000048",
-        "name" : "user",
-        "firstname" : "3",
-        "comment" : {
-            "comment" : "poiuy"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-    
-    {
-        "id" : "54e70ac404a4f9800c000049",
-        "name" : "user",
-        "firstname" : "lambda",
-        "comment" : {
-            "comment" : "zzzzz"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
-
-    {
-        "id" : "54e70ac804a4f9800c000050",
-        "name" : "user",
-        "firstname" : "lambda",
-        "comment" : {
-            "comment" : "zzzzz"
-        },
-        "type": "comment",
-    	"image" : {
-            "url" : ""
-        }
-    },
-
-
-    {
-        "id" : "54e70acc04a4f9800c000051",
-        "name" : "user",
-        "firstname" : "lambda",
-        "comment" : {
-            "comment" : "zzzzz"
-        },
-        "type": "comment", "image" : {
-            "url" : ""
-        }
-    },
-
     
     {
         "id" : "54e70acf04a4f9800c000052",

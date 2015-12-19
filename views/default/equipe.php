@@ -67,7 +67,7 @@
  
 .btn-group-map{
 	float:right;
- 	top:-1100px;
+ 	top:-900px;
  	margin-right:2%;
  	margin-bottom:10px;
 }
@@ -126,7 +126,7 @@ i.fa { padding:8px; }
 	position:relative;
 	width:25%;
  	max-height:500px;
- 	top:-1121px;
+ 	top:-921px;
  	float:left;
  	text-align:center;
  	background-color:rgba(82, 103, 119, 0.8);
@@ -151,7 +151,7 @@ i.fa { padding:8px; }
 	float:left;
 	width:25%;
 	margin-left:73%;
- 	top:-1100px;
+ 	top:-900px;
  	position:relative;
  	display:none;
 }
@@ -187,46 +187,24 @@ i.fa { padding:8px; }
 			            </div>
 			        	
 			        	<div class="panel_map">
-			        	
-			        			
-			        		<a href="javascript:playMapAnimation('projectLeader')">
-			        			<p class="item_panel_map" id="item_panel_map_projectLeader">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PORTEUR_PROJET.png"><span class="filter_name"> Porteurs du projet</span>
-			        			</p>
-			        		</a>
 			        		<a href="javascript:playMapAnimation('pixelActif')">
 			        			<p class="item_panel_map" id="item_panel_map_pixelActif">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PIXEL_ACTIF.png"><span class="filter_name"> Pixels actifs</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:playMapAnimation('commune')">
-			        			<p class="item_panel_map" id="item_panel_map_commune">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_COMMUNES.png"><span class="filter_name"> Communes inscrites</span>
-			        			</p>
-			        		</a>
 			        		<a href="javascript:playMapAnimation('association')">
 			        			<p class="item_panel_map" id="item_panel_map_association">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ASSOCIATIONS.png"><span class="filter_name"> Associations</span>
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ASSOCIATIONS.png"><span class="filter_name"> Organisations partenaires</span>
 			        			</p>
 			        		</a>
-			        		<a href="javascript:playMapAnimation('entreprise')">
-			        			<p class="item_panel_map" id="item_panel_map_entreprise">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ENTREPRISES.png"><span class="filter_name"> Entreprises inscrites</span>
+			        		<a href="javascript:playMapAnimation('commune')">
+			        			<p class="item_panel_map" id="item_panel_map_commune">
+			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_COMMUNES.png"><span class="filter_name"> Communes contactées</span>
 			        			</p>
 			        		</a>
 			        		<a href="javascript:playMapAnimation('citoyen')">
 			        			<p class="item_panel_map" id="item_panel_map_citoyen">
 			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_CITOYENS.png"><span class="filter_name"> Citoyens communectés</span>
-			        			</p>
-			        		</a>
-			        		<a href="javascript:playMapAnimation('partnerPH')">
-			        			<p class="item_panel_map" id="item_panel_map_parnerPH">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_PARTENAIRES.png"><span class="filter_name"> Partenaires & soutiens</span>
-			        			</p>
-			        		</a>
-			        		<a href="javascript:playMapAnimation('artiste')">
-			        			<p class="item_panel_map" id="item_panel_map_artiste">
-			        			<img src="<?php echo $this->module->assetsUrl; ?>/images/markers/02_ICON_ARTISTES.png"><span class="filter_name"> Artistes actifs</span>
 			        			</p>
 			        		</a>
 			        		<a href="javascript:playMapAnimation('all')">
@@ -278,13 +256,13 @@ function startLoadingAnimation(){
 		clearTimeout(timerLoader);
 		timerLoader = setTimeout('startLoadingAnimation()', 5000); 
 	}
-	
+	initAll();
 	nbScriptLoaded = 0;
 	//$.getScript("http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js", 	function( data, textStatus, jqxhr ) { });
-	$.getScript(assetPath+"/js/sig/leaflet.js", 						function( ) {  checkLoadLib(); });
-	$.getScript(assetPath+"/js/sig/leaflet.draw-src.js", 				function( ) {  checkLoadLib(); });	
-	$.getScript(assetPath+"/js/sig/leaflet.draw.js", 					function( ) {  checkLoadLib(); });	
-	$.getScript(assetPath+"/js/sig/leaflet.markercluster-src.js", 		function( ) {  checkLoadLib(); });
+	// $.getScript(assetPath+"/js/sig/leaflet.js", 						function( ) {  checkLoadLib(); });
+	// $.getScript(assetPath+"/js/sig/leaflet.draw-src.js", 				function( ) {  checkLoadLib(); });	
+	// $.getScript(assetPath+"/js/sig/leaflet.draw.js", 					function( ) {  checkLoadLib(); });	
+	// $.getScript(assetPath+"/js/sig/leaflet.markercluster-src.js", 		function( ) {  checkLoadLib(); });
 	
 }
 function checkLoadLib(){ 	
@@ -357,7 +335,8 @@ function initAll(){
 	var listId = new Array(	"getPixelActif" );//, "getCommunected" );
 	
 	//liste de tous les filtres du panel
-	var allTagFilter = new Array("projectLeader", "pixelActif", "commune", "association", "entreprise", "citoyen", "parnerPH", "artiste");		
+	//var allTagFilter = new Array("projectLeader", "pixelActif", "commune", "association", "entreprise", "citoyen", "parnerPH", "artiste");		
+	var allTagFilter = new Array("pixelActif", "commune", "association", "citoyen");		
 	
 	//gère la liste des tags à ne pas clusteriser
 	var notClusteredTag = new Array("commune", "association", "projectLeader");
@@ -395,7 +374,7 @@ function initAll(){
 									"zoom" : 4,
 									"worldCopyJump" : true });
 
-		L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+		L.tileLayer('//stamen-tiles-{s}.a.ssl.fastly.net/toner/{z}/{x}/{y}.png', {
 			attribution: 'Map tiles by <a href="http://stamen.com">Stamen Design</a>, <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a> &mdash; Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>',
 			subdomains: 'abcd',
 			minZoom: 0,
@@ -404,7 +383,6 @@ function initAll(){
 	
 		return map;
 	}								
-															
 	
 	//##
 	//affiche les citoyens qui possèdent des attributs geo.latitude, geo.longitude, depuis la BD
@@ -438,7 +416,7 @@ function initAll(){
 		$('#ico_reload').css({"display":"inline-block"});
 		//alert('/ph/<?php echo $this::$moduleKey?>/api/' + origine);
 		$.ajax({
-			url:'/ph/<?php echo $this::$moduleKey?>/api/' + origine,
+			url: baseUrl + '/vitrine/default/' + origine,
 			data:params,
 			type:"POST",
 			dataType:"json",
@@ -724,85 +702,55 @@ function initAll(){
 	//##
 	//liste des étapes de l'animation
 	var animationPlan = {
-		"projectLeader" : 	{ 	"places" : [ { "place" : animationPlaces.reunion,  
-							  					"msg" : "Message pour les porteurs de projets de la Réunion" }	
-											],
-								"title" : "Les porteurs du projet",
-								"icon" : { "color" : "#E6D414",
-										   "name" : "user" }
-							},
+		// "projectLeader" : 	{ 	"places" : [ { "place" : animationPlaces.reunion,  
+		// 					  					"msg" : "L'origine du projet est à la Réunion" }	
+		// 									],
+		// 						"title" : "Les porteurs du projet",
+		// 						"icon" : { "color" : "#E6D414",
+		// 								   "name" : "user" }
+		// 					},
 		"pixelActif" : 		{ 	"places" : [ { "place" : animationPlaces.reunion, 
-											   "msg" : "Message pour les pixels actifs de la réunion..." },
+											   "msg" : "Des pixels actifs, citoyens conscients qui participent et qui colportent le message du Pixel Humain, à la Réunion" },
 											 { "place" : animationPlaces.france, 
-											   "msg" : "Message pour les pixels actifs de France" } ,
+											   "msg" : "Mais aussi en métropole" } ,
 											 { "place" : animationPlaces.caledonie, 
-											   "msg" : "Message pour les pixels actifs de Nouvelle-Calédonie" } 
+											   "msg" : "Et jusqu'en Nouvelle-Calédonie" } 
 											], 
 								"title" : "Les Pixels actifs",
 								"icon" : { "color" : "#E6D414",
 										   "name" : "circle" }
 							},	
 		"commune" : 		{ 	"places" : [  { "place" : animationPlaces.france,
-												"msg" : "Message pour les communes de France" },
+												"msg" : "Les communes, tous les jours plus nombreuses, adhèrent aux projets." },
 											  { "place" :  animationPlaces.reunion ,
-											    "msg" : "Message pour les communes de la Réunion" }
+											    "msg" : "Votre commune n'y ait pas : contacter votre mairie et parlez leur du Pixel Humain - Communecter" }
 											],
 								"title" : "Les communes",
 								"icon" : { "color" : "#BD3232",
 										   "name" : "circle" }
 							},
 		"association" : 	{ 	"places" : [ { "place" : animationPlaces.france, 
-												"msg" : "Message pour les associations de France" },
+												"msg" : "Un réseau associatif et d'entreprise partout en France." },
 											 {  "place" : animationPlaces.reunion, 
-											    "msg" : "Message pour les associations de la Réunion" },
-											{  "place" : animationPlaces.new_zeland, 
-											   "msg" : "Message pour les associations de Nouvelle-Zélande" }
+											    "msg" : "Aussi à la Réunion" },
 											],
-								"title" : "Les associations",
+								"title" : "Les organisations",
 								"icon" : { "color" : "#92BE1F",
 										   "name" : "play fa-rotate-270" }
 							},	
-		"entreprise" : 	{ 		"places" : [ { 	"place" : animationPlaces.france, 
-												"msg" : "Message pour les entrerprises de France" },
-										 	{ 	"place" : animationPlaces.australia, 
-												"msg" : "Message pour les entrerprises d'Australie" }
-										],
-								"title" : "Les entreprises",
-								"icon" : { "color" : "#04B8EC",
-										   "name" : "stop" }
-							},	
-		"citoyen" : 	{ 	"places" : [ { 	"place" : animationPlaces.south_america, 
-											"msg" : "Message pour les citoyens communectés en Amérique du Sud" },
-										 { 	"place" : animationPlaces.north_america, 
-											"msg" : "Message pour les citoyens communectés en Amérique du Nord" }
+		"citoyen" : 	{ 	"places" : [ { "place" : animationPlaces.france, 
+												"msg" : "Des citoyens se communectent partout en France !" },
+										 {  "place" : animationPlaces.reunion, 
+											    "msg" : "Aussi à la Réunion" },
+										{ "place" : animationPlaces.caledonie, 
+											   "msg" : "Et jusqu'en Nouvelle-Calédonie" },
 										],
 							"title" : "Les citoyens communectés",
 							"icon" : {  "color" : "#E6D414",
 										"name" : "circle" }
 							},	
-		"partnerPH" : 	{ 	"places" : [ { 	"place" : animationPlaces.france, 
-											"msg" : "Message pour les partenaires de France" },
-										 { 	"place" : animationPlaces.world, 
-											"msg" : "Message pour les partenaires du monde entier" }
-										],
-							"title" : "Nos partenaires et soutiens",
-							"icon" : {  "color" : "#E6D414",
-										"name" : "lightbulb-o" }
-							},	
-		"artiste" : 	{ 	"places" : [ { 	"place" : animationPlaces.france, 
-											"msg" : "Message pour les artistes de France" },
-										 { 	"place" : animationPlaces.world, 
-											"msg" : "Message pour les artistes du monde entier" }
-										],
-								"title" : "Les artistes",
-								"icon" : { "color" : "#E6D414",
-										   "name" : "rocket" }
-							},	
 		"all" : 	{ 	"places" : [ { 	"place" : animationPlaces.world, 
-										"msg" : "Message final pour le monde entier" },
-									 {	"place" : animationPlaces.world, 
-										"msg" : "Message final pour le monde entier" },
-										
+										"msg" : "Et bientôt nous serons les maitres du monde ! héhéhé hahaha !" },
 									],
 									"title" : "Tous",
 									"icon" : { "color" : "white",
