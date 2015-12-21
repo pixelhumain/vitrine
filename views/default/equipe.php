@@ -390,7 +390,7 @@ function initAll(){
 	var geoJsonCollection = "";
 	var currentFilter = "none";
 	function showMapElements(mapClusters, origine, listId){ 
-			
+		//alert(origine);
 		if(markersLayer != "")
 			clearMap(mapClusters);
 			
@@ -414,7 +414,7 @@ function initAll(){
 		
 		$('#ico_reload').addClass("fa-spin");
 		$('#ico_reload').css({"display":"inline-block"});
-		
+		//alert('/ph/<?php echo $this::$moduleKey?>/api/' + origine);
 		$.ajax({
 			url: baseUrl + '/vitrine/default/' + origine,
 			data:params,
