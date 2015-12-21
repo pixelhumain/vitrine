@@ -76,6 +76,18 @@
             "url" : "people6.PNG"
         }
     },
+
+    {
+        "id" : "54e70ac404a4f9803c05002c",
+        "name" : "Sarazin",
+        "firstname" : "Simon",
+        "comment" : {
+            "comment" : "\"Communecter est en train de mettre à disposition un espace où décrire et travailler autour de son initiative, ouvert à tous les accompagnateurs de projet, contributeurs, financeurs, usagers. Un espace où l'on peut voir ou trouver ceux qui font aussi la même. De quoi largement accélérer la production de communs ! \""
+        },
+        "type": "comment", "image" : {
+            "url" : "people7.PNG"
+        }
+    },
     
     {
         "id" : "54e70acf04a4f9800c000052",

@@ -68,6 +68,7 @@ class DefaultController extends Controller {
         	Yii::app()->end();
     	}
 
+    	$fields = array("id" => 1, "name" => 1, "email" => 1, "address" => 1, "geo" => 1);
 		foreach ($types as $type) {
 			if ($type == "pixelActif" || $type == "projectLeader") {
 				$collection = Person::COLLECTION;
@@ -86,7 +87,7 @@ class DefaultController extends Controller {
 				Rest::json( array("result" => "Unknown type in getPixelActifAction : ".$type) );
         		Yii::app()->end();
 			}
-			$currentSearch = PHDB::find($collection, $where);
+			$currentSearch = PHDB::find($collection, $where, $fields);
 			$users = array_merge($users, $currentSearch);
 		}
 		
